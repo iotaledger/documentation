@@ -1,10 +1,10 @@
 # IOTA JS Library
 
 This is the **official** JavaScript client library, which allows you to do the following:
-* Create transactions
-* Sign transactions
-* Generate addresses
-* Interact with an IRI node
+- Create transactions
+- Sign transactions
+- Generate addresses
+- Interact with an IRI node
 
 [IOTA JS GitHub repository](https://github.com/iotaledger/iota.js).
 
@@ -25,13 +25,13 @@ Please report any issues in our [issue tracker](https://github.com/iotaledger/io
 ## Prerequisites
 
 To use the library, your computer must have one of the following [supported](https://github.com/iotaledger/iota.js/blob/next/.travis.yml#L5) versions of [Node.js](https://nodejs.org):
-* Node.js 10 or higher. Recommended version is [latest LTS](https://nodejs.org/en/download/).
-* Node.js 8
+- Node.js 10 or higher. Recommended version is [latest LTS](https://nodejs.org/en/download/).
+- Node.js 8
 
 To install [library packages](https://www.npmjs.com/org/iota), your computer must have one of the following package managers:
 
-* [npm](https://www.npmjs.com/) (Included in Node.js [downloads](https://nodejs.org/en/download/))
-* [Yarn](https://yarnpkg.com/)
+- [npm](https://www.npmjs.com/) (Included in Node.js [downloads](https://nodejs.org/en/download/))
+- [Yarn](https://yarnpkg.com/)
 
 A `package.json` file is required. It can be generated with [`npm init`](https://docs.npmjs.com/cli/init) or [`yarn init`](https://yarnpkg.com/lang/en/docs/cli/init/)
 
@@ -39,11 +39,11 @@ A `package.json` file is required. It can be generated with [`npm init`](https:/
 
 To install the IOTA JavaScript client library and its dependencies, you can use one of the following options:
 
-* Install the library with npm
+- Install the library with npm
     ```bash
     npm install @iota/core
     ```
-* Install the library with Yarn
+- Install the library with Yarn
     ```bash
     yarn add @iota/core
     ```
@@ -74,67 +74,67 @@ iota.getNodeInfo()
 For details on all available API methods, see the [reference page](api_reference.md).
 
 
-* [.composeApi([settings])](api_reference.md#module_core.composeApi)
+- [.composeApi([settings])](api_reference.md#module_core.composeApi)
 
-* [.addNeighbors(uris, [callback])](api_reference.md#module_core.addNeighbors)
+- [.addNeighbors(uris, [callback])](api_reference.md#module_core.addNeighbors)
 
-* [.attachToTangle(trunkTransaction, branchTransaction, minWeightMagnitude, trytes, [callback])](api_reference.md#module_core.attachToTangle)
+- [.attachToTangle(trunkTransaction, branchTransaction, minWeightMagnitude, trytes, [callback])](api_reference.md#module_core.attachToTangle)
 
-* [.broadcastBundle(tailTransactionHash, [callback])](api_reference.md#module_core.broadcastBundle)
+- [.broadcastBundle(tailTransactionHash, [callback])](api_reference.md#module_core.broadcastBundle)
 
-* [.broadcastTransactions(trytes, [callback])](api_reference.md#module_core.broadcastTransactions)
+- [.broadcastTransactions(trytes, [callback])](api_reference.md#module_core.broadcastTransactions)
 
-* [.checkConsistency(transactions, [options], [callback])](api_reference.md#module_core.checkConsistency)
+- [.checkConsistency(transactions, [options], [callback])](api_reference.md#module_core.checkConsistency)
 
-* [.findTransactionObjects(query, [callback])](api_reference.md#module_core.findTransactionObjects)
+- [.findTransactionObjects(query, [callback])](api_reference.md#module_core.findTransactionObjects)
 
-* [.findTransactions(query, [callback])](api_reference.md#module_core.findTransactions)
+- [.findTransactions(query, [callback])](api_reference.md#module_core.findTransactions)
 
-* [.getAccountData(seed, options, [callback])](api_reference.md#module_core.getAccountData)
+- [.getAccountData(seed, options, [callback])](api_reference.md#module_core.getAccountData)
 
-* [.getBalances(addresses, threshold, [callback])](api_reference.md#module_core.getBalances)
+- [.getBalances(addresses, threshold, [callback])](api_reference.md#module_core.getBalances)
 
-* [.getBundle(tailTransactionHash, [callback])](api_reference.md#module_core.getBundle)
+- [.getBundle(tailTransactionHash, [callback])](api_reference.md#module_core.getBundle)
 
-* [.getInclusionStates(transactions, tips, [callback])](api_reference.md#module_core.getInclusionStates)
+- [.getInclusionStates(transactions, tips, [callback])](api_reference.md#module_core.getInclusionStates)
 
-* [.getInputs(seed, [options], [callback])](api_reference.md#module_core.getInputs)
+- [.getInputs(seed, [options], [callback])](api_reference.md#module_core.getInputs)
 
-* [.getLatestInclusion(transactions, tips, [callback])](api_reference.md#module_core.getLatestInclusion)
+- [.getLatestInclusion(transactions, tips, [callback])](api_reference.md#module_core.getLatestInclusion)
 
-* [.getNeighbors([callback])](api_reference.md#module_core.getNeighbors)
+- [.getNeighbors([callback])](api_reference.md#module_core.getNeighbors)
 
-* [.getNewAddress(seed, [options], [callback])](api_reference.md#module_core.getNewAddress)
+- [.getNewAddress(seed, [options], [callback])](api_reference.md#module_core.getNewAddress)
 
-* [.getNodeInfo([callback])](api_reference.md#module_core.getNodeInfo)
+- [.getNodeInfo([callback])](api_reference.md#module_core.getNodeInfo)
 
-* [getTips([callback])](api_reference.md#module_core.getTips)
+- [getTips([callback])](api_reference.md#module_core.getTips)
 
-* [getTransactionObjects(hashes, [callback])](api_reference.md#module_core.getTransactionObjects)
+- [getTransactionObjects(hashes, [callback])](api_reference.md#module_core.getTransactionObjects)
 
-* [.getTransactionsToApprove(depth, [reference], [callback])](api_reference.md#module_core.getTransactionsToApprove)
+- [.getTransactionsToApprove(depth, [reference], [callback])](api_reference.md#module_core.getTransactionsToApprove)
 
-* [.getTrytes(hashes, [callback])](api_reference.md#module_core.getTrytes)
+- [.getTrytes(hashes, [callback])](api_reference.md#module_core.getTrytes)
 
-* [.isPromotable(tail, [callback])](api_reference.md#module_core.isPromotable)
+- [.isPromotable(tail, [callback])](api_reference.md#module_core.isPromotable)
 
-* [.prepareTransfers(seed, transfers, [options], [callback])](api_reference.md#module_core.prepareTransfers)
+- [.prepareTransfers(seed, transfers, [options], [callback])](api_reference.md#module_core.prepareTransfers)
 
-* [.promoteTransaction(tail, depth, minWeightMagnitude, transfer, [options], [callback])](api_reference.md#module_core.promoteTransaction)
+- [.promoteTransaction(tail, depth, minWeightMagnitude, transfer, [options], [callback])](api_reference.md#module_core.promoteTransaction)
 
-* [.removeNeighbors(uris, [callback])](api_reference.md#module_core.removeNeighbors)
+- [.removeNeighbors(uris, [callback])](api_reference.md#module_core.removeNeighbors)
 
-* [.replayBundle(tail, depth, minWeightMagnitude, [callback])](api_reference.md#module_core.replayBundle)
+- [.replayBundle(tail, depth, minWeightMagnitude, [callback])](api_reference.md#module_core.replayBundle)
 
-* [.sendTrytes(trytes, depth, minWeightMagnitude, [reference], [callback])](api_reference.md#module_core.sendTrytes)
+- [.sendTrytes(trytes, depth, minWeightMagnitude, [reference], [callback])](api_reference.md#module_core.sendTrytes)
 
-* [.storeAndBroadcast(trytes, [callback])](api_reference.md#module_core.storeAndBroadcast)
+- [.storeAndBroadcast(trytes, [callback])](api_reference.md#module_core.storeAndBroadcast)
 
-* [.storeTransactions(trytes, [callback])](api_reference.md#module_core.storeTransactions)
+- [.storeTransactions(trytes, [callback])](api_reference.md#module_core.storeTransactions)
 
-* [.traverseBundle(trunkTransaction, [bundle], [callback])](api_reference.md#module_core.traverseBundle)
+- [.traverseBundle(trunkTransaction, [bundle], [callback])](api_reference.md#module_core.traverseBundle)
 
-* [.generateAddress(seed, index, [security], [checksum])](api_reference.md#module_core.generateAddress)
+- [.generateAddress(seed, index, [security], [checksum])](api_reference.md#module_core.generateAddress)
 
 ## Examples
 

@@ -1,9 +1,9 @@
 # IOTA GO Library
 
 This is the **official** Go client library, which allows you to do the following:
-* Create transactions
-* Sign transactions
-* Interact with an IRI node
+- Create transactions
+- Sign transactions
+- Interact with an IRI node
 
 [IOTA GO GitHub repository](https://github.com/iotaledger/iota.go).
 
@@ -204,11 +204,11 @@ run native C code for increased speed.
 
 Certain PoW implementations are enabled if the correct flags are passed while compiling your program:
 
-* `pow_avx` for AVX based PoW
-* `pow_sse` for SSE based PoW
-* `pow_c128` for C int128 based using PoW
-* `pow_arm_c128` for ARM64 int128 C based PoW
-* `pow_c` for C based PoW
+- `pow_avx` for AVX based PoW
+- `pow_sse` for SSE based PoW
+- `pow_c128` for C int128 based using PoW
+- `pow_arm_c128` for ARM64 int128 C based PoW
+- `pow_c` for C based PoW
 
 PoW implementation in Go is always available.
 If you want to use local PoW, make sure you define `LocalProofOfWorkFunc` in your provider settings such as `HTTPClientSettings`. 
@@ -217,9 +217,9 @@ If you want to use local PoW, make sure you define `LocalProofOfWorkFunc` in you
 
 We thank everyone for their contributions. In order for your pull requests to be accepted, 
 they must fulfill the following criteria:
-* You must write tests for your additions with Ginkgo
-* You must write example code that desribes the parameters and the functionality of your additions 
-* Your pull request must pass the continuous integration configuration
+- You must write tests for your additions with Ginkgo
+- You must write example code that desribes the parameters and the functionality of your additions 
+- Your pull request must pass the continuous integration configuration
 
 ### Writing tests with Ginkgo
 
@@ -247,8 +247,8 @@ Before your pull requests can be accepted, you must test your code in Ginkgo.
 
 After creating a testing file, you'll have following two files:
 
-* <package-name>_suite_test.go
-* <package-name>_test.go
+- <package-name>_suite_test.go
+- <package-name>_test.go
 
 **Note:** You can use the existing tests as a reference on how to write Ginkgo tests or
 you can [read the documentation](https://onsi.github.io/ginkgo/).
@@ -303,9 +303,9 @@ func ExampleASCIIToTrytes() {
 
 Syntax:
 
-* For parameters: `<symbol>: <parameter_name>, <description>.`  
-* For return values: `<symbol>: <type>, <description>.`
-* Example function: `Example<OriginFunctionName>`
+- For parameters: `<symbol>: <parameter_name>, <description>.`  
+- For return values: `<symbol>: <type>, <description>.`
+- Example function: `Example<OriginFunctionName>`
 
 ## Joining the discussion
 
