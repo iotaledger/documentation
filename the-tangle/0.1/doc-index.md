@@ -2,7 +2,7 @@
 
 [Overview](./overview.md)
 
-[Consensus/Introduction](/consensus/consensus.md)
+[Consensus/Introduction](./consensus/consensus.md)
 
 [Consensus/Coordinator](/consensus/coordinator.md)
 
