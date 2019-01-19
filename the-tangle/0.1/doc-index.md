@@ -1,6 +1,6 @@
 # Index
 
-[Overview](/overview.md)
+[Overview](./overview.md)
 
 [Consensus/Introduction](/consensus/consensus.md)
 
