@@ -1,0 +1,23 @@
+{
+  "version": "1.0.0",
+  "description": "Test implementation of AstroPi Sense Hat and IOTA",
+  "dependencies": {
+    "@iota/core": "^1.0.0-beta.5",
+    "unhandled-rejection": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.7.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  },
+  "scripts": {
+    "sender": "node src/sender.js",
+    "receiver": "node src/receiver.js"
+  },
+  "author": "SD Nelson inspired by Dave de Fijter's HM MAM example - IOTA Foundation",
+  "license": "ISC"
+}
