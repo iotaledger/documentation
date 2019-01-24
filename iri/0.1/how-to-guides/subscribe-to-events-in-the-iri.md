@@ -8,8 +8,11 @@ You may want to subscribe to events in the [zero message queue (ZMQ)](../concept
 * Create a Tangle visualisation website, such as [thetangle.org](https://thetangle.org/)
 
 You can subscribe to events in the ZMQ by doing the following:
+
 1. Install the open-source ZMQ library
+
 2. Create a ZMQ socket and connect it to an IRI node that has the [`ZMQ-enabled` configuration parameter](../references/iri-configuration-options.md#zmq-enabled) set to `true`
+
 3. Subscribe to events on the ZMQ
 
 In the following how-to guide we use NodeJS, but you could use any [programming language that is supported by the ZMQ library](http://zguide.zeromq.org/page:all).
