@@ -158,7 +158,7 @@ async function buildSingleVersion(docsFolder, projectFolder, version) {
                     const { toc, assets } = await extractTocAndValidateAssets(docsFolder, projectFolder, version, match[2], docIndexFile);
                     versions.push({
                         name: match[1],
-                        link: `/${docsFolder}/${projectFolder}/${version}/${sanitizedLink}`,
+                        link: match[2].startsWith('https') ? match[2] : `/${docsFolder}/${projectFolder}/${version}/${sanitizedLink}`,
                         toc,
                         assets: assets.length > 0 ? assets : undefined
                     });
@@ -184,15 +184,17 @@ async function extractTocAndValidateAssets(docsFolder, projectFolder, version, d
         if (fs.existsSync(docName)) {
             await reportEntry(`\t\t\tTOC: '${docName}'`);
 
-            const doc = (await fsPromises.readFile(docName)).toString();
+            let doc = (await fsPromises.readFile(docName)).toString();
 
             // Match all headers e.g.
             // # Blah blah
             // ## Blah blah
-            // But not those ending in # which are our custom styles
-            // ## LABEL ##
+            // But not inside our tab controls or project topics
 
-            const reHeaders = /^(#+)(.*?)(?<!#)$/gm;
+            doc = removeTabControls(doc);
+            doc = removeProjectTopics(doc);
+
+            const reHeaders = /^\s(#+)(.*?)$/gm;
             let matchHeader;
 
             do {
@@ -263,6 +265,16 @@ function stripWrapper(markdown, wrapper) {
     }
 
     return markdown;
+}
+
+function removeTabControls(markdown) {
+    const re = /^--------------------$[\S\s]*?^--------------------$/gm;
+    return markdown.replace(re, '');
+}
+
+function removeProjectTopics(markdown) {
+    const re = /#### (.*)\n(\[.*\]\((.*)\))?([\S\s]*?)---/gm;
+    return markdown.replace(re, '');
 }
 
 async function assetHtmlImage(markdown, docPath, assets) {
