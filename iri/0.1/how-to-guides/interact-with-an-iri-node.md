@@ -10,9 +10,9 @@ In the following how-to guide we use NodeJS and the IOTA JavaScript client libra
 
 ## Request information about the IRI
 
-You can call the [getNodeInfo](https://iota.readme.io/v1.5.5/reference#getnodeinfo) endpoint to request general information about the IRI node.
+You can call the [getNodeInfo](../references/api-reference.md#getnodeinfo) endpoint to request general information about the IRI node.
 
-For more endpoints, see the [API reference](https://iota.readme.io/v1.5.6/reference).
+For more endpoints, see the [API reference](../references/api-reference.md).
 
 ### Prerequisites
 
