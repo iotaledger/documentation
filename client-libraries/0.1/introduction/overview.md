@@ -1,6 +1,6 @@
 # Client libraries overview
 
-### **OFFICIAL SUPPORT** ###
+### **Official Support** ###
 
 ---------------
 
@@ -25,7 +25,7 @@ The official Go client library. This library includes the official API and addit
 
 ---------------
 
-### __COMMUNITY SUPPORT__ ###
+### __Community Support__ ###
 
 ---------------
 
