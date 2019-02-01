@@ -9,7 +9,7 @@ This section is about the open-source Coordinator called Compass.
 
 - How-to Guides
 
-    - [Create an IOTA network](how-to-guides/create-a-permissioned-iota-network.md)
+    - [Create an IOTA network](how-to-guides/create-an-iota-network.md)
 
   
 - Concepts

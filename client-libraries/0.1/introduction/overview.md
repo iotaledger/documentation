@@ -1,6 +1,6 @@
 # Client libraries overview
 
-### **OFFICIAL SUPPORT** ###
+### **Official Support** ###
 
 ---------------
 
@@ -25,7 +25,7 @@ The official Go client library. This library includes the official API and addit
 
 ---------------
 
-### __COMMUNITY SUPPORT__ ###
+### __Community Support__ ###
 
 ---------------
 
@@ -56,6 +56,6 @@ The IOTA client libraries abstract the complexity of the protocol into simple fu
 
 - [Smart Charging](https://github.com/iotaledger/high-mobility-blueprints) your electric vehicle (EV) and paying with iota tokens
 
-- [High Mobility-Porsche](https://github.com/iotaledger/documentation-markdown/blob/develop/mam/knowledgebase/HM.md) securely sending data from onboard a Porsche to the Tangle 
+- [MAM - High Mobility-Porsche](https://github.com/iotaledger/high-mobility-blueprints) securely sending data from onboard a Porsche EV to the Tangle 
 
-- [Smart City - AstroPiOTA](https://github.com/iotaledger/documentation-markdown/blob/develop/mam/knowledgebase/astropi.md) publishing local environment sensor data to the Tangle
+- [Smart City - AstroPiOTA](https://github.com/iotaledger/documentation-markdown/blob/develop/smartcity/0.1/README.md) publishing local environment sensor data to the Tangle

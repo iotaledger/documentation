@@ -2,12 +2,12 @@
 
 **This table displays a list of fields that form a transaction.** 
 
-A transaction consists of 2673 tryte-encoded characters. When decoded, the transaction object has these fields.
+A transaction consists of 2673 tryte-encoded characters. When decoded, the transaction object contains the following fields.
 
 | Field                         | Type   | Description                                                                                                                                                                                                                   | Length (trytes) |
 | :----------------------------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------ |
-| `signatureMessageFragment`      | string | Contains either a signature or a message, both of which may be fragmented over multiple transactions in a bundle. This field contains a signature if the transaction spends IOTA tokens. Otherwise, this field contains all 9's and can contain a tryte-encoded message. | 2187   |
-| `address`                       | string | Contains either a recipient's address or the address from which IOTA tokens are being spent. This field contains a recipient's address if the transaction is an output. Otherwise, this field contains an address from which IOTA tokens are being spent (transaction with a negative `value` field).   | 81     |
+| `signatureMessageFragment`      | string | Contains either a signature or a message, both of which may be _fragmented_ over multiple transactions in a bundle. This field contains a signature if the transaction debits IOTA tokens. Otherwise, this field contains all 9's and can contain a tryte-encoded message. | 2187   |
+| `address`                       | string | Contains either a recipient's address or the address from which IOTA tokens are being spent. This field contains a recipient's address if the transaction is an output. Otherwise, this field contains an address from which IOTA tokens are being debited (transaction with a negative `value` field).   | 81     |
 | `value`                    | integer    | Amount of IOTA tokens to credit or debit the address                                                                                                                                                                                            | 27     |
 | `obsoleteTag`                   | string | User-defined tag (soon to be removed)                                                                                                                                                                                               | 27     |
 | `timestamp`                     | integer    | Timestamp (not-enforced and can be arbitrary)                                                                                                                                                                                    | 9      |

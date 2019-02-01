@@ -1,6 +1,6 @@
-# Create a permissioned network
+# Create an IOTA network
 
-**If you want to test your application in a permissioned IOTA network, you can run Compass. A permissioned IOTA network is one in which IRI nodes must gain permission before joining an IOTA network. All IRI nodes in a permissioned network must be set up to recognize Compass transactions as trusted milestones.**
+**If you want to test your application in your own IOTA network, you can run Compass. All IRI nodes in the network must be set up to recognize your Compass transactions as trusted milestones.**
 
 For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine. You can also install an optional signing server for increased security.
 
@@ -8,7 +8,7 @@ A signing server reduces the attack surface of Compass by moving sensitive opera
 
 ![System diagram of the Compass](../compass.png)
 
-To create a permissioned IOTA network, you must complete the following tasks in order:
+To create your own IOTA network, you must complete the following tasks in order:
 
 1. [Install the dependencies](#install-the-dependencies)
 2. [Calculate the Merkle tree](#calculate-the-merkle-tree)
@@ -17,6 +17,8 @@ To create a permissioned IOTA network, you must complete the following tasks in 
 5. [Test the network](#test-your-network)
 
 ## Prerequisites
+
+If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
 
 To complete these tasks, your Linux server will need the following:
 

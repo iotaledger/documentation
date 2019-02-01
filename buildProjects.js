@@ -98,10 +98,16 @@ async function buildHome(docsFolder, project) {
             do {
                 match = re.exec(home);
                 if (match && match.length === 4) {
+                    let link = match[2];
+                    if (isRoot(link)) {
+                        link = rootToDocs(sanitizeLink(link), docsFolder);
+                    } else if (!isRemote(link)) {
+                        link = `/${docsFolder}/${project.folder}/${sanitizeLink(link)}`;
+                    }
                     links.push({
                         name: match[1],
-                        link: match[2].startsWith('http') ? match[2] : `/${docsFolder}/${project.folder}/${sanitizeLink(match[2])}`,
-                        description: match[3].replace(/root:\/\//g, `/${docsFolder}/`)
+                        link,
+                        description: rootToDocs(match[3], docsFolder)
                     });
                 }
             } while (match);
@@ -148,17 +154,21 @@ async function buildSingleVersion(docsFolder, projectFolder, version) {
         do {
             match = re.exec(docIndex);
             if (match && match.length === 3) {
-                const sanitizedLink = sanitizeLink(match[2]);
-                if (sanitizedLink.startsWith('root://')) {
+                if (isRoot(match[2])) {
                     versions.push({
                         name: match[1],
-                        link: `/${docsFolder}/${sanitizedLink.replace('root://', '')}`
+                        link: rootToDocs(sanitizeLink(match[2]), docsFolder)
+                    });
+                } else if (isRemote(match[2])) {
+                    versions.push({
+                        name: match[1],
+                        link: match[2]
                     });
                 } else {
                     const { toc, assets } = await extractTocAndValidateAssets(docsFolder, projectFolder, version, match[2], docIndexFile);
                     versions.push({
                         name: match[1],
-                        link: `/${docsFolder}/${projectFolder}/${version}/${sanitizedLink}`,
+                        link: `/${docsFolder}/${projectFolder}/${version}/${sanitizeLink(match[2])}`,
                         toc,
                         assets: assets.length > 0 ? assets : undefined
                     });
@@ -184,15 +194,17 @@ async function extractTocAndValidateAssets(docsFolder, projectFolder, version, d
         if (fs.existsSync(docName)) {
             await reportEntry(`\t\t\tTOC: '${docName}'`);
 
-            const doc = (await fsPromises.readFile(docName)).toString();
+            let doc = (await fsPromises.readFile(docName)).toString();
 
             // Match all headers e.g.
             // # Blah blah
             // ## Blah blah
-            // But not those ending in # which are our custom styles
-            // ## LABEL ##
+            // But not inside our tab controls or project topics
 
-            const reHeaders = /^(#+)(.*?)(?<!#)$/gm;
+            doc = removeTabControls(doc);
+            doc = removeProjectTopics(doc);
+
+            const reHeaders = /^\s?(#+)(.*?)$/gm;
             let matchHeader;
 
             do {
@@ -265,6 +277,16 @@ function stripWrapper(markdown, wrapper) {
     return markdown;
 }
 
+function removeTabControls(markdown) {
+    const re = /^--------------------$[\S\s]*?^--------------------$/gm;
+    return markdown.replace(re, '');
+}
+
+function removeProjectTopics(markdown) {
+    const re = /#### (.*)\n(\[.*\]\((.*)\))?([\S\s]*?)---/gm;
+    return markdown.replace(re, '');
+}
+
 async function assetHtmlImage(markdown, docPath, assets) {
     const re = /(<img src="(.*?)")/gm;
 
@@ -272,7 +294,7 @@ async function assetHtmlImage(markdown, docPath, assets) {
     do {
         match = re.exec(markdown);
         if (match && match.length === 3) {
-            if (match[2].startsWith('http')) {
+            if (isRemote(match[2])) {
                 const response = await checkRemote(match[2]);
                 if (!response) {
                     await reportEntry(`\t\t\tRemote Image: '${match[2]}'`);
@@ -302,7 +324,7 @@ async function assetMarkdownImage(markdown, docPath, assets) {
         match = re.exec(markdown);
 
         if (match && (match.length === 4 || match.length === 5)) {
-            if (match[3].startsWith('http')) {
+            if (isRemote(match[3])) {
                 const response = await checkRemote(match[3]);
                 if (!response) {
                     await reportEntry(`\t\t\tRemote Image: '${match[3]}'`);
@@ -334,15 +356,15 @@ async function markdownLinks(markdown, docPath) {
         match = re.exec(markdown);
 
         if (match && match.length === 3) {
-            if (match[2].startsWith('http')) {
+            if (isRemote(match[2])) {
                 const response = await checkRemote(match[2]);
                 if (!response) {
                     await reportEntry(`\t\t\tRemote Page: '${match[2]}'`);
                 } else {
                     await reportError(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
                 }
-            } else if (match[2].startsWith('root')) {
-                let rootUrl = match[2].replace('root://', '').replace(/#.*$/, '');
+            } else if (isRoot(match[2])) {
+                let rootUrl = stripAnchor(stripRoot(match[2]));
                 const docFilename = path.resolve(path.join(rootFolder, rootUrl));
                 if (!fs.existsSync(docFilename)) {
                     await reportError(`Root page does not exist '${match[2]}' in '${docPath}'`);
@@ -350,7 +372,7 @@ async function markdownLinks(markdown, docPath) {
             } else if (match[2].startsWith('#') || match[0].startsWith('!')) {
                 // Anchor skip and images skip
             } else if (match[2].length > 0) {
-                let localUrl = match[2].replace(/#.*$/, '');
+                let localUrl = stripAnchor(match[2]);
                 const docFilename = path.resolve(path.join(path.dirname(docPath), localUrl));
                 if (!fs.existsSync(docFilename)) {
                     await reportError(`Local page does not exist '${match[2]}' in '${docPath}'`);
@@ -391,6 +413,26 @@ async function separators(markdown, docPath) {
     }
 
     return markdown;
+}
+
+function isRoot(link) {
+    return link.startsWith('root://');
+}
+
+function isRemote(link) {
+    return link.startsWith('http://') || link.startsWith('https://');
+}
+
+function rootToDocs(content, docsFolder) {
+    return content.replace(/root:\/\//g, `/${docsFolder}/`);
+}
+
+function stripRoot(content) {
+    return content.replace(/root:\/\//g, '');
+}
+
+function stripAnchor(content) {
+    return content.replace(/#.*$/, '');
 }
 
 async function reportEntry(data) {

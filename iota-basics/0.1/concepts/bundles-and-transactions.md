@@ -1,16 +1,14 @@
 # Bundles and transactions
 
-**Each transaction is either an input or an output. To transfer IOTA tokens, you need both input and outputs transactions, which are grouped together in a bundle.**
+**A transaction is a single instruction to credit IOTA tokens (output), debit IOTA tokens (input), or send a message. To transfer IOTA tokens, you need both input and outputs transactions, which are packaged together in a bundle.**
 
-Bundles are atomic, meaning that the fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are.
+Each transaction that's sent to an IRI node, even individual zero-value ones, must be packaged in a bundle.
 
-When you create a bundle, each transaction is given a `currentIndex` number and connected to each other through the [`trunkTransaction` field](../references/structure-of-a-transaction.md).
+You may need more than one transaction for the following reasons:
 
-After you send the bundle to an [IRI node](root://iri/0.1/introduction/overview.md), each transaction is validated and appended to the ledger.
-
-During [tip selection](root://the-tangle/0.1/introduction/overview.md), an IRI node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing the `trunkTransaction` field. When the IRI node validates all transactions up to the [`lastIndex` field](../references/structure-of-a-transaction.md), your bundle is considered valid and one of the transactions is selected as a tip transaction to be referenced by another transaction.
-
-![Example of a bundle of 4 transactions](../bundle.png)
+* To transfer IOTA tokens from one address to another, you need both an input transaction to debit IOTA tokens from the sender, and an output transaction to credit IOTA tokens to the recipient. These transactions must be indexed (starting from 0) and packaged together in a bundle.
+* An input transaction, which debits IOTA tokens, must contain a signature in the `signatureMessageFragment` field. If the security level of the address is greater than 1, the signature is too large to fit in one transaction and must be _fragmented_ across zero-value output transactions.
+* The `signatureMessageFragment` field of a transaction can contain a limited number of trytes. Therefore, to send a message that exceeds the limit, you must put the rest of the message in another transaction (transaction index 1).
 
 ## Input and output transactions
 
@@ -24,20 +22,28 @@ Input transactions debit IOTA tokens from addresses. Bundles can contain multipl
 
 ### Output transaction
 
-An output transaction can be one of the following:
+Output transactions can be one of the following:
 
 * A zero-value transactions that contains only a message in the `signatureMessageFragment` field
 * A transaction with a positive value that credits IOTA tokens to an address
 
-Transactions that credit IOTA tokens can also contain a message.
+Transactions that credit IOTA tokens can also contain a message because they don't debit IOTA tokens, and therefore don't contain a signature.
 
-Output transactions do not debit IOTA tokens and therefore do not need to be signed.
+## How bundles are validated
+
+After you send a bundle to an [IRI node](root://iri/0.1/introduction/overview.md), it validates each transaction and appends each one to the ledger.
+
+During [tip selection](root://the-tangle/0.1/introduction/overview.md), an IRI node finds and [validates each transaction in your bundle](root://iri/0.1/concepts/transaction-validation.md#bundle-validator) by traversing its `trunkTransaction` field. When the IRI node has validated all transactions up to the [`lastIndex` field](../references/structure-of-a-transaction.md), your bundle is considered valid. When a bundle is validated, one of the transactions in it is selected as a tip transaction to be referenced and approved by another transaction.
+
+Bundles are atomic, meaning that the fate of each transaction in a bundle depends on the rest. Either all transactions are valid or none of them are.
+
+![Example of a bundle of 4 transactions](../bundle.png)
 
 ## Example of a bundle that transfers IOTA tokens
 
 This bundle transfers 80 IOTA tokens to a recipient from an address with a security level of 2.
 
-| Transaction index | Transaction contents                                                     | Value                                          |
+| Transaction index | Transaction contents                                                     | Transaction value                                          |
 | ----- | ------------------------------------------------------------------------- | --------------------------------------------------------------- |
 | 0     | Recipient's address                       | 80 (sent to the recipient's address)                    |
 | 1     | Sender's address, and the first part of the signature | -100 (the total balance of the sender's address as a negative value) |
