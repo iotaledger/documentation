@@ -17,6 +17,7 @@ When an IRI node receives a new transaction, the transaction validator checks it
 - The proof of work was done
 - The value of any transaction in the bundle doesn’t exceed the total global supply
 - The transaction is not older than the last snapshot and not newer than two hours ahead of the node’s current time
+- The last trit of an address is 0 for value transactions
 
 ## Validation during the tip selection process
 
