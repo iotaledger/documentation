@@ -68,7 +68,7 @@ To complete this guide, you must have [Node JS (8+)](https://nodejs.org/en/).
         return iota.sendTrytes(storedTrytes, 3 /*depth*/, 14 /*minimum weight magnitude*/);
     })
 
-    .then(results => console.log(JSON.stringify(results)));
+    .then(results => console.log(JSON.stringify(results, null, 1)));
     ```
     **Note:** The `asciiToTrytes` method supports only [basic ASCII characters](https://en.wikipedia.org/wiki/ASCII#Printable_characters). As a result, diacritical marks such as accents and umlauts aren't supported and result in an `INVALID_ASCII_CHARS` error.
 
