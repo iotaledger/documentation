@@ -1,0 +1,3 @@
+# Oracles
+
+**Oracles make decisions**
