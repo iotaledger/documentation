@@ -12,6 +12,7 @@ Concepts
 - [Epoch](concepts/epoch.md)
 - [Oracles](concepts/oracle.md)
 - [Outsourced computations](concepts/outsource.md)
+- [Q-node](concepts/qnode.md)
 - [Smart contract](concepts/smartcontract.md)
 - [Streaming economies](concepts/stream.md)
 
