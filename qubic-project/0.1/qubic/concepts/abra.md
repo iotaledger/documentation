@@ -10,14 +10,10 @@ Abra is listening to this environment.  When the picture arrives, the supervisor
 
 ### Features
 
-Abra is an intermediate language enabling qubics to run the same code on different hardware platforms.  It includes a library of predefined functions.  The Abra architecture is a dataflow programming design built to achieve faster clock rates than conventional systems.
-
-Being trinary-based, Abra promises significant energy savings because a trit can represent 1.58 bits.  Thus, the amount of wiring for a trinary system can be about 64% less that an equivalent binary system.
-
-Abra was built for automated analysis to improve the accuracy of smart contracts.
-
-Abra includes parallelization so different pieces of code can run concurrently.
+Abra is a dataflow language with a library of predefined functions.  Abra code runs concurrently.  Qubics can run the same code on different hardware platforms.  Abra's automated analysis improves the accuracy of smart contracts.  
 
 ### Specification
 
 [Abra Specification](https://github.com/paulhandy/iotaledger-docs/blob/f41873c2deb95b6937fe07aa5322cfe0b888cdb7/qubic/abra/Spec.md)
+
+[Abra Syntax](https://bugfreesoftware.github.io/abrasyntax/)
