@@ -8,7 +8,7 @@ Oracle machines review your contract and respond with proof that they have resou
 
 When a quorum of oracles reach the same result, the result is revealed.  If you like the result, then you pay the oracles and your picture is rendered.  When you publish the contract, you also publish the quorum threshold.  A quorum threshold is generally 2/3 but it may be any amount over 51%.
 
-### Novel Features of Qubic
+### Novel features of Qubic
 
 Quorum in distributed computing is not new.  It is a way of establishing trust without centralized servers or a third-party overseer.  What is unique about Qubic is the way of organizing committees and forming a quorum in a distributed manner.  Abra is also unique.  Additionally, the opportunity for resource-constrained devices to offload computation to the IOTA Tangle is innovative.
 
