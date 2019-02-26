@@ -8,7 +8,7 @@ Qubic is a protocol that specifies IOTA's solution for oracle machines, smart co
 
 - [**Q**ubic **C**omputation **M**odel (QCM)](https://github.com/iotaledger/qcm)
 
-- **I**ota **C**ontrol agen**T** (ICT) - light-weight node
+- **I**ota **c**ontrol agen**t** (Ict) - light-weight node
     
 - **I**ota e**X**tension **I**nterface (IXI)
     
