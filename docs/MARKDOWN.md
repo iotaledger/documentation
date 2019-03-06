@@ -86,7 +86,7 @@ The above markup will produce the following output:
 
 A map can be embedded in your content by surrounding it with `¬¬¬` fencing. You can then specify the type as `[map]` and provide the JSON configuration for the object as follows:
 
-```
+```markup
 ¬¬¬
 [map]
 {
@@ -114,7 +114,7 @@ Would display:
 
 A feed can be embedded in your content by surrounding it with `¬¬¬` fencing. You can then specify the type as `[feed]` and provide the JSON configuration for the object as follows:
 
-```
+```markup
 ¬¬¬
 [feed]
 {
@@ -129,3 +129,29 @@ The `displayType` field specifies how the content will be rendered on the page a
 Would display:
 
 ![Event Feed](./feed.png)
+
+### Message Boxes
+
+If you would like to display a message box in your content there are 4 variants available success, danger, warning and info. Each message box can optionally contain a title and content.
+
+A message box is fenced using `:::`, this should then be followed by the type and then another `:`, any following content on the same line will be a title. The remaining text until the end fence `:::` will be the content.
+
+```markup
+:::success:A Success
+This is the content,
+on multiple lines :tada:
+:::
+
+:::warning:Just A Warning Title:::
+
+:::info:
+Some multiline content only.
+This is line 2.
+:::
+
+:::danger:Danger Danger
+Will Robinson :bomb:
+:::
+```
+
+![Message Boxes](./message-boxes.png)
