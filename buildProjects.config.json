@@ -3,5 +3,6 @@
     "reportFile": "projects-summary.log",
     "projectsFile": "",
     "checkRemotePages": true,
-    "consoleDetail": true
+    "consoleDetail": true,
+    "exitWithError": true
 }

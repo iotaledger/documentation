@@ -8,7 +8,7 @@ const emojiRegex = require('emoji-regex');
 const emojiUnicode = require('emoji-unicode');
 const chalk = require('chalk');
 
-const { rootFolder, reportFile, projectsFile, checkRemotePages, consoleDetail } = require('./buildProjects.config.json');
+const { rootFolder, reportFile, projectsFile, checkRemotePages, consoleDetail, exitWithError } = require('./buildProjects.config.json');
 
 let errorCount = 0;
 let warningCount = 0;
@@ -44,7 +44,7 @@ async function buildProjects(docsFolder) {
         await buildHome(docsFolder, projects[i]);
         await buildVersions(docsFolder, projects[i]);
 
-        if (errorCount + warningCount === totalCount) {
+        if (errorCount + warningCount === totalCount && consoleDetail) {
             console.log(chalk.green('OK'));
         }
     }
@@ -374,7 +374,7 @@ async function markdownLinks(markdown, docPath) {
                 if (!response) {
                     await reportEntry(`\t\t\tRemote Page: '${match[2]}'`);
                 } else {
-                    await reportError(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
+                    await reportWarning(`Remote page errors: '${match[2]}' in '${docPath}' with '${response}'`);
                 }
             } else if (isRoot(match[2])) {
                 let rootUrl = stripAnchor(stripRoot(match[2]));
@@ -596,6 +596,9 @@ async function run() {
     }
     if (warningCount > 0) {
         console.error(chalk.cyan(`WARNING: There were ${warningCount} warnings during project build, see ${reportFile} for details.`));
+    }
+    if (errorCount > 0 && exitWithError) {
+        process.exit(1);
     }
 }
 
