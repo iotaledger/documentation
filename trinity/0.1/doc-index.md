@@ -3,6 +3,7 @@
 [Introduction/Overview](/introduction/overview.md)
 [Concepts/Hardware wallet](/concepts/hardware-wallet.md)
 [How-to Guides/Create an account](/how-to-guides/create-an-account.md)
+[How-to Guides/Verify the Trinity Desktop download](/how-to-guides/verify-trinity-desktop.md)
 [How-to Guides/Read your balance](/how-to-guides/read-your-balance.md)
 [How-to Guides/Send a transaction](/how-to-guides/send-a-transaction.md)
 [How-to Guides/Receive a transaction](/how-to-guides/receive-a-transaction.md)

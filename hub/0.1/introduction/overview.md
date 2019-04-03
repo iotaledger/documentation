@@ -13,9 +13,9 @@ Hub is beneficial for the following use cases:
 
 ## Limitations
 
-Hub prevents the re-use of deposit addresses, **but** doesn't prevent users from sending IOTA tokens to deposit addresses after a sweep. Users **must** take responsibility for not using spent addresses.
+Hub prevents the re-use of deposit addresses, **but** doesn't prevent users from sending IOTA tokens to deposit addresses after a sweep. Users **must** take responsibility for not using addresses that have been withdrawn from.
 
-However, if a user fails to follow instructions correctly, you can [move funds from a spent address](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md).
+However, if a user fails to follow instructions correctly, you can [move funds from an address that's been withdrawn from](https://github.com/iotaledger/rpchub/blob/master/docs/hip/001-sign_bundle.md).
 
 ## Repository
 Jump directly to the Hub source code on [Github](https://github.com/iotaledger/rpchub)

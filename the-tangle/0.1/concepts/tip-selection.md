@@ -1,12 +1,10 @@
 # Tip selection
 
-**Each transaction in the Tangle must reference two previous transactions. Tip selection is the process whereby an IRI node selects two random tip transactions from its a subgraph (subtangle) of its ledger. These tip transactions are referenced by new transactions before being sent to an IRI node for validation.**
+**Each transaction in the Tangle must reference two previous transactions. Tip selection is the process whereby an IRI node selects two random tip transactions from a subgraph of its ledger.**
 
-Tip selection is requested by clients so that they can reference two previous transactions in their new transactions.
+In general, the tip selection algorithm selects tip transactions that have no parents.
 
-In general, the tip selection algorithm selects tip transactions that have no approvers.
-
-Although the tip selection algorithm is embedded in the [IOTA node software](root://iri/0.1/introduction/overview.md) (IRI), it isn't enforced by the network. Instead, IRI nodes are given an [incentive to use the tip selection algorithim](../concepts/incentives-in-the-tangle.md).
+Although the tip selection algorithm is embedded in the [IOTA node software](root://iri/0.1/introduction/overview.md) (IRI), it isn't enforced by the network. Instead, IRI nodes are given an [incentive to use the tip selection algorithm](../concepts/incentives-in-the-tangle.md).
 
 ## The tip selection process
 
@@ -33,7 +31,7 @@ A weighted random walk is an algorithm that the IRI uses to find a path to a tip
 To increase the probability of selecting a path to new transactions, the algorithm favors a path through transactions that have a higher rating. This rating is called a cumulative weight.
 
 The cumulative weight of a transaction is calculated using the following variables:
-* **Future set:** Transactions that directly or indirectly reference the transaction
+* **Future set:** Transactions that approves the transaction
 * **[`ALPHA` configuration parameter](root://iri/0.1/references/iri-configuration-options.md#alpha):** A number that affects the randomness of the tip selection process
 
 The IRI gives a high rating to a transaction with a large future set because it has a higher probability of being confirmed than one with a small future set. However, if the IRI were to rate transactions based only on this variable, the ledger would become a long, narrow chain of transactions, which are referenced by many other transactions. This would slow the rate of new transactions being appended to the ledger because new transactions would have to wait until they had a large enough future set before other transactions would reference them. So, to increase the speed at which new transactions are appended to the ledger, the IRI also uses the `ALPHA` configuration parameter to calculate the cumulative weight.
@@ -230,7 +228,7 @@ A transaction is considered invalid if any of the following occur:
 
 * It references a transaction that's too far in the past, namely beyond `latestSolidMilestone - maxDepth`.
 
-* The ledger state is not consistent, such as trying to spend missing funds or double-spending.
+* The ledger state is not consistent, such as trying to withdraw or deposit missing funds or double-spending.
 
 * The validator maintains a list of transactions that have been checked for validity. Every time a new transaction is validated, it is also checked against these.
 

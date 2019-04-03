@@ -1,4 +1,4 @@
-# IOTA is a distributed ledger technology (DLT) that allows computers in an IOTA network to transfer immutible data and value (IOTA tokens) among each other.
+# IOTA is a distributed ledger technology (DLT) that allows computers in an IOTA network to transfer immutable data and value (IOTA tokens) among each other.
 
 [What is DLT?](/0.1/introduction/what-is-dlt.md)
 ## Learn the benefits of storing data in a distributed network of nodes

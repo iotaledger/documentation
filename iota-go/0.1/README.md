@@ -22,7 +22,7 @@ To download the IOTA Go client library and its dependencies, do the following:
 1. In any directory outside of GOPATH, initiate your project
 
 	```bash
-	$ go mod init <your-module-path>
+	go mod init <your-module-path>
 	```
 
 **Note:** Change the <your-module-path> placeholder to your chosen path such as github.com/me/awesome-project.
@@ -30,7 +30,7 @@ To download the IOTA Go client library and its dependencies, do the following:
 2. Download the library
 
 	```bash
-	$ go get github.com/iotaledger/iota.go/api
+	go get github.com/iotaledger/iota.go/api
 	```
 
 This command downloads the latest version of the IOTA Go client library and writes the version into
@@ -218,21 +218,21 @@ Before your pull requests can be accepted, you must test your code in Ginkgo.
 1. Download Ginkgo
 
 	```bash
-	$ go get github.com/onsi/ginkgo/ginkgo
-	$ go get github.com/onsi/gomega/...
+	go get github.com/onsi/ginkgo/ginkgo
+	go get github.com/onsi/gomega/...
 	```
 
 2. If you've written a new package, generate a corresponding test-suite file
 
 	```bash
-	$ cd <dir-of-your-package>
-	$ ginkgo bootstrap
+	cd <dir-of-your-package>
+	ginkgo bootstrap
 	```
 
 3. Generate a new testing file
 
 	```bash
-	$ ginkgo generate <package-name>
+	ginkgo generate <package-name>
 	```
 
 After creating a testing file, you'll have following two files:
@@ -245,7 +245,7 @@ you can [read the documentation](https://onsi.github.io/ginkgo/).
 
 4. Run your tests
 	```bash
-	$ go test -v
+	go test -v
 	=== RUN   TestAddress
 	Running Suite: Address Suite
 	============================

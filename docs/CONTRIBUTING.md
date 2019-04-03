@@ -124,6 +124,18 @@ Concept articles must not include task information or reference information.
 
 When adding code examples and snippets into an article, make sure you format it accordingly and add language identifiers for correct code highlighting. See [Creating and highlighting code blocks](https://help.github.com/articles/creating-and-highlighting-code-blocks/) for more information.
 
+#### Bash
+
+Bash code blocks shall not contain the path.
+Instead of
+```bash
+user@hostname:~/tmp$ mkdir whatever
+```
+Use a standalone statement
+```bash
+mkdir whatever
+```
+
 ## Set up GitHub
 
 Our documentation is hosted on GitHub, which is a version control tool. To send us your content, you must use Git or GitHub.

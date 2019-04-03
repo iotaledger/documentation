@@ -1,11 +1,11 @@
- # Hub configuration options
+# Hub configuration options
 
- **This table contains some common configuration options for Hub.**
+**This table contains some common configuration options for Hub.**
 
- For a full list of configuration options, see the [GitHub repository](https://github.com/iotaledger/rpchub#command-line-arguments).
+For a full list of configuration options, see the [GitHub repository](https://github.com/iotaledger/rpchub#command-line-arguments).
  
 
- | **Configuration options** |   **Description**| **Default values**|
+| **Configuration options** |   **Description**| **Default values**|
 | :------------------------ | :--------------- | :--------|
 |`--salt`| Characters that are used to generate seeds. This value should be at least 20 characters long, unique, and private.   |   ""    |
 |`--dbPassword`| Password for access to the MariaDB| "password"|

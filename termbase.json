@@ -1,0 +1,105 @@
+[
+{
+
+    "cat": "acronyms",
+    "terms": {
+        "CTPS": "Confirmed transactions per second",
+        "DAG": "Directed acyclic graph",
+        "MWM": "Minimum weight magnitude",
+        "PoW": "Proof of work",
+        "TPS": "Transactions per second",
+        "W-OTS": "Winternitz one-time signature"
+    
+    }
+
+},
+{
+
+    "cat": "accounts",
+    "terms": {
+        "address": "Public string of characters that's created from a client's private key. Clients send transactions to addresses.",
+        "client": "Device that connects to an IRI node to interact with an IOTA network and send transactions.",
+        "multi-signature address": "Address that's created from more than one private key. Multi-signature addresses needs all private keys to sign a transaction before IOTA tokens can be withdrawn from them.",
+        "private key": "Private string of characters that are used to sign transactions that withdraw IOTA tokens from a client's address.",
+        "security level": "Integer (1, 2, or 3) that affects the length of a private key. The higher the security level, the longer the private key, and the stronger the security of the corresponding address.",
+        "seed": "Secret password that's used to create addresses and private keys.",
+        "signature": "Cryptograhic proof of ownership of an address. IOTA tokens can't be withdrawn from an address without a transaction that contains a valid signature."
+
+    }
+
+},
+{
+    "cat": "cryptography",
+    "terms": {
+        "checksum": "Hashed data that allows you to detect errors and verify that you entered the correct data.  For example, in Trinity, a 9-tryte checksum is appended to the 81-tryte address so users can easily differentiate between their seed (81 trytes) and their address (90 trytes).", 
+        "Curl": "Main hash function that's used in IOTA. Curl is based on a sponge construction, which was invented by the Keccak creators (SHA-3). Curl is designed for the Internet of things (IoT).",
+        "Kerl": "Keccek-384 hash function that includes the additional conversion of its input and output from/to 243 trits to 48 bytes, using two's complement.",
+        "Winternitz one-time signature": "Post-quantum signature scheme that's used to sign transactions that withdraw IOTA tokens."
+
+    }
+
+},
+{
+    "cat": "general terms",
+    "terms": {
+        "directed acyclic graph": "Data structure that's based on a graph without any directed cycles. In IOTA, vertices represent transactions, and edges represent approvals.", 
+        "peer-to-peer network": "Decentralized network that consists of nodes, which share data among each other.",
+        "proof of work": "Computational puzzle that's hard to solve and easy to verify. IOTA uses a Hashcash-based puzzle to prevent both denial of service (DoS) attacks and spam attacks on the network."
+
+    }
+
+},
+{
+    "cat": "tangle",
+    "terms": {
+        "blowball": "Tangle formation that consists of one central transaction, which is surrounded by a large number of tip transactions",
+        "distributed ledger": "Ledger that's held by all IRI nodes in an IOTA network. IRI nodes share their ledgers with each other until all of them contain the same valid transactions.",
+        "IRI node": "Software that's responsible for validating transactions and storing a copy of them in a ledger",
+        "ledger": "Individual database that's held by IRI nodes in an IOTA network",
+        "subgraph": "Section of the ledger that contains all transactions between a milestone transaction and tip transactions",
+        "Tangle": "Name of the directed acyclic graph that's formed by connecting IOTA transactions in the distributed ledger to their parents"
+    }
+
+},
+{
+    "cat": "transactions",
+    "terms": {
+        "child": "Transaction that directly references two other transactions",
+        "branch transaction": "Name of one of the transactions that are referenced by a child",
+        "bundle": "Group of transactions that are sent together to an IRI node. Bundles are atomic. Either all transactions inside the bundle are accepted or none of them are.",
+        "confirmed": "State of a transaction when it's been approved by a milestone. Value transactions must be confirmed before IOTA tokens are transferred.",
+        "cumulative weight": "Rating that an IRI node gives to a transaction during tip selection",
+        "depth": "Entrypoint milestone that's used to start a weighted random walk through a subgraph. The higher the value, the farther back in the subgraph the weighted random walk starts. A typical depth that wallets use is 3, which causes the weighted random walk to start 3 milestones in the past.",
+        "future set": "Group of transactions that approves the same transaction",
+        "inconsistent": "State of a transaction when it leads to a negative balance of IOTA tokens",
+        "inclusion": "State of a transaction that's been referenced by given tip transactions or a milestone transaction",
+        "invalid": "State of a transaction when it's either non-solid, inconsistent, or it references a transaction that's too old",
+        "milestone": "Valid transaction that's created by the Coordinator. IRI nodes use milestones to determine if transactions are confirmed.",
+        "minimum weight magnitude": "Integer that sets the amount of work that will be carried out on a transaction hash during PoW. The solution to the computational puzzle is a transaction hash that contains the same number of trailing nines as the MWM.",
+        "parent": "Transaction that is directly referenced by a child transaction",
+        "pending": "State of a transaction when it's been seen by the network, but not yet confirmed",
+        "reattach": "Recreate and resend a transaction by requesting new tip transactions, recalculating the transaction and bundle hashes, signing any value transactions, and doing proof of work",
+        "rebroadcast": "Send the same transaction to an IRI node again",
+        "solid": "State of a transaction when an IRI node has its entire history (all directly and indirectly referenced transactions) in its ledger",
+        "tail transaction": "Transaction 0 in a bundle. IRI nodes contruct and validate bundles by traversing the trunk transaction of each tail transaction.",
+        "tip selection": "Process whereby an IRI node selects two tip transactions and returns them to a client for use as a new transaction's branch transaction and trunk transaction",
+        "tip transaction": "Transaction with no children",
+        "transaction": "Instruction sent to an IRI node to deposit or withdraw IOTA tokens to/from an address or send a message. Transactions must be structured in a way that conforms to the IOTA protocol.",
+        "trunk transaction": "Name of one of the transactions that are referenced by a child. Transactions in a bundle are connected to each other through the trunk transaction. This connection makes it faster for IRI nodes to validate transactions in a bundle.", 
+        "weighted random walk": "Algorithm that an IRI node uses during tip selection to find a path to a tip transaction in the ledger. To increase the probability of new transactions being selected and appended to the ledger, the algorithm favors a path through transactions that have a larger cumulative weight."
+    }
+
+},
+{
+    "cat": "trinary",
+    "terms": {
+        "trinary": "Base-3 numeral system",
+        "trit": "Digit in a trinary number system. Trits are often represented by 1, 0, -1.",
+        "tryte": "A tryte is 3 trits which can represent 27 values"
+
+    }
+
+}
+]
+
+

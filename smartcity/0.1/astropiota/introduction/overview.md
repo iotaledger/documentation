@@ -1,4 +1,4 @@
-## AstroPiOTA
+# AstroPiOTA
 
 **AstroPiOTA is a clone of [AstroPi](https://www.nasa.gov/mission_pages/station/research/experiments/2429.html), which is a project that used Raspberry Pis on the International Space Station (ISS) to keep astronauts up to date about their environment.  AstroPi was made with a Raspberry Pi computer and a Sense HAT sensor for sensing temperature, humidity, and other data.**
 

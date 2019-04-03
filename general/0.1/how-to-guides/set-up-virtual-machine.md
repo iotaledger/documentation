@@ -2,7 +2,7 @@
 
 **Many of the IOTA tutorials and guides require a Linux operating system. If your computer is running a different operating system, you can use Linux inside a virtual machine.**
 
-Linux is an open-source operating system. Linux can come in packages called distributions. Each Linux distribution includes different built-in software for different goals.
+Linux is an open-source operating system, which can come in packages called distributions. Each Linux distribution includes different built-in software for different goals.
 
 One of the most popular Linux distributions is Ubuntu, which is the distribution that we use in our examples.
 
@@ -10,6 +10,8 @@ Linux is beneficial for the following reasons:
 * Linux runs on many hardware platforms
 * Linux distributions are open-source and almost all of them are free to use
 * Linux is secure, reliable, and lightweight
+
+**Note:** If you don't want to run a Linux virtual machine on your own computer, you can rent the use of a cloud computer from a company such as Amazon. By using this approach, you don't need to worry about port forwarding or running out of memory. Amazon AWS has a setup guide for [launching a Linux virtual machine on their cloud](https://aws.amazon.com/getting-started/tutorials/launch-a-virtual-machine/).
 
 ## Set up a Linux server
 
@@ -39,7 +41,7 @@ To run a Linux server on a Windows or Mac operating system, you must install a v
 
 Congratulations :tada: You've got a Linux server running on your computer!
 
-Our guides always require the use of a terminal, so navigate to the Terminal application and open it.
+Our guides always require the use of a command prompt, so navigate to the Terminal application and open it.
 
 ## Connect to your Linux server
 
@@ -54,19 +56,19 @@ Before your Linux server can understand messages that use the SSH protocol, you 
 1. In the terminal of your Linux server, upgrade your software packages
 
     ```bash
-    $ sudo apt-get upgrade
+    sudo apt-get upgrade
     ```
 
 2. Install the network tools
 
     ```bash
-    $ sudo apt install net-tools
+    sudo apt install net-tools
     ```
 
 3. Install an SSH server
 
     ```bash
-    $ sudo apt-get install openssh-server
+    sudo apt-get install openssh-server
     ```
 
 4. Close your Linux server, select your server from the list, and go to **Settings** > **Network**
@@ -76,7 +78,7 @@ Before your Linux server can understand messages that use the SSH protocol, you 
 6. Start your Linux server, open the terminal and find out the IP address of your Linux server
 
     ```bash
-    $ ifconfig
+    ifconfig
     ```
 
 7. Make a note of the `inet` IP address
@@ -93,9 +95,9 @@ To establish an SSH connection to your Linux server on a **Mac**, do the followi
 
 2. Establish an ssh connection. Change the IP_ADDRESS_FROM_STEP_7 placeholder with the IP address of your Linux server.
 
-```bash
-$ ssh $IP_ADDRESS_FROM_STEP_7
-```
+    ```bash
+    ssh $IP_ADDRESS_FROM_STEP_7
+    ```
 
 To establish an SSH connection to your Linux server on a **Windows**, do the following:
 

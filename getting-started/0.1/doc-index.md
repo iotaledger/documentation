@@ -12,7 +12,7 @@
 
 [Introduction/What is a bundle?](/introduction/what-is-a-bundle.md)
 
-[Introduction/What is an IRI node?](/introduction/what-is-an-iri-node.md)
+[Introduction/What is a node?](/introduction/what-is-a-node.md)
 
 [Tutorials/First steps](/tutorials/first-steps.md)
 

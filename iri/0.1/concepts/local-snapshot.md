@@ -8,14 +8,16 @@ A local snapshot is the process in which an IRI node records the state of its le
 
 ## Snapshot files
 
-IRI nodes create snapshot files at regular milestone intervals. At each interval, the snapshot file is overwritten.
+Snapshot files store the state of an IRI node's ledger at regular intervals. 
 
 If an IRI node is [synchronized](../concepts/the-ledger.md#ledger-synchronization), it creates snapshot files at the milestone intervals that are defined in the [`LOCAL_SNAPSHOTS_INTERVAL_SYNCED`](../references/iri-configuration-options.md#local-snapshots-interval-synced) configuration option.
 
 If an IRI node isn't synchronized, it creates snapshot files at the milestone intervals that are defined in the [`LOCAL_SNAPSHOTS_INTERVAL_UNSYNCED`](../references/iri-configuration-options.md#local-snapshots-interval-unsynced) configuration option.
 
-When an IRI node does a local snapshot, it records the current state of its ledger in the following snapshot files:
-* **snapshot.meta:** [A list of transaction data that the IRI uses to start synchonizing its ledger with neighbor IRI nodes](../references/data-in-the-snapshot-metadata-file.md)
+At each interval, the snapshot file is overwritten.
+
+Local snapshots create the following snapshot files:
+* **snapshot.meta:** [A list of transaction data that the IRI uses to start synchronizing its ledger with neighbor IRI nodes](../references/data-in-the-snapshot-metadata-file.md)
 * **snapshot.state:** A list of all addresses that have a balance greater than 0 at the time of the local snapshot.
 
 **Note:** These files are located in the path of the [`LOCAL_SNAPSHOTS_BASE_PATH`](../references/iri-configuration-options.md#local-snapshots-base-path) configuration option.

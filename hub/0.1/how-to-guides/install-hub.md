@@ -2,8 +2,6 @@
 
 **Hub allows you to create new users, manage their seeds, and action deposits and withdrawals by using any programming language that supports gRPC.**
 
-For this guide, you'll use a new installation of [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server).
-
 ![IOTA Hub architecture](../iota_hub.png)
 
 To get started with Hub, do the following:
@@ -15,6 +13,10 @@ To get started with Hub, do the following:
 5. Run Hub
 6. Test Hub
 
+## Prerequisites
+
+A Linux [Ubuntu 18.04 LTS](https://www.ubuntu.com/download/server) server. If you are on a Windows or Mac operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
+
 ## Install the dependencies
 
 Hub needs to be compiled from source using the dependencies.
@@ -22,49 +24,49 @@ Hub needs to be compiled from source using the dependencies.
 1. Make sure that the local apt repository is up to date and contains the multiverse repository
 
 	```bash
-	$ sudo apt update
+	sudo apt update
 	```
 
 2. Install a compiler, such as GCC, Clang, or a toolchain from [@iota_toolchains](https://github.com/iotaledger/toolchains)
 
 	```bash
-	$ sudo apt install gcc-7
+	sudo apt install gcc-7
 	```
 
 3. Install the dependencies for the Bazel binary installer
 
 	```bash
-	$ sudo apt install pkg-config zip g++ zlib1g-dev unzip python
+	sudo apt install pkg-config zip g++ zlib1g-dev unzip python
 	```
 
 4. Download the binary installer for the [latest version of Bazel](https://github.com/bazelbuild/bazel/releases)
 
 	```bash
-	$ wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
+	wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
 	```
 
 5. Make sure that you can execute the installer script
 
 	```bash
-	$ chmod +x bazel-0.18.0-installer-linux-x86_64.sh
+	chmod +x bazel-0.18.0-installer-linux-x86_64.sh
 	```
 
 6. Install Bazel under your active user using the `--user` flag:
 
 	```bash
-	$ ./bazel-0.18.0-installer-linux-x86_64.sh --user
+	./bazel-0.18.0-installer-linux-x86_64.sh --user
 	```
 
 7. Install the `pyparsing` package for Python
 
 	```bash
-	$ sudo apt install python-pyparsing
+	sudo apt install python-pyparsing
 	```
 
 8. Install Git
 
 	```bash
-	$ sudo apt install git
+	sudo apt install git
 	```
 
 ## Install the database server
@@ -81,21 +83,21 @@ The default repositories for Ubuntu 18.04 LTS don't provide a package that can b
 
 2. Add the MariaDB repository
 	
-```bash
-sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://ftp.utexas.edu/mariadb/repo/10.3/ubuntu bionic main'
-```
+	```bash
+	sudo add-apt-repository 'deb [arch=amd64,arm64,ppc64el] http://ftp.utexas.edu/mariadb/repo/10.3/ubuntu bionic main'
+	```
 
 3. update the package list
 
-```bash
-sudo apt update
-```
+	```bash
+	sudo apt update
+	```
 
 4. Install the MariaDB server
 
-```bash
-sudo apt install mariadb-server
-```
+	```bash
+	sudo apt install mariadb-server
+	```
 
 During the installation, you'll be prompted to enter a root password for MariaDB. Enter a secure password and remember it. You will need it later on.
 

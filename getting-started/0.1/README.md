@@ -9,7 +9,7 @@ This section introduces users to IOTA by giving them a foundation of knowledge t
     - [What is distributed ledger technology?](introduction/what-is-dlt.md)
     - [Introduction/What is a seed?](/introduction/what-is-a-seed.md)
     - [Introduction/What is a transaction?](/introduction/what-is-a-transaction.md)
-    - [Introduction/What is an IRI node?](/introduction/what-is-an-iri-node.md)
+    - [Introduction/What is a node?](/introduction/what-is-a-node.md)
   
 - Tutorials
     - [First steps](/tutorials/first-steps.md)

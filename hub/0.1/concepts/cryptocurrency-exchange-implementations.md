@@ -39,9 +39,9 @@ Exchange creates new Hub user, passing in a userid.
 
 ### Cold wallet topup
 
-Exchange issues withdrawal from hot to cold wallet address that wasn't spent from (`UserWithdraw`)
+Exchange issues withdrawal from hot to cold wallet address that wasn't withdrawn from (`UserWithdraw`)
 
-  **Note:** Hub doesn't check whether a payout address was already spent from! This has to happen on the exchange side.*
+  **Note:** Hub doesn't check whether an address was already withdrawn from! This has to happen on the exchange side.*
 
 ### Hot wallet topup
 

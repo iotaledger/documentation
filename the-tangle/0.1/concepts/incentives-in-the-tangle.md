@@ -6,7 +6,7 @@ It's impossible to check if an IRI node used the tip selection algorithm or even
 
 However, as discussed in the [whitepaper](https://iota.org/IOTA_Whitepaper.pdf), it's necessary that tip transactions are selected at random. 
 
-This randomness is important because if IRI nodes chose to select the best tip transactions (for example, those that approve their own transactions), only a few lucky transactions will ever be confirmed. We discuss this theory in the paper [Equilibria in the tangle](https://arxiv.org/abs/1712.05385).
+This randomness is important because if IRI nodes chose to select the best tip transactions (for example, those that approve their own transactions), only a few lucky transactions would ever be confirmed. We discuss this theory in the paper [Equilibria in the tangle](https://arxiv.org/abs/1712.05385).
 
 ![IRI nodes select the best tip transactions](https://cdn-images-1.medium.com/max/1600/1*Qs_KFwcXxXKuoERjfJ5xsw.jpeg)
 

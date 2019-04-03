@@ -6,7 +6,7 @@
 
 [Sense HAT version 1.0](https://thepihut.com/products/raspberry-pi-sense-hat-astro-pi)
 
-![Photo of Raspberry Pi 3 B computer that looks like a ~4x3 circuit board](../Raspberry Pi.png)
+![Photo of Raspberry Pi 3 B computer that looks like a ~4x3 circuit board](../RasPi.png)
 
 ## Prerequisites
 

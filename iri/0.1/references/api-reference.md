@@ -33,7 +33,13 @@ Add a list of temporary neighbors to an IRI node.
 import urllib2
 import json
 
-command = {"command": "addNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}
+command = {
+  "command": "addNeighbors",
+  "uris": [
+    "udp://8.8.8.8:14265",
+    "udp://8.8.8.8:14265"
+  ]
+}
 
 stringified = json.dumps(command)
 
@@ -54,7 +60,13 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "addNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}
+var command = {
+  "command": "addNeighbors",
+  "uris": [
+    "udp://8.8.8.8:14265",
+    "udp://8.8.8.8:14265"
+  ]
+}
 
 var options = {
   url: 'http://localhost:14265',
@@ -76,11 +88,17 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{"command": "addNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}'
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+  "command": "addNeighbors",
+  "uris": [
+    "udp://8.8.8.8:14265",
+    "udp://8.8.8.8:14265"
+  ]
+}'
 ```
 --------------------
 
@@ -88,12 +106,17 @@ curl http://localhost:14265
 --------------------
 ### 200
 ```json
-{"addedNeighbors": "802", "duration": "125"}
+{
+  "addedNeighbors": "802",
+  "duration": "125"
+}
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -128,7 +151,14 @@ import json
 
 command = { 
 "command": "attachToTangle", 
-"trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI", "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P", "minWeightMagnitude": "18", "trytes": ["HOHZUBAFSGNYMOOYGPCKANKOR ... FUTOGUCOHUYBSKIAERDFMIGEY", "IOELDJYWAZBKWBTQZYLPTPLIT ... SMUXQPHLBTESISIVOJOLSPSIY"]}
+"trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
+"branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
+"minWeightMagnitude": "18",
+"trytes": [
+  "HOHZUBAFSGNYMOOYGPCKANKOR ...",
+  "IOELDJYWAZBKWBTQZYLPTPLIT ..."
+  ]
+}
 
 stringified = json.dumps(command)
 
@@ -151,7 +181,14 @@ var request = require('request');
 
 var command = { 
 "command": "attachToTangle", 
-"trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI", "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P", "minWeightMagnitude": "18", "trytes": ["HOHZUBAFSGNYMOOYGPCKANKOR ... FUTOGUCOHUYBSKIAERDFMIGEY", "IOELDJYWAZBKWBTQZYLPTPLIT ... SMUXQPHLBTESISIVOJOLSPSIY"]};
+"trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
+"branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
+"minWeightMagnitude": "18",
+"trytes": [
+  "HOHZUBAFSGNYMOOYGPCKANKOR ...",
+  "IOELDJYWAZBKWBTQZYLPTPLIT ..."
+  ]
+};
 
 var options = {
   url: 'http://localhost:14265',
@@ -173,13 +210,20 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{ 
-"command": "attachToTangle", 
-"trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI", "branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P", "minWeightMagnitude": "18", "trytes": ["HOHZUBAFSGNYMOOYGPCKANKOR ... FUTOGUCOHUYBSKIAERDFMIGEY", "IOELDJYWAZBKWBTQZYLPTPLIT ... SMUXQPHLBTESISIVOJOLSPSIY"]}'
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+"command": "attachToTangle",
+"trunkTransaction": "VDJJSJVAIQXAUIZOWYLFXVTKFXHNZOGYFRIKBYWD9ZI9NNKYVOLWRJKCXXF9DOXFEGGFWSRVLHVLVADJI",
+"branchTransaction": "WXQWVSAJVZLEHQTNFRUBEECZDOJGBRCTUBNDEKDFHKPMTVAQILPTQNG9EEPNEB9PLQZWZAZAKSIJBPG9P",
+"minWeightMagnitude": "18",
+"trytes": [
+  "HOHZUBAFSGNYMOOYGPCKANKOR ...",
+  "IOELDJYWAZBKWBTQZYLPTPLIT ..."
+  ]
+}'
 ```
 --------------------
 
@@ -187,12 +231,17 @@ curl http://localhost:14265
 --------------------
 ### 200
 ```json
-{"trytes": ["OQBOQQOUAWPFCRKELBAS9DHKZ ... ONIFELTHTOY9PCNFCMBNDZTGU", "RGQKNQPXHC9QAVSFDPPFBSKTS ... BN9JVY9UFLGYYEKFZWMF9GTFJ"], "duration": 59}
+{
+  "trytes": ["OQBOQQOUAWPFCRKELBAS9DHKZ ...", "RGQKNQPXHC9QAVSFDPPFBSKTS ..."],
+  "duration": 59
+}
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -212,11 +261,11 @@ Broadcast transaction trytes to an IRI node.
 
  ### Parameters
 
-The `trytes2` parameter for this call is returned from the [`attachToTangle`](#attachToTangle) endpoint.
+The `trytes` parameter for this call is returned from the [`attachToTangle`](#attachToTangle) endpoint.
 	
 |Parameters |Required or Optional |Description |Type
 |--|--|--|--|
-| `trytes2` |Required| Valid transaction trytes | string
+| `trytes` |Required| Valid transaction trytes | string
 
 ### Examples
 --------------------
@@ -225,7 +274,10 @@ The `trytes2` parameter for this call is returned from the [`attachToTangle`](#a
 import urllib2
 import json
 
-command = {"command": "broadcastTransactions", "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}
+command = {
+  "command": "broadcastTransactions",
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+}
 
 stringified = json.dumps(command)
 
@@ -246,7 +298,10 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "broadcastTransactions", "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}
+var command = {
+  "command": "broadcastTransactions",
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  }
 
 var options = {
   url: 'http://localhost:14265',
@@ -268,11 +323,14 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{"command": "broadcastTransactions", "trytes2": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}'
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+  "command": "broadcastTransactions",
+  "trytes": ["P9KFSJVGSPLXAEBJSHWFZLGP ..."]
+  }'
 ```
 --------------------
 
@@ -280,12 +338,16 @@ curl http://localhost:14265
 --------------------
 ### 200
 ```json
-{"duration": 567}
+{
+  "duration": 567
+}
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -315,8 +377,13 @@ Check the consistency of transactions. A consistent transaction is one where the
 import urllib2
 import json
 
-command = {"command": "checkConsistency", 
-"tails": ["SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9", "QMMDUXSUOSITO9JVPCJWHIQRVDBPKKZGTSYOKLUNMSM9WIXLLJLFEMKUPEO9MOFDYRDC9GMRRETRGAWJD"]}
+command = {
+  "command": "checkConsistency", 
+  "tails": [
+    "SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9",
+    "QMMDUXSUOSITO9JVPCJWHIQRVDBPKKZGTSYOKLUNMSM9WIXLLJLFEMKUPEO9MOFDYRDC9GMRRETRGAWJD"
+  ]
+}
 
 stringified = json.dumps(command)
 
@@ -337,8 +404,13 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "checkConsistency", 
-"tails": ["SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9", "QMMDUXSUOSITO9JVPCJWHIQRVDBPKKZGTSYOKLUNMSM9WIXLLJLFEMKUPEO9MOFDYRDC9GMRRETRGAWJD"]};
+var command = {
+  "command": "checkConsistency", 
+  "tails": [
+    "SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9", 
+    "QMMDUXSUOSITO9JVPCJWHIQRVDBPKKZGTSYOKLUNMSM9WIXLLJLFEMKUPEO9MOFDYRDC9GMRRETRGAWJD"
+  ]
+};
 
 var options = {
   url: 'http://localhost:14265',
@@ -360,13 +432,17 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{ 
 "command": "checkConsistency", 
-"tails": ["SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9", "QMMDUXSUOSITO9JVPCJWHIQRVDBPKKZGTSYOKLUNMSM9WIXLLJLFEMKUPEO9MOFDYRDC9GMRRETRGAWJD"]}'
+"tails": [
+  "SHHXOGUUYSCCFVMCZYCNBJIMGEEIBEPCCEUXKXF9ROYQNJFFGEHOOHDLNDN9XAWXYBVYYARTPRAFFOJN9", 
+  "QMMDUXSUOSITO9JVPCJWHIQRVDBPKKZGTSYOKLUNMSM9WIXLLJLFEMKUPEO9MOFDYRDC9GMRRETRGAWJD"
+  ]
+}'
 ```
 --------------------
 
@@ -383,7 +459,9 @@ curl http://localhost:14265
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -391,7 +469,7 @@ curl http://localhost:14265
 
 |Return field | Description |
 |--|--|
-| `state` | States of the specified transactions in the same order as the values in the `tails` parameter. A `true` value means that the transaction is consistent. |
+| `state` | State of the given transactions in the `tails` parameter. A `true` value means that all given transactions are consistent. A `false` value means that one or more of the given transactions aren't consistent. |
 | `info` | If the `state` field is false, this field contains information about why the transaction is inconsistent |
 | `duration` | Number of milliseconds it took to complete the request |
 
@@ -418,7 +496,12 @@ Find transactions that contain the given values in their transaction fields.
 import urllib2
 import json
 
-command = {"command": "findTransactions", 'addresses': ['RVORZ9SIIP9RCYMREUIXXVPQIPHVCNPQ9HZWYKFWYWZRE9JQKG9REPKIASHUUECPSQO9JT9XNMVKWYGVA']}
+command = {
+  "command": "findTransactions",
+  "addresses": [
+    "RVORZ9SIIP9RCYMREUIXXVPQIPHVCNPQ9HZWYKFWYWZRE9JQKG9REPKIASHUUECPSQO9JT9XNMVKWYGVA"
+  ]
+}
 
 stringified = json.dumps(command)
 
@@ -439,7 +522,12 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "findTransactions", 'addresses': ['RVORZ9SIIP9RCYMREUIXXVPQIPHVCNPQ9HZWYKFWYWZRE9JQKG9REPKIASHUUECPSQO9JT9XNMVKWYGVA']};
+var command = {
+  "command": "findTransactions",
+  "addresses": [
+    "RVORZ9SIIP9RCYMREUIXXVPQIPHVCNPQ9HZWYKFWYWZRE9JQKG9REPKIASHUUECPSQO9JT9XNMVKWYGVA"
+  ]
+};
 
 
 var options = {
@@ -462,11 +550,16 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{"command": "findTransactions", "addresses": ["RVORZ9SIIP9RCYMREUIXXVPQIPHVCNPQ9HZWYKFWYWZRE9JQKG9REPKIASHUUECPSQO9JT9XNMVKWYGVA"]}'
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+  "command": "findTransactions",
+  "addresses": [
+    "RVORZ9SIIP9RCYMREUIXXVPQIPHVCNPQ9HZWYKFWYWZRE9JQKG9REPKIASHUUECPSQO9JT9XNMVKWYGVA"
+  ]
+}'
 ```
 --------------------
 
@@ -474,12 +567,19 @@ curl http://localhost:14265
 --------------------
 ### 200
 ```json
-{"hashes": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"], "duration": 567}
+{
+  "hashes": [
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
+  ],
+  "duration": 567
+}
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -513,7 +613,13 @@ If the `tips` parameter is missing, the returned balance is correct as of the la
 import urllib2
 import json
 
-command = {"command": "getBalances", "addresses": ["DE9DVSOWIIIKEBAAHCKBWNXGXTOKVLZPLRAGKZG9GXKFRFWERKBFYMPRLAGVZTRVYPEPHBMUPDMRQ9DPZ"],"threshold": 100}
+command = {
+  "command": "getBalances",
+  "addresses": [
+    "DE9DVSOWIIIKEBAAHCKBWNXGXTOKVLZPLRAGKZG9GXKFRFWERKBFYMPRLAGVZTRVYPEPHBMUPDMRQ9DPZ"
+  ],
+  "threshold": 100
+}
 
 stringified = json.dumps(command)
 
@@ -534,7 +640,13 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "getBalances", "addresses": ["DE9DVSOWIIIKEBAAHCKBWNXGXTOKVLZPLRAGKZG9GXKFRFWERKBFYMPRLAGVZTRVYPEPHBMUPDMRQ9DPZ"],"threshold": 100};
+var command = {
+  "command": "getBalances",
+  "addresses": [
+    "DE9DVSOWIIIKEBAAHCKBWNXGXTOKVLZPLRAGKZG9GXKFRFWERKBFYMPRLAGVZTRVYPEPHBMUPDMRQ9DPZ"
+  ],
+  "threshold": 100
+};
 
 var options = {
   url: 'http://localhost:14265',
@@ -556,11 +668,17 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{"command": "getBalances", "addresses": ["DE9DVSOWIIIKEBAAHCKBWNXGXTOKVLZPLRAGKZG9GXKFRFWERKBFYMPRLAGVZTRVYPEPHBMUPDMRQ9DPZ"],"threshold": 100};'
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+  "command": "getBalances",
+  "addresses": [
+    "DE9DVSOWIIIKEBAAHCKBWNXGXTOKVLZPLRAGKZG9GXKFRFWERKBFYMPRLAGVZTRVYPEPHBMUPDMRQ9DPZ"
+  ],
+  "threshold": 100
+}'
 ```
 --------------------
 
@@ -568,12 +686,21 @@ curl http://localhost:14265
 --------------------
 ### 200
 ```json
-{"balances":["197"],"references":["GSBROIMQWTOQTFGJHHJPMCZR9DIRN9CQGUBKTGSOQLZRGKFBJFMRIGNGWZDNWKADGMNR9TMLRMLIUZ999"],"milestoneIndex":1084812,"duration":0}
+{
+  "balances":["197"],
+  "references":[
+    "GSBROIMQWTOQTFGJHHJPMCZR9DIRN9CQGUBKTGSOQLZRGKFBJFMRIGNGWZDNWKADGMNR9TMLRMLIUZ999"
+  ],
+  "milestoneIndex":1084812,
+  "duration":0
+}
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -606,7 +733,17 @@ You can search for multiple tips (and thus, milestones) to get past inclusion st
 import urllib2
 import json
 
-command = {"command": "getInclusionStates", "transactions": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"], "tips": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}
+command = {
+  "command": "getInclusionStates",
+  "transactions": [
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", 
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
+  ],
+  "tips": [
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", 
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
+  ]
+}
 
 stringified = json.dumps(command)
 
@@ -627,7 +764,17 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "getInclusionStates", "transactions": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"], "tips": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}
+var command = {
+  "command": "getInclusionStates",
+  "transactions": [
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", 
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
+  ],
+  "tips": [
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", 
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
+  ]
+}
 
 var options = {
   url: 'http://localhost:14265',
@@ -649,11 +796,21 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{"command": "getInclusionStates", "transactions": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"], "tips": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}'
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+  "command": "getInclusionStates",
+  "transactions": [
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", 
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
+  ],
+  "tips": [
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", 
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
+  ]
+}'
 ```
 --------------------
 
@@ -661,12 +818,17 @@ curl http://localhost:14265
 --------------------
 ### 200
 ```json
-{"states": ["true", "true"],"duration": "726"}
+{
+  "states": ["true", "true"],
+  "duration": "726"
+}
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -731,10 +893,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "getNeighbors"}'
 ```
 --------------------
@@ -743,21 +905,26 @@ curl http://localhost:14265
 --------------------
 ### 200
 ```json
-{"neighbors": [{ 
-"address": "/8.8.8.8:14265", 
-"numberOfAllTransactions": 158, 
-"numberOfRandomTransactionRequests": 271,
-"numberOfNewTransactions": 956,
-"numberOfInvalidTransactions": 539, 
-"numberOfStaleTransactions": 663, 
-"numberOfSentTransactions": 672, 
-"connectiontype": "TCP" 
-}], "duration": 735}
+{
+  "neighbors": [{ 
+    "address": "/8.8.8.8:14265", 
+    "numberOfAllTransactions": 158, 
+    "numberOfRandomTransactionRequests": 271,
+    "numberOfNewTransactions": 956,
+    "numberOfInvalidTransactions": 539, 
+    "numberOfStaleTransactions": 663, 
+    "numberOfSentTransactions": 672, 
+    "connectiontype": "TCP" 
+  }],
+  "duration": 735
+}
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -824,10 +991,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "getNodeInfo"}'
 ```
 --------------------
@@ -836,12 +1003,34 @@ curl http://localhost:14265
 --------------------
 ### 200
 ```json
-{"appName":"IRI Testnet","appVersion":"1.5.6-RELEASE","jreAvailableProcessors":8,"jreFreeMemory":12537798504,"jreVersion":"1.8.0_181","jreMaxMemory":51469877248,"jreTotalMemory":51469877248,"latestMilestone":"LADAAQL9DV9MLVJKSMVVITNGOO9IEYZXURSKGXQJUUHTQEQWQXMSBMCZKCWXYKVOHJJQZUGCSQNCQC999","latestMilestoneIndex":1084938,"latestSolidSubtangleMilestone":"LADAAQL9DV9MLVJKSMVVITNGOO9IEYZXURSKGXQJUUHTQEQWQXMSBMCZKCWXYKVOHJJQZUGCSQNCQC999","latestSolidSubtangleMilestoneIndex":1084938,"milestoneStartIndex":434525,"neighbors":7,"packetsQueueSize":0,"time":1548758921513,"tips":1477,"transactionsToRequest":0,"features":["snapshotPruning","dnsRefresher","testnet","zeroMessageQueue","tipSolidification","RemotePOW"],"coordinatorAddress":"EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM","duration":0}
+{
+  "appName":"IRI Testnet",
+  "appVersion":"1.5.6-RELEASE",
+  "jreAvailableProcessors":8,
+  "jreFreeMemory":12537798504,
+  "jreVersion":"1.8.0_181",
+  "jreMaxMemory":51469877248,
+  "jreTotalMemory":51469877248,"latestMilestone":"LADAAQL9DV9MLVJKSMVVITNGOO9IEYZXURSKGXQJUUHTQEQWQXMSBMCZKCWXYKVOHJJQZUGCSQNCQC999",
+  "latestMilestoneIndex":1084938,
+  "latestSolidSubtangleMilestone":"LADAAQL9DV9MLVJKSMVVITNGOO9IEYZXURSKGXQJUUHTQEQWQXMSBMCZKCWXYKVOHJJQZUGCSQNCQC999",
+  "latestSolidSubtangleMilestoneIndex":1084938,
+  "milestoneStartIndex":434525,
+  "neighbors":7,
+  "packetsQueueSize":0,
+  "time":1548758921513,
+  "tips":1477,
+  "transactionsToRequest":0,
+  "features":["snapshotPruning","dnsRefresher","testnet","zeroMessageQueue","tipSolidification","RemotePOW"],
+  "coordinatorAddress":"EQQFCZBIHRHWPXKMTOLMYUYPCN9XLMJPYZVFJSAY9FQHCCLWTOLLUGKKMXYFDBOOYFBLBI9WUEILGECYM",
+  "duration":0
+}
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -924,10 +1113,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "getTips"}'
 ```
 --------------------
@@ -936,12 +1125,20 @@ curl http://localhost:14265
 --------------------
 ### 200
 ```json
-{"hashes": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"], "duration": 17}
+{
+  "hashes": [
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999", 
+    "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
+  ],
+  "duration": 17
+}
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -961,7 +1158,7 @@ Get two consistent tip transaction hashes to use as branch/trunk transactions.
 |Parameter|Required or Optional| Description |Type|
 |--|--|--|--|
 | `depth` |Required| Number of bundles to go back to determine the transactions for approval. |integer|
-| `references` |Optional| Transaction hashes from which to start the weighted random walk. Use this parameter to make sure the returned tip transaction hashes directly or indirectly reference a given transaction. |array of strings
+| `reference` |Optional| Transaction hash from which to start the weighted random walk. Use this parameter to make sure the returned tip transaction hashes approve a given reference transaction. |string
 
 ### Examples
 --------------------
@@ -970,7 +1167,11 @@ Get two consistent tip transaction hashes to use as branch/trunk transactions.
 import urllib2
 import json
 
-command = {"command": "getTransactionsToApprove", "depth": "15", "references": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}
+command = {
+  "command": "getTransactionsToApprove",
+  "depth": 15,
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
+}
 
 stringified = json.dumps(command)
 
@@ -991,7 +1192,11 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "getTransactionsToApprove", "depth": "15", "references": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}
+var command = {
+  "command": "getTransactionsToApprove",
+  "depth": 15,
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY999"
+}
 
 var options = {
   url: 'http://localhost:14265',
@@ -1013,11 +1218,15 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{"command": "getTransactionsToApprove", "depth": "15", "references": ["P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"]}'
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+  "command": "getTransactionsToApprove",
+  "depth": 15,
+  "reference": "P9KFSJVGSPLXAEBJSHWFZLGP9GGJTIO9YITDEHATDTGAFLPLBZ9FOFWWTKMAZXZHFGQHUOXLXUALY9999"
+}'
 ```
 --------------------
 
@@ -1063,7 +1272,13 @@ Get a transaction's contents in trytes.
 import urllib2
 import json
 
-command = {"command": "getTrytes", "hashes": ["NGDFRIHOOS9J9YBQCDSFJZJKNSAJTNFKSXXEZWPZQSLRTYQDNX9UCGJHU9OZGFATCCQSGSFUZLLET9LID", "MUIYDLYHCAYGYK9IPVQX9GIHIWWCATAJ9BNFPVKZHZOSXAWVHEHHMSVEVTNRJVGCGEMSNI9ATUXFKPZRQ"]}
+command = {
+  "command": "getTrytes",
+  "hashes": [
+    "NGDFRIHOOS9J9YBQCDSFJZJKNSAJTNFKSXXEZWPZQSLRTYQDNX9UCGJHU9OZGFATCCQSGSFUZLLET9LID", 
+    "MUIYDLYHCAYGYK9IPVQX9GIHIWWCATAJ9BNFPVKZHZOSXAWVHEHHMSVEVTNRJVGCGEMSNI9ATUXFKPZRQ"
+  ]
+}
 
 stringified = json.dumps(command)
 
@@ -1084,7 +1299,13 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "getTrytes", "hashes": ["NGDFRIHOOS9J9YBQCDSFJZJKNSAJTNFKSXXEZWPZQSLRTYQDNX9UCGJHU9OZGFATCCQSGSFUZLLET9LID", "MUIYDLYHCAYGYK9IPVQX9GIHIWWCATAJ9BNFPVKZHZOSXAWVHEHHMSVEVTNRJVGCGEMSNI9ATUXFKPZRQ"]}
+var command = {
+  "command": "getTrytes",
+  "hashes": [
+    "NGDFRIHOOS9J9YBQCDSFJZJKNSAJTNFKSXXEZWPZQSLRTYQDNX9UCGJHU9OZGFATCCQSGSFUZLLET9LID", 
+    "MUIYDLYHCAYGYK9IPVQX9GIHIWWCATAJ9BNFPVKZHZOSXAWVHEHHMSVEVTNRJVGCGEMSNI9ATUXFKPZRQ"
+  ]
+}
 
 var options = {
   url: 'http://localhost:14265',
@@ -1106,13 +1327,17 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{ 
-"command": "getTrytes", 
-"hashes": ["NGDFRIHOOS9J9YBQCDSFJZJKNSAJTNFKSXXEZWPZQSLRTYQDNX9UCGJHU9OZGFATCCQSGSFUZLLET9LID", "MUIYDLYHCAYGYK9IPVQX9GIHIWWCATAJ9BNFPVKZHZOSXAWVHEHHMSVEVTNRJVGCGEMSNI9ATUXFKPZRQ"]}'
+"command": "getTrytes",
+"hashes": [
+  "NGDFRIHOOS9J9YBQCDSFJZJKNSAJTNFKSXXEZWPZQSLRTYQDNX9UCGJHU9OZGFATCCQSGSFUZLLET9LID", 
+  "MUIYDLYHCAYGYK9IPVQX9GIHIWWCATAJ9BNFPVKZHZOSXAWVHEHHMSVEVTNRJVGCGEMSNI9ATUXFKPZRQ"
+  ]
+}'
 ```
 --------------------
 
@@ -1121,14 +1346,16 @@ curl http://localhost:14265
 ### 200
 ```json
 {
-"trytes": ["JJSLJFJD9HMHHMKAJNRODFHUN ... KAKNYLPTXNNB99ITPEVQALVJL", "GOKINESKRDOQYSBMDZURJUJ9M ... QAJIDBNKTUNZ9EZVDJTLPWSQG"],
+"trytes": ["JJSLJFJD9HMHHMKAJNRODFHUN ..."],
 "duration":982
 }
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -1195,10 +1422,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "interruptAttachingToTangle"}'
 ```
 --------------------
@@ -1214,7 +1441,9 @@ curl http://localhost:14265
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -1288,10 +1517,10 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{"command": "removeNeighbors", "uris": ["udp://8.8.8.8:14265", "udp://8.8.8.8:14265"]}'
 ```
 --------------------
@@ -1338,7 +1567,10 @@ The value of the `trytes` parameter must be valid. Valid trytes are returned by 
 import urllib2
 import json
 
-command = {"command": "storeTransactions", "trytes": ["RKDQGFBD9W9VKDEJDEXUNJBAG ... EWYCHEPCOSP9RPKLBERYVDZAM", "VBOMOUQIAIGKEJWJKDXZTWVEC ... DROZAYSJLDWLMHTXEOHYV9ML9"]}
+command = {
+  "command": "storeTransactions",
+  "trytes": ["RKDQGFBD9W9VKDEJDEXUNJBAG ..."]
+}
 
 stringified = json.dumps(command)
 
@@ -1359,7 +1591,10 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "storeTransactions", "trytes": ["RKDQGFBD9W9VKDEJDEXUNJBAG ... EWYCHEPCOSP9RPKLBERYVDZAM", "VBOMOUQIAIGKEJWJKDXZTWVEC ... DROZAYSJLDWLMHTXEOHYV9ML9"]}
+var command = {
+  "command": "storeTransactions",
+  "trytes": ["RKDQGFBD9W9VKDEJDEXUNJBAG ..."]
+}
 
 var options = {
   url: 'http://localhost:14265',
@@ -1381,13 +1616,14 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
 -d '{ 
-"command": "storeTransactions", 
-"trytes": ["RKDQGFBD9W9VKDEJDEXUNJBAG ... EWYCHEPCOSP9RPKLBERYVDZAM", "VBOMOUQIAIGKEJWJKDXZTWVEC ... DROZAYSJLDWLMHTXEOHYV9ML9"]}'
+  "command": "storeTransactions",
+  "trytes": ["RKDQGFBD9W9VKDEJDEXUNJBAG ..."]
+}'
 ```
 --------------------
 
@@ -1396,14 +1632,16 @@ curl http://localhost:14265
 ### 200
 ```json
 {
-"trytes": ["JJSLJFJD9HMHHMKAJNRODFHUN ... KAKNYLPTXNNB99ITPEVQALVJL", "GOKINESKRDOQYSBMDZURJUJ9M ... QAJIDBNKTUNZ9EZVDJTLPWSQG"],
+"trytes": ["JJSLJFJD9HMHHMKAJNRODFHUN ..."],
 "duration":982
 }
 ```
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 
@@ -1415,9 +1653,9 @@ curl http://localhost:14265
 
 ## wereAddressesSpentFrom
 
-Check if an address was ever spent from, either in the current epoch or in any previous epochs.
+Check if an address was ever withdrawn from, either in the current epoch or in any previous epochs.
 
-If an address has a pending transaction, it's also considered spent.
+If an address has a pending transaction, it's also considered 'spent'.
 
 ### Parameters
 
@@ -1432,8 +1670,13 @@ If an address has a pending transaction, it's also considered spent.
 import urllib2
 import json
 
-command = {"command": "wereAddressesSpentFrom", 
-"addresses": ["BKDEARVZVOWC9LZKTAB9AUSJSHCGVDQQGJUVNWHV9XNICMDFHEZOVLYRJYMHXKZZXSNRZRPYFSUFAFIP9", "JKPNBVXIFLISXOXLSGHFCYIY9WJHHMORXAOWUXTLGCCHCCKEBHVBWSEEMBIYXMIEZ9FCRHFOHJRANSGB9"]}
+command = {
+  "command": "wereAddressesSpentFrom",
+  "addresses": [
+    "BKDEARVZVOWC9LZKTAB9AUSJSHCGVDQQGJUVNWHV9XNICMDFHEZOVLYRJYMHXKZZXSNRZRPYFSUFAFIP9", 
+    "JKPNBVXIFLISXOXLSGHFCYIY9WJHHMORXAOWUXTLGCCHCCKEBHVBWSEEMBIYXMIEZ9FCRHFOHJRANSGB9"
+  ]
+}
 
 stringified = json.dumps(command)
 
@@ -1454,8 +1697,13 @@ print jsonData
 ```js
 var request = require('request');
 
-var command = {"command": "wereAddressesSpentFrom", 
-"addresses": ["BKDEARVZVOWC9LZKTAB9AUSJSHCGVDQQGJUVNWHV9XNICMDFHEZOVLYRJYMHXKZZXSNRZRPYFSUFAFIP9", "JKPNBVXIFLISXOXLSGHFCYIY9WJHHMORXAOWUXTLGCCHCCKEBHVBWSEEMBIYXMIEZ9FCRHFOHJRANSGB9"]};
+var command = {
+  "command": "wereAddressesSpentFrom",
+  "addresses": [
+    "BKDEARVZVOWC9LZKTAB9AUSJSHCGVDQQGJUVNWHV9XNICMDFHEZOVLYRJYMHXKZZXSNRZRPYFSUFAFIP9",
+    "JKPNBVXIFLISXOXLSGHFCYIY9WJHHMORXAOWUXTLGCCHCCKEBHVBWSEEMBIYXMIEZ9FCRHFOHJRANSGB9"
+  ]
+};
 
 var options = {
   url: 'http://localhost:14265',
@@ -1477,13 +1725,17 @@ request(options, function (error, response, data) {
 ---
 ### Curl
 ```bash
-curl http://localhost:14265 
--X POST 
--H 'Content-Type: application/json' 
--H 'X-IOTA-API-Version: 1' 
--d '{ 
-"command": "wereAddressesSpentFrom", 
-"addresses": ["BKDEARVZVOWC9LZKTAB9AUSJSHCGVDQQGJUVNWHV9XNICMDFHEZOVLYRJYMHXKZZXSNRZRPYFSUFAFIP9", "JKPNBVXIFLISXOXLSGHFCYIY9WJHHMORXAOWUXTLGCCHCCKEBHVBWSEEMBIYXMIEZ9FCRHFOHJRANSGB9"]}'
+curl http://localhost:14265 \
+-X POST \
+-H 'Content-Type: application/json' \
+-H 'X-IOTA-API-Version: 1' \
+-d '{
+  "command": "wereAddressesSpentFrom",
+  "addresses": [
+    "BKDEARVZVOWC9LZKTAB9AUSJSHCGVDQQGJUVNWHV9XNICMDFHEZOVLYRJYMHXKZZXSNRZRPYFSUFAFIP9", 
+    "JKPNBVXIFLISXOXLSGHFCYIY9WJHHMORXAOWUXTLGCCHCCKEBHVBWSEEMBIYXMIEZ9FCRHFOHJRANSGB9"
+  ]
+}'
 ```
 --------------------
 
@@ -1499,7 +1751,9 @@ curl http://localhost:14265
 ---
 ### 400
 ```json
-{"error": "'command' parameter has not been specified"}
+{
+  "error": "'command' parameter has not been specified"
+}
 ```
 --------------------
 

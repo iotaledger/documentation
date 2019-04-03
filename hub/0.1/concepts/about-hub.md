@@ -14,9 +14,9 @@ Deposit addresses are generated using a user's seed. Hub keeps track of the addr
  
 ## Deposit address management
 
-IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, addresses can be spent from only once because each signature exposes some of the private key.
+IOTA uses the Winternitz one-time signature scheme to create signatures. As a result, addresses can be withdrawn from only once because each signature exposes some of the private key.
 
-To prevent address reuse, Hub ensures that each user is assigned a unique address for every deposit. To do so, Hub tracks whether address indices were already spent from and increments the index to generate a new deposit address.
+To prevent address reuse, Hub ensures that each user is assigned a unique address for every deposit. To do so, Hub tracks whether address indices were already withdrawn from and increments the index to generate a new deposit address.
 
 ## Transaction monitoring
  

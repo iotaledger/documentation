@@ -1,0 +1,88 @@
+{
+    "footerDocsSectionTitle": "Developer Docs",
+    "footerSections": [
+        {
+            "heading": "The Foundation",
+            "links": [
+                {
+                    "link": "https://www.iota.org/the-foundation/our-vision",
+                    "name": "Our Vision"
+                },
+                {
+                    "link": "https://www.iota.org/the-foundation/the-iota-foundation",
+                    "name": "The IOTA Foundation"
+                },
+                {
+                    "link": "https://www.iota.org/the-foundation/team",
+                    "name": "Meet the Team"
+                },
+                {
+                    "link": "https://www.iota.org/the-foundation/work-at-the-iota-foundation",
+                    "name": "Work at the IOTA Foundation"
+                }
+            ]
+        },
+        {
+            "heading": "Verticals",
+            "links": [
+                {
+                    "link": "https://www.iota.org/verticals/mobility-automotive",
+                    "name": "Mobility and Automotive"
+                },
+                {
+                    "link": "https://www.iota.org/verticals/global-trade-supply-chains",
+                    "name": "Global Trade & Supply Chains"
+                },
+                {
+                    "link": "https://www.iota.org/verticals/industrial-iot",
+                    "name": "Industrial IoT"
+                },
+                {
+                    "link": "https://www.iota.org/verticals/ehealth",
+                    "name": "eHealth"
+                },
+                {
+                    "link": "https://www.iota.org/verticals/smart-energy",
+                    "name": "Smart Energy"
+                }
+            ]
+        },
+        {
+            "heading": "Research",
+            "links": [
+                {
+                    "link": "https://www.iota.org/research/meet-the-tangle",
+                    "name": "Meet the Tangle"
+                },
+                {
+                    "link": "https://www.iota.org/research/academic-papers",
+                    "name": "Academic Papers"
+                },
+                {
+                    "link": "https://www.iota.org/research/roadmap",
+                    "name": "Research & Development Roadmap"
+                }
+            ]
+        }
+    ],
+    "footerStaticContent": {
+        "address": [
+            "IOTA Foundation",
+            "c/o Nextland",
+            "Strassburgerstraße 55",
+            "10405 Berlin",
+            "Germany"
+        ],
+        "legal": [
+            "&copy; 2018 IOTA Foundation - <a link='https://www.iota.org/research/privacy-policy'>Privacy Policy</a>",
+            "Email: <a link='mailto:contact@iota.org'>contact@iota.org</a>",
+            "Board of Directors: Dominik Schiener, David Sønstebø, Ralf Rottmann, Serguei Popov &amp; Sergey Ivancheglo",
+            "ID/Company No.: 3416/1234/2",
+            "EU public ID number in the EU Transparency Register: 500027331119-04"
+        ],
+        "copyright": [
+            "<a link='https://www.iota.org/research/privacy-policy'>Privacy Policy</a>",
+            "&copy; 2018 IOTA Foundation"
+        ]
+    }
+}

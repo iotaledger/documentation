@@ -27,22 +27,22 @@ You can subscribe to the `sn` event on the ZMQ of the IRI to listen for recently
 
 To use the code samples in this guide, your computer must have the following:
 
-* Node JS (8+)
-* A code editor
-* Access to a terminal
+* [Node JS (8+)](https://nodejs.org/en/)
+* A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
+* Access to a command prompt
 * An Internet connection
 
 1. Create a working directory called zmq-example
 
     ```bash
-    $ mkdir zmq-example
-    $ cd zmq-example
+    mkdir zmq-example
+    cd zmq-example
     ```
 
 2. In the zmq-example directory, install the zeromq library
 
     ```bash
-    $ npm install zeromq --save
+    npm install zeromq --save
     ```
 
 3. Create a file called index.js in the zmq-example directory

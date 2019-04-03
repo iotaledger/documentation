@@ -1,0 +1,56 @@
+{
+    "headerTitle": "Developer Documentation",
+    "headerTopLinks": [
+        {
+            "href": "https://iota.org",
+            "name": "iota.org"
+        },
+        {
+            "href": "https://blog.iota.org/",
+            "name": "news"
+        },
+        {
+            "href": "https://trinity.iota.org/",
+            "name": "wallet"
+        },
+        {
+            "href": "https://qubic.iota.org/",
+            "name": "qubic"
+        },
+        {
+            "href": "https://ecosystem.iota.org/",
+            "name": "ecosystem"
+        }
+    ],
+    "popularTopics": [
+        {
+            "query": "iri",
+            "name": "IRI"
+        },
+        {
+            "query": "hub",
+            "name": "Hub"
+        },
+        {
+            "query": "trinity",
+            "name": "Trinity"
+        }
+    ],
+    "cards": [
+        {
+            "href": "/docs/getting-started/0.1/introduction/what-is-iota",
+            "image": "1.png",
+            "name": "What is IOTA?"
+        },
+        {
+            "href": "/docs/getting-started/0.1/introduction/what-is-dlt",
+            "image": "2.png",
+            "name": "What is DLT?"
+        },
+        {
+            "href": "/docs/client-libraries/0.1/introduction/overview",
+            "image": "3.png",
+            "name": "Start Building"
+        }
+    ]
+}

@@ -16,14 +16,42 @@ More information about the structure of the files and folders in this repository
 
 The documentation content is created using Markdown, we also have some additional features which are documented here [MARKDOWN](./docs/MARKDOWN.md).
 
-## Validating Content
+## Validate Content
 
 If you make changes to this repository you should run the validation script before commiting any content.
 
-To validate the content of the repo first make sure you have installed the dependencies with `npm install`, then run the following script:
+To validate the content of the repo, first make sure you have installed the dependencies with `npm install`, then run the following script:
 
 ```shell
 node buildProjects
 ```
 
-This will output any errors to the console and create `projects-summary.log`, which shows the structure of the content and also highlights the errors.
+This script will do the following:
+
+- Print errors to the console
+- Create a `projects-summary.log` file, which shows the structure of the content and also highlights the errors
+- Create a spelling-summary.md file, which contains any possible spelling mistakes and suggestions
+
+The spell checker uses [Hunspell](https://en.wikipedia.org/wiki/Hunspell
+) behind the scenes.
+
+To enhance the spell checker, you can add words to the dictionary.json file, which supports regular expressions. For example:
+
+```json
+{
+    "global": [
+        "(P|p)ermission(less|ed)"
+    ],
+    "smartcity": [
+        "AstroPi"
+    ]
+}
+```
+
+If you want to validate just a single project you can run the script with a command line option of the specific folder name.
+
+e.g.
+
+```shell
+node buildProjects getting-started
+```

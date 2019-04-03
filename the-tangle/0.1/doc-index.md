@@ -6,7 +6,7 @@
 
 [Concepts/Tip selection](/concepts/tip-selection.md)
 
-[Concepts/Incentives-in-the-Tangle](/concepts/incentives-in-the-tangle.md)
+[Concepts/Incentives in the Tangle](/concepts/incentives-in-the-tangle.md)
 
 [Concepts/Proof of work](/concepts/proof-of-work.md)
 

@@ -14,6 +14,7 @@ This section contains information about how IOTA node software works. IOTA node 
     - [Prune transactions from the ledger](/how-to-guides/prune-transactions-from-the-ledger.md)
     - [Interact with an IRI node](how-to-guides/interact-with-an-iri-node.md)
     - [Subscribe to events in an IRI node](how-to-guides/subscribe-to-events-in-an-iri-node.md)
+    - [Process big data transaction stream in near real-time](how-to-guides/flink-tangle-stream-processing.md)
   
 - Concepts
     - [The ledger](concepts/the-ledger.md)

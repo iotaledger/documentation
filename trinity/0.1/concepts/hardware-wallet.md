@@ -20,7 +20,7 @@ If you ever lose a hardware wallet, you can still access your funds by entering 
 
 When you send a value transaction, it must contain a valid signature that was created using the correct private key.
 
-Transactions are signed on the device. Private keys never leave a hardware wallet, so it's impossible for an attacker to steal your funds without it.
+Bundles are signed on the device. Private keys never leave a hardware wallet, so it's impossible for an attacker to steal your funds without it.
 
 ## Supported hardware wallets
 
@@ -31,7 +31,7 @@ Although many hardware wallets exist, Trinity supports only the [Ledger Nano S](
 
 ## Limitations
 
-If you use a Ledger Nano S with Trinity, you can't spend from more than two addresses in the same transaction.
+If you use a Ledger Nano S with Trinity, you can't withdraw from more than two addresses in the same transaction.
 
 To check the balances of your addresses, go to **Account management** > **View addresses**.
 
@@ -41,6 +41,6 @@ Address 0: 200 Mi
 Address 1: 400 Mi
 Address 3: 50 Mi
 
-You try to send 650 Mi from Trinity, using a Ledger Nano S. This transaction would require a bundle that spends from three addresses, so it won't be valid and won't send.
+You try to send 650 Mi from Trinity, using a Ledger Nano S. This transaction would require a bundle that withdraws from three addresses, so it won't be valid and won't send.
 
 

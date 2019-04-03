@@ -81,3 +81,77 @@ The names of available emojis can be found here [https://github.com/muan/emojili
 The above markup will produce the following output:
 
 ![Emojis](./emojis.png)
+
+### Maps
+
+A map can be embedded in your content by surrounding it with `¬¬¬` fencing. You can then specify the type as `[map]` and provide the JSON configuration for the object as follows:
+
+```markup
+¬¬¬
+[map]
+{
+    "zoom":14,
+    "center": {
+        "lat": 52.5294498,
+        "lng": 13.412903
+    },
+    "markers": [
+        {
+            "name": "IOTA Foundation",
+            "lat": 52.5294498,
+            "lng": 13.412903
+        }
+    ]
+}
+¬¬¬
+```
+
+Would display:
+
+![Google Maps for IOTA](./maps.png)
+
+### Data Feeds
+
+A feed can be embedded in your content by surrounding it with `¬¬¬` fencing. You can then specify the type as `[feed]` and provide the JSON configuration for the object as follows:
+
+```markup
+¬¬¬
+[feed]
+{
+    "displayType": "event",
+    "context": "training"
+}
+¬¬¬
+```
+
+The `displayType` field specifies how the content will be rendered on the page and the `context` is used to determine where the data is retrieved from using the documentation api e.g. `https://docs-api.iota.org/feed/training`. The feeds list supports paging and will show it when necessary. The table of contents for the page is dynamically generated from any h2 headers in the rendered items.
+
+Would display:
+
+![Event Feed](./feed.png)
+
+### Message Boxes
+
+If you would like to display a message box in your content there are 4 variants available success, danger, warning and info. Each message box can optionally contain a title and content.
+
+A message box is fenced using `:::`, this should then be followed by the type and then another `:`, any following content on the same line will be a title. The remaining text until the end fence `:::` will be the content.
+
+```markup
+:::success:A Success
+This is the content,
+on multiple lines :tada:
+:::
+
+:::warning:Just A Warning Title:::
+
+:::info:
+Some multiline content only.
+This is line 2.
+:::
+
+:::danger:Danger Danger
+Will Robinson :bomb:
+:::
+```
+
+![Message Boxes](./message-boxes.png)

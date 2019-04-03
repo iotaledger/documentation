@@ -1,11 +1,11 @@
 # Trinity overview
 
-**Trinity is a mobile and desktop application with a user interface that allows you to transfer data and IOTA tokens on the IOTA Mainnet network.**
+**Trinity is a mobile and desktop application with a user interface that allows you to transfer data and IOTA tokens on the IOTA Mainnet.**
 
 Trinity allows you to do the following:
 * Create a password-protected account to store and access your seeds
 * Read your balance and transaction history
-* Send and receive transactions on the [IOTA Mainnet network](root://getting-started/0.1/references/iota-networks.md)
+* Send and receive transactions on the [IOTA Mainnet](root://getting-started/0.1/references/iota-networks.md)
 
 ![Trinity home](../trinity.png) 
 

@@ -6,7 +6,7 @@ Python 3 comes pre-installed on Raspberry Pi.
 
 1. In your home folder, create a new file called SenseIP.py
          ```bash
-        $ sudo nano senseIP.py
+        sudo nano senseIP.py
         ```
 
 2. Add the following code to the file:
@@ -35,13 +35,13 @@ Python 3 comes pre-installed on Raspberry Pi.
 3. Save the file and create a new shell script
 
     ```bash
-    $ sudo nano senseBoot.sh
+    sudo nano senseBoot.sh
     ```
 
 4. Run the senseIP.py script
 
     ```bash
-    $ python3 senseIP.py
+    python3 senseIP.py
     ```
 
     ![Screen capture of shell script described in text](../RasSenseIP.png)
@@ -49,7 +49,7 @@ Python 3 comes pre-installed on Raspberry Pi.
 5. Save the shell script and schedule a cron job to run it when Raspberry Pi reboots
 
     ```bash
-    $ crontab -e
+    crontab -e
     ```
 
 6. Add the following command at the bottom of the /tmp/crontab.0QNkTW/crontab file:  
@@ -67,7 +67,7 @@ Python 3 comes pre-installed on Raspberry Pi.
 To shutdown the Raspberry Pi, do the following:
 
 ```bash
-$ sudo shutdown now
+sudo shutdown now
 ```
 
 

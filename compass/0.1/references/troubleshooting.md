@@ -8,7 +8,7 @@ You may see this error when you run any command that includes `bazel run //docke
 
 1. Add your current user to the docker group. Change the `$USER` variable to your username.
     ```bash
-    $ sudo usermod -a -G docker $USER
+    sudo usermod -a -G docker $USER
     ```
 
 2. Reboot your Linux server and try again

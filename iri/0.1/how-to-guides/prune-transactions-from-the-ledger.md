@@ -16,6 +16,7 @@ You must stop the IRI before making changes to the configuration options.
 ---
 
 1. Make sure that the `LOCAL_SNAPSHOTS_ENABLED` and the `LOCAL_SNAPSHOTS_PRUNING_ENABLED` configuration options are set to `true`
+
 2. Change the value of the `LOCAL_SNAPSHOTS_PRUNING_DELAY` and the `LOCAL_SNAPSHOTS_DEPTH` configuration options
 
 Milestones are sent approximately every minute. Therefore, use the following formula to calculate the number of days that transactions will remain in the ledger:

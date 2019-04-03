@@ -47,20 +47,20 @@ Raspbian Jessie comes with NodeRed, which must be removed.
 
 1. Remove NodeRed and legacy nodejs modules
 
-```bash
-$ sudo apt-get remove nodered -y
-$ sudo apt-get remove nodejs nodejs-legacy -y
-```
+    ```bash
+    sudo apt-get remove nodered -y
+    sudo apt-get remove nodejs nodejs-legacy -y
+    ```
 
 2. Reboot the Raspberry Pi
 
 3. Install Node JS 8
 
     ```bash
-    $ curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
-    $ sudo apt-get install nodejs -y
-    $ node -v
-    $ npm -v
+    curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+    sudo apt-get install nodejs -y
+    node -v
+    npm -v
     ```
 
 ## Install the IOTA JavaScript Library
@@ -68,9 +68,9 @@ $ sudo apt-get remove nodejs nodejs-legacy -y
 1. Download and install the IOTA JavaScript library
 
     ```bash
-    $ git clone https://github.com/iotaledger/iota.lib.js
-    $ cd iota.lib.js
-    $ sudo npm install iota.lib.js
+    git clone https://github.com/iotaledger/iota.lib.js
+    cd iota.lib.js
+    sudo npm install iota.lib.js
     ```
 
 2. Check your installation by retrieving Node information from the IOTA Developer's Tangle.  Open a text file and copy this script:
@@ -103,7 +103,7 @@ $ sudo apt-get remove nodejs nodejs-legacy -y
 3. Save the file in the iota.lib.js folder as `getNode.js` then run it
 
     ```bash
-    $ node getNode.js
+    node getNode.js
     ```
 
 You should see statistics about the node, including `appName`, `appVersion`, `latestMilestone`, `neighbors`, `tips`, and more
@@ -112,11 +112,11 @@ You should see statistics about the node, including `appName`, `appVersion`, `la
 
 1. Install Sense Hat in the AstroPiOTA package. Sense HAT requires that Python drivers be installed manually:
 
-```bash
-$ sudo apt-get update
-$ sudo apt-get install sense-hat
-$ sudo pip-3.2 install pillow
-```
+    ```bash
+    sudo apt-get update
+    sudo apt-get install sense-hat
+    sudo pip-3.2 install pillow
+    ```
 
 **Note:** See the [Driver documentation](https://pythonhosted.org/sense-hat/) for more information
 
@@ -134,7 +134,7 @@ The message "Hello Sense Hat" will scroll across the Sense Hat led panel.
 3. Now, install node-sense-hat in your user folder
 
     ```bash
-    $ sudo npm install --unsafe-perm --verbose node-sense-hat
+    sudo npm install --unsafe-perm --verbose node-sense-hat
     ```
 
 For more information see the following resources:
@@ -149,8 +149,8 @@ For more information see the following resources:
 Download and install AstroPiOTA
 
 ```bash
-$ git clone https://github.com/NelsonPython/AstroPiOTA.git
-$ sudo npm install
+git clone https://github.com/NelsonPython/AstroPiOTA.git
+sudo npm install
 ```
 
 ## Run AstroPiOTA
@@ -158,10 +158,10 @@ $ sudo npm install
 1. Open a terminal window and execute the sender.js script
 
     ```bash
-    $ npm run sender
+    npm run sender
     ```
 
-    You will see a command on the console output similar to this:
+    You should see a command in the output:
 
     ```
     npm run receiver ADDRESSXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
