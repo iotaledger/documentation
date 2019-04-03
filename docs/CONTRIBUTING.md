@@ -41,7 +41,7 @@ These general rules make information easier to understand and translate.
 |If it's possible to remove a word, always remove it | 'This method is ~~exactly~~ the same as the previous one'
 | Always use the active voice where possible | '~~The active voice must always be used where possible~~.' 'You must always use the active voice where possible'
 | Never use a foreign phrase, a scientific word or a jargon word if you can think of an everyday English equivalent | ~~E.g~~ For example |
-| Place the one-word modifiers 'only' and 'not' immediately in front of whatever they're modifying| 'For security reasons, IOTA addresses should ~~only~~ be spent from **only** once'|
+| Place the one-word modifiers 'only' and 'not' immediately in front of whatever they're modifying| 'For security reasons, IOTA addresses should ~~only~~ be withdrawn from **only** once'|
 |Don't use (s) to form plural nouns| 'Select the ~~item(s)~~ **items** that you want to remove'|
 
 Research shows that the above holds true even for very technical audience. See the [GOV.UK style guide](https://www.gov.uk/guidance/content-design/writing-for-gov-uk) for examples.
