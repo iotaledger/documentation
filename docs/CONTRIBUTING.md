@@ -21,6 +21,8 @@ If you are creating or editing an article, please follow our writing guide to he
 * Make our documentation straightforward to read for non-native English readers
 * Make sure that our documentation educates our readers
 
+If you have a question about writing that we don't cover in this guide, use the [Google style guide](https://developers.google.com/style/).
+
 ### File format
 
 We use markdown for documentation files. Please refer to these [tips](https://help.github.com/articles/basic-writing-and-formatting-syntax/) if you haven't used markdown before.
