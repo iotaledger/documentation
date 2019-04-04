@@ -65,13 +65,13 @@ The combination of fields that you use to create a CDA determines if it can be u
 
 ## Distribute a CDA
 
-Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, where the `t` parameter is the `timeout_at` field, the `m` parameter is the `multi_use` field and the `am` parameter is the `expected_amount` field.
+Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with a `timeout_at`, `multi_use` and the `expected_amount` parameters.
 
 1. To serialize the CDA into a magent link, use the `AsMagnetLink()` method of the CDA object
 
     ```go
     fmt.Println(cda.AsMagnetLink())
-    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?t=1548337187&m=true&am=0
+    // iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=0
     ```
 
 2. To parse the magnet link into a CDA, use the `ParseMagnetLink()` method of the `deposit` object

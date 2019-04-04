@@ -32,12 +32,12 @@ The combination of fields that you use to create a CDA determines if it can be u
 |`timeout_at` and `expected_amount`| The CDA can be used in withdrawals as soon as it contain the expected amount|
 |`timeout_at`, `multi_use`, and `expected_amount` (recommended) |The CDA can be used in withdrawals as soon as it contains the expected amount (or more) of IOTA tokens |
 
-**Important:** If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. Therefore, to avoid address reuse, we recommend creating CDAs with the `multi use` field, even if only one deposit is expected to arrive at an address.
+**Important:** If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. Therefore, to avoid address reuse, we recommend creating CDAs with the `multi_use` field, even if only one deposit is expected to arrive at an address.
 
 ## Distribute a CDA
 
-Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, which can be defined as the following, where the `t` parameter is the `timeout_at` field, the `m` parameter is the `multi_use` field and the `am` parameter is the `expected_amount` field:
+Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with a `timeout_at`, `multi_use` and the `expected_amount` parameters.
 
-```
-iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?t=1548337187&m=true&am=0
+```json
+iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=0
 ```
