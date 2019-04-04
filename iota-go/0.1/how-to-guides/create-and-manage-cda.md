@@ -24,7 +24,7 @@ To create a CDA, you specify the following conditions to determine whether it's 
 * **address (required):** An address
 * **timeout_at (required):** The time at which the address expires
 **multi_use (optional):** A boolean that specifies if the address may be sent more than one deposit
-**expected_amount (optional):** The amount of IOTA tokens that the address is expected to contain. When this amount is reached, the address is considered expired.
+**expected_amount (recommended):** The amount of IOTA tokens that the address is expected to contain. When this amount is reached, the address is considered expired. We highly recommend using this condition.
 
 The combination of fields that you use to create a CDA determines if it can be used in withdrawals.
 
