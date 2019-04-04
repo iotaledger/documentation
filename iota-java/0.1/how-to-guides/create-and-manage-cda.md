@@ -36,7 +36,7 @@ The combination of fields that you use to create a CDA determines if it can be u
 
 ## Distribute a CDA
 
-Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with a `timeout_at`, `multi_use` and the `expected_amount` parameters.
+Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with the `timeout_at`, `multi_use`, and `expected_amount` parameters.
 
 ```json
 iota://MBREWACWIPRFJRDYYHAAME…AMOIDZCYKW/?timeout_at=1548337187&multi_use=true&expected_amount=0

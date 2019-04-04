@@ -35,7 +35,7 @@ The combination of fields that you use to create a CDA determines if it can be u
 |`timeout_at` and `expected_amount`| The CDA can be used in withdrawals as soon as it contain the expected amount|
 |`timeout_at`, `multi_use`, and `expected_amount` (recommended) |The CDA can be used in withdrawals as soon as it contains the expected amount (or more) of IOTA tokens |
 
-**Important:** If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. Therefore, to avoid address reuse, we recommend creating CDAs with the `multi use` field, even if only one deposit is expected to arrive at an address.
+**Important:** If a CDA was created with only the `timeout_at` field, it can be used in withdrawals as soon as it has a non-zero balance even if it hasn't expired. Therefore, to avoid address reuse, we recommend creating CDAs with the `multi_use` field, even if only one deposit is expected to arrive at an address.
 
 
 1. Store the current time from your account's timesource object
@@ -65,7 +65,7 @@ The combination of fields that you use to create a CDA determines if it can be u
 
 ## Distribute a CDA
 
-Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with a `timeout_at`, `multi_use` and the `expected_amount` parameters.
+Because CDAs are descriptive objects, you can serialize them into any format and distribute them. For example, you can create a magnet-link for a CDA, with the `timeout_at`, `multi_use`, and `expected_amount` parameters.
 
 1. To serialize the CDA into a magent link, use the `AsMagnetLink()` method of the CDA object
 
