@@ -1,4 +1,4 @@
-# Create and manage conditional deposit addresses
+# Send and receive transactions
 
 **To send and receive transactions in an account, you must use conditional deposit addresses (CDA). CDAs are special addresses that allow you to specify the conditions in which they may be used in account withdrawls and deposits.**
 

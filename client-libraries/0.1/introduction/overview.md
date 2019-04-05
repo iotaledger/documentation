@@ -2,6 +2,10 @@
 
 **Creating, sending, and receiving transactions requires an in-depth understanding of the IOTA protocol. The IOTA client libraries abstract the complexity of the protocol into simple functions.**
 
+:::warning:Beta software
+The client libraries are currently in beta. Their use in production is not supported.
+:::
+
 ### **Official support** ###
 
 ---------------
