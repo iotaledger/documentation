@@ -13,7 +13,7 @@ Please report any issues in our [issue tracker](https://github.com/iotaledger/io
 
 ## Audience
 
-This documentation is designed for people who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://iota-basics/0.1/bundles-and-transactions.md).
+This documentation is designed for people who are familiar with the JavaScript programming language and object-oriented programming concepts. You should also be familiar with basic IOTA concepts such as [address reuse](root://iota-basics/0.1/concepts/addresses-and-signatures.md#address-reuse), [bundles, and transactions](root://iota-basics/0.1/bundles-and-transactions.md).
 
 This guide is designed to let you quickly start exploring and developing applications with IOTA.
 
