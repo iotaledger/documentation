@@ -8,4 +8,4 @@ An IOTA network relies on clients sending a majority of honest transactions to I
 
 To protect the network against these attacks, the Coordinator sends bundles of honest transactions to IRI nodes at regular intervals. These bundles include a signed zero-value transaction called a milestone.
 
-IRI nodes in an IOTA network reach a consensus on transactions that are approved a milestone.
+IRI nodes in an IOTA network reach a consensus on transactions that are approved by a milestone.
