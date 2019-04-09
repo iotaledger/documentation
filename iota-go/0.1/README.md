@@ -11,8 +11,8 @@ This is the **official** Go client library, which allows you to do the following
 
 To learn more about how the library works:
 
-- See how you can [work with accounts](/how-to-guides/create-account.md).
-- See how you can [send and receive](/how-to-guides/create-and-manage-cda.md) transactions.
+- See how you can [work with accounts](root://iota-go/0.1/how-to-guides/create-account.md).
+- See how you can [send and receive](root://iota-go/0.1/how-to-guides/create-and-manage-cda.md) transactions.
 
 Get the library at the [IOTA Go GitHub repository](https://github.com/iotaledger/iota.go).
 
