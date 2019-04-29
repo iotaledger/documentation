@@ -87,9 +87,11 @@ If you created an account with a `timeSource()` method, you can call that method
         });
 
     // Start attaching transactions to the Tangle
+    // The startAttaching routine will keep on attaching uncomfirmed transactions until they are confirmed
+    // The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one
     account.startAttaching({
         depth: 3,
-        minWeightMagnitude(9),
+        minWeightMagnitude: 9,
         delay: 30 * 1000 // 30 second delay
     });
     
@@ -120,9 +122,11 @@ If you created an account with a `timeSource()` method, you can call that method
         });
 
     // Start attaching transactions to the Tangle
+    // The startAttaching routine will keep on attaching uncomfirmed transactions until they are confirmed
+    // The routine stops when there are no uncomfirmed bundles anymore, and resumes when you send another one
     account.startAttaching({
         depth: 3,
-        minWeightMagnitude(9),
+        minWeightMagnitude : 9,
         delay: 30 * 1000 // 30 second delay
     });
     

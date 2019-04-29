@@ -25,7 +25,7 @@ The data that accounts store in a local database is called the seed state. Accou
 2. Create an `account` object with a new seed and connect to a node
    
       ```js
-      import { createAccount } from '@iota/account';
+      const { createAccount }  = require('@iota/account')
 
       const seed = 'ASFITGPSD9ASDFKRWE...';
 
@@ -48,7 +48,7 @@ The data that accounts store in a local database is called the seed state. Accou
 3. **Optional:** Pass a **`persistenceAdapter`** factory to your account. This adapter creates a local database object to which the account can save the seed state and its history. By default, the local databases are saved in the root of the project. You can change the path to the local database in the `persistencePath` field.
 
       ```js
-      import { createPersistenceAdapter } from '@iota/persistence-adapter-level';
+      const { createPersistenceAdapter }  = require('@iota/persistence-adapter-level')
 
       const account = createAccount({
             seed,
