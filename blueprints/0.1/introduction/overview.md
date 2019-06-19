@@ -31,3 +31,9 @@ Data boosts innovation for public and private sector organisations, and can be u
 ## [Track and trace](../track-and-trace/overview.md)
 Due to a lack of both due diligence and a vendor-neutral data source, returnable assets in distribution networks are often not returned to their original owners. This blueprint describes how the IBCS Group implemented a track and trace system for recovery of returnable assets, using the IOTA Tangle and other IOTA technologies.
 -------------------------
+
+-------------------------
+![Document immutability](../images/document-immutability.png)
+## [Document immutability](../doc-immutability/overview.md)
+Documents are an important means of transporting information and contracts between parties. Being able to reliably prove that a document has not been changed from an established state helps ensure trust between parties. As well as protect the parties. This blueprint describes a solution that automatically checks the signature of a previously signed document using the IOTA Tangle.
+-------------------------
