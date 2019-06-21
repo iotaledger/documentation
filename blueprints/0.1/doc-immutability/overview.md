@@ -1,4 +1,4 @@
-# Tangle data storage overview
+# Document immutability overview
 
 **Data boosts innovation for public and private sector organisations, and can be used to create new revenue streams. However, without a vendor-neutral way of verifying data, it can't be trusted. This blueprint uses the IOTA Tangle as an immutable data structure to verify the contents of a file in a third-party storage solution.**
 
