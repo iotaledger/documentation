@@ -13,4 +13,4 @@
 ## Learn how to use IOTA to track and trace assets in the supply chain
 
 [Document immutability](/0.1/doc-immutability/overview.md)
-## Learn how to use IOTA to verify that a document has not been tampered with
+## Learn how to use IOTA to verify that a document has not been modified
