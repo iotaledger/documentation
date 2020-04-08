@@ -26,7 +26,7 @@ The decoded message contents include the following fields.
 
 ### ChangeKey
 
-`ChangeKey` messages are for informing subscribers of a new fork in the channel.
+`ChangeKey` messages are for generating a new Merkle tree of the same height as the original.
 
 These messages are sent by the channel author and must be linked to either an `Announce` message or another `ChangeKey` message.
 
@@ -44,7 +44,7 @@ The decoded message contents include the following fields.
 |`msspk` |The new channel address|
 |`hash` |A hash value to be signed by the author|
 |`sig_with_msspk` | The author's signature to prove ownership of the new fork in the channel|
-|`sig_with_linked_msspk` |The author's signature to prove ownership of the channel |
+|`sig_with_linked_msspk` |The author's signature to prove ownership of the previous channel |
 
 ### Keyload
 

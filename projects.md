@@ -2,6 +2,7 @@
 [Client Libraries](/client-libraries)
 [Node Software](/node-software)
 [Private Tangle](/compass)
+[Streams](/iota-streams)
 [Wallets](/wallets)
 [Utilities](/utils)
 [App Blueprints](/blueprints)

@@ -44,7 +44,7 @@ The rest of the header is stored in the first few trytes of the `signatureMessag
 
 The rest of the application-specific content is stored in the `signatureMessageFragment` fields.
 
-![Message structure](../images/message-structure.svg)
+![Message structure](../introduction/images/message-structure.png)
 
 For an example of application-specific content, [see the message types of the Channels app](../channels/message-types.md).
 

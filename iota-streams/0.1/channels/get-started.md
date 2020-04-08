@@ -24,19 +24,15 @@ Here is some important terminology that we use to define the users of a channel:
 - **Author:** A device that announces and owns channels
 - **Subscriber:** A device that can read and send messages on channels
 
-## Step 1. Understand how Channels are created
+## Step 1. Understand what Channels are
 
-Channels are streams of messages that are linked to one another by their [Streams identifiers and message identifiers](../introduction/core-concepts.md). On the Tangle, the Streams identifier is the address of a transaction, and the message identifier is the tag of a transaction. Together, these identifiers are called the link.
+Channels are streams of messages that are linked to one another by their [Stream identifiers and message identifiers](../introduction/core-concepts.md).
 
-![Header structure](../images/header-structure.svg)
+In Channels, the Stream identifier is the channel address, which is the address of a transaction, and the message identifier is the tag of the transaction. Together, these identifiers are called the link.
 
-The Streams identifier is the same for all messages in a channel so that authors and subscribers can find messages on the same channel. The message identifier is different for each new message so that authors and subscribers can still differentiate messages that they've already read from new ones to avoid reading the same message twice.
+![Header structure](../channels/images/header-structure.png)
 
-To create a new channel, authors use a [Merkle tree signature scheme (MSS)]((https://en.wikipedia.org/wiki/Merkle_signature_scheme)), where the root is the channel address and the leaves are the public keys. By generating a Merkle tree, the author can prove ownership of the channel by signing channel messages, using a private key that belongs to one of the public key leaves.
-
-![Example of a Merkle tree](../images/merkle-tree-channels.svg)
-
-To announce a new channel, authors create and send a signed [`Announce`](../channels/message-types.md#announce) message, then they send the subscribers the link. Subscribers can then use this link to receive the message, authenticate it, read it, and send their own messages to the channel.
+The channel address is the same for all messages in a channel so that authors and subscribers can find messages on the same channel. The message identifier is different for each new message so that authors and subscribers can still differentiate messages that they've already read from new ones to avoid reading the same message twice.
 
 ## Step 2. Decide who will have access to private messages on your channel
 
@@ -46,32 +42,18 @@ Before authors announce a channel, it's important that they decide how they will
 
 For example, if an author were an API service, that author may want all subscribers to be able to see a public alert about breaking changes. However, the author may also want to keep some messages private such as sensor data from a private endpoint. In this case, the author would encrypt the private message payloads with a key.
 
-image
+![API application example](../channels/images/api-app-example.png)
 
-To control access to private message payloads, authors generate a session key for each subscriber, which is used to decrypt the private messages. Then, authors send these session keys to subscribers, using [`Keyload`](../channels/message-types.md#keyload) messages.
-
-As an author, you have two choices for giving subscribers access to session keys:
-
-- Allow subscribers to request access
-- Set up subscribers outside of the channel
-
-### Allowing subscribers to request access at any time
-
-Authors can allow new subscribers to request access to encrypted message payloads at any time.
-
-To allow subscribers to request access to encrypted messages, the author generates an [NTRU key pair](https://en.wikipedia.org/wiki/NTRU) and sends the NTRU public key to the subscribers in an `Announce` message. Subscribers can then use the NTRU public key to send [`Subscribe`](../channels/message-types.md#subscribe) messages to the channel.
-
-Authors may choose this option in cases where all subscribers are not known before the start of the channel.
-
-### Setting up subscribers before announcing the channel
-
-Before announcing a channel, authors can decide who should be allowed access to private message payloads. These subscribers may come from an external source such as a list of members' email addresses in a database.
-
-It's not possible for authors to use Channels to exchange the keys without first announcing the channel. Instead, authors can choose the subscribers in advance and establish either a pre-shared key or request the subscribers' NTRU keys.
-
-Authors may choose this option to avoid the overhead managing access requests in `Subscribe` messages.
+In this guide, you [allow new subscribers](../channels/controlling-access.md#allowing-subscribers-to-request-access-at-any-time) to request access to your channel's private messages at any time.
 
 ## Step 3. Create your project
+
+In this guide, you create a Channels project that includes the following:
+
+- An author who creates and sends a signed [`Announce`](../channels/message-types.md#announce) message to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet)
+- A subscriber who reads and authenticates the `Announce` message on the Tangle
+
+![Announce workflow](../channels/images/announce.png)
 
 The best way to start a new project is to use the [Cargo](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html) build tool because it handles a lot of tasks for you such as building your code, downloading the libraries your code depends on (dependencies), and building those libraries.
 
@@ -146,7 +128,7 @@ Add the code in this step to the `start_a_new_channel()` function that you creat
     println!("Channel address: {}", author.channel_address());
     ```
 
-    This object generates a new Merkle tree whose root is used as the channel's address.
+    This object generates a new [Channels Merkle tree](../channels/channels-merkle-tree.md) whose root is used as the channel's address.
 
     The Merkle tree is generated using the first and second arguments. 
 
@@ -158,13 +140,9 @@ Add the code in this step to the `start_a_new_channel()` function that you creat
     Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your channel.
     :::
 
-    The second argument is the height of the Merkle tree, which affects how many key pairs are generated from the seed, and thus how many messages the author can sign. The total number of key pairs is 2<sup>height</sup>. These key pairs are part of the MSS and the author uses them in the [`Announce`, `ChangeKey` and `SignedPacket` messages](../channels/message-types.md) to prove ownership of the channel.
+    The second argument is the height of the Merkle tree.
 
-    :::info:
-    If you run out of key pairs, you can create a new Merkle tree and inform others by sending a signed `ChangeKey` message.
-    :::
-
-    The third argument is whether to generate an [NTRU key pair](https://en.wikipedia.org/wiki/NTRU), which is used for [allowing new subscribers](#allowing-subscribers-to-request-access-at-any-time).
+    The third argument indicates whether to generate an [NTRU key pair](https://en.wikipedia.org/wiki/NTRU), which is used for allowing new subscribers.
 
 2. Use your new `author` object to create an [`Announce`](../channels/message-types.md#announce) message
 
@@ -226,59 +204,81 @@ In this step, you write a function to get your channel messages from the Tangle 
 
 1. Inside the `src` directory, create a new directory called `bin`
 
-2. Inside the `bin` directory, create a file called `get_announcement.rs`
+2. Inside the `bin` directory, create a file called `subscriber.rs`
 
 3. Add the following at the top of the file to import your dependencies
 
     ```rust
     use iota_lib_rs::prelude::iota_client;
     use iota_streams::app_channels::{
-        api::tangle::{Address, Message, Transport}
+        api::tangle::{Address, Transport}
+        , message
     };
-    use failure::{Fallible};
+    use failure::{Fallible, ensure};
     ```
 
-4. Define a new function called `receive_messages`
+4. Define a new function called `get_announcement`
 
     ```rust
-    fn receive_messages<T>(client: &mut T, link: &Address) -> Fallible<Vec<Message>>
-    where
-        T: Transport,
-        // Use the default options
-        <T>::RecvOptions: Copy + Default,
-    {
-        client.recv_messages_with_options(link, T::RecvOptions::default())
+    fn get_announcement<T: Transport>(channel_address: String, announce_message_identifier: String, client: &mut T, recv_opt: T::RecvOptions) -> Fallible<()> {
     }
     ```
 
-    This function is similar to the `start_a_new_channel()` function, except it also takes a `link` argument, which will be the channel address and the message identifier.
+    This function is similar to the `start_a_new_channel()` function, except it also takes the channel address and the message identifier, which are used to read the message on the Tangle.
 
-5. In the `main()` function, add the following:
+5. In the `get_announcement()` function, convert the channel address and the message identifier into a `Link` type
 
     ```rust
-    // Connect to a node
-    let mut client = iota_client::Client::new("https://nodes.devnet.iota.org:443");
-
-    // Subscribers need the channel address and the message identifier to be able to find messages on a channel
-    let channel_address =
-        "VZGHRWHIYKQBOMWSNRFGT9VAXPZASVOPGLYHBIV9NTTAAVAVHTMOZO9XHDDRDGADHRPJWWGJJEWLWPQXY";
-    let message_identifier = "UV9QBYJRVURWYGFIZENHOLUL9DD";
-
-    // Convert the channel address and message identifier to an `Address` type
-    let announcement_link = Address::from_str(channel_address, message_identifier).unwrap();
-
+    let announcement_link = Address::from_str(&channel_address, &announce_message_identifier).unwrap();
     println!("Receiving announcement message");
-    // Use the IOTA client to find transactions with the corresponding channel address and tag
-    let list = receive_messages(&mut client, &announcement_link)?;
+    ```
+
+    The `Client` object expects the channel address and message identifier to be converted to this type.
+
+6. Use the `Client` object to get the message from the Tangle
+
+    ```rust
+    let list = client.recv_messages_with_options(&announcement_link, recv_opt)?;
+    ```
+
+    The `recv_messages_with_options()` method authenticates any messages that it finds by validating the signature against the channel address.
+
+7. Iterate through the messages and make sure that they are `Announce` messages by checking the header
+
+    ```rust
     for tx in list.iter() {
         let header = tx.parse_header()?;
-        println!("Found {} message", header.content_type());
+        ensure!(header.check_content_type(message::announce::TYPE));
+        println!("Found and authenticated {} message", header.content_type());
     }
-    
     Ok(())
     ```
 
-    The `recv_messages()` method authenticates any messages that it finds by validating the signature against the channel address.
+    You need to iterate through messages here because the Tangle may have more than one `Announce` message with your channel address and message identifier.
+
+    For example, an author may have sent the same `Announce` message more than once, or someone else may have reattached the `Announce` message.
+
+8. In the `main()` function, add the following to create an instance of the `Client` object, define your channel address and message identifier, and call the `get_announcement()` function:
+
+    ```rust
+    // Connect to a node and pass this object to the function
+    let mut client = iota_client::Client::new("https://nodes.devnet.iota.org:443");
+
+    // Subscribers need the channel address and announce message identifier to be able to subscribe to a channel
+    let channel_address = "PDDEPZGGFQCMGQJBZEEZOJUQLANOMLFNCVOTJQQBPABFIAPVKLMLMOFKAUWYXSCZLKPKNLR9JPTKGLXVQ";
+    let announce_message_identifier = "NIVMCSOJZHMVAQQHSBTMRKKVNNX";
+        
+    let recv_opt = ();
+
+    match get_announcement(channel_address.to_string(), announce_message_identifier.to_string(), &mut client, recv_opt) {
+        Ok(()) => (),
+        Err(error) => println!("failed with error {}", error),
+    }
+    ```
+
+:::success:Congratulations :tada:
+You've got an author application that announces the start of a new channel, and you've got a subscriber application that reads and authenticates the new channel.
+::: 
 
 ## Run the code
 
@@ -309,7 +309,7 @@ You also need [Rust](https://www.rust-lang.org/tools/install).
 2. To read and authenticate the message, do the following:
 
     ```bash
-    cargo run --release --bin get_announcement
+    cargo run --release --bin subscriber
     ```
 
     In the console, you should see that the subscriber was able to receive and authenticate the message.

@@ -1,6 +1,6 @@
-# IOTA Streams
+# Streams overview
 
-**Streams is a cryptographic framework for streaming authenticated and/or encrypted messages. Streams comes with a built-in method of sending messages to IOTA nodes, but it's also flexible enough to allow you to build applications that send messages over another medium such as IPFS.**
+**Streams is a cryptographic framework for building applications that stream authenticated and/or encrypted messages. Streams comes with a built-in method of sending messages to IOTA nodes, but it's also flexible enough to allow you to build applications that send messages over another medium such as IPFS.**
 
 Here are just a few ideas of what you can build with Streams:
 
