@@ -1,6 +1,6 @@
 # Message types
 
-**In the Channels app, messages can be one of seven types, and each message contains [Protobuf3](../introduction/core-concepts.md#protobuf3-messaging) content that's are specific to its type. This article describes what each message type is for and what fields it contains.**
+**In the Channels app, messages can be one of seven types, and each message contains [Protobuf3](../introduction/core-concepts.md#protobuf3-messaging) content that is specific to its type. This article describes what each message type is for and what fields it contains.**
 
 ## Announce
 

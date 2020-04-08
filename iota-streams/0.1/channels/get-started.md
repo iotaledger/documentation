@@ -128,7 +128,7 @@ Add the code in this step to the `start_a_new_channel()` function that you creat
     println!("Channel address: {}", author.channel_address());
     ```
 
-    This object generates a new [Channels Merkle tree](../channels/channels-merkle-tree.md) whose root is used as the channel's address.
+    This object generates a new [Channels Merkle tree](../channels/merkle-tree.md) whose root is used as the channel's address.
 
     The Merkle tree is generated using the first and second arguments. 
 

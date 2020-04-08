@@ -37,7 +37,7 @@ To allow others to find transactions in a stream, each transaction has a header,
 
 When a transaction relies on information in others with certain message identifiers, it can reference those message identifiers in its message body to form a path that others can follow through the Tangle.
 
-The rest of the header is stored in the first few trytes of the `signatureMessageFragment` field, which are encoded as [Protobuf3](https://en.wikipedia.org/wiki/Protocol_Buffers) messages:
+The rest of the header is stored in the first few trytes of the `signatureMessageFragment` field, which are encoded as Protobuf3 messages:
 
 - **Streams version:** The Streams version that was used to create and encode the message
 - **Streams message type:** The type of message content to give the receiver an indication of how to decode it
@@ -79,7 +79,7 @@ The `iota-streams-core-merkletree` directory contains tools for creating travers
 
 ### MSS
 
-The `iota-streams-core-mss` directory contains tools for creating a [Merkle tree signature scheme (MSS)]((https://en.wikipedia.org/wiki/Merkle_signature_scheme)) for Winternitz one-time-signatures.
+The `iota-streams-core-mss` directory contains tools for creating a [Merkle tree signature scheme (MSS)](https://en.wikipedia.org/wiki/Merkle_signature_scheme) for Winternitz one-time-signatures.
 
 ### NTRU
 

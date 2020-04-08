@@ -4,7 +4,7 @@
 
 Channels uses Winternitz [one-time signatures](https://en.wikipedia.org/wiki/Hash-based_cryptography#One-time_signature_schemes) (W-OTS) to allow authors to prove ownership of a channel. This signature scheme is quantum robust, meaning that signatures are resistant to attacks by quantum computers. But, the scheme also reveals an unknown amount of the private key that's used to sign messages. As a result, it's safe to sign the same message with the same private key only once. Signing different messages with the same private key allows attackers to forge a signature in their own messages on the channel.
 
-To make sure that each message in a channel has the same channel address, the address is derived from a [Merkle tree signature scheme (MSS)]((https://en.wikipedia.org/wiki/Merkle_signature_scheme)).
+To make sure that each message in a channel has the same channel address, the address is derived from a [Merkle tree signature scheme (MSS)](https://en.wikipedia.org/wiki/Merkle_signature_scheme).
 
 In Channels, the root of the Merkle tree is the channel address and the leaves are the public keys.
 

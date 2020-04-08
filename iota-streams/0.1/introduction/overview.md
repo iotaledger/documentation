@@ -34,5 +34,5 @@ We have the following channels for Streams:
 
 ## Next steps
 
-Take a look at our built-in Streams application called [Channels](../channles/overview.md).
+Take a look at our built-in Streams application called [Channels](../channels/overview.md).
 
