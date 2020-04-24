@@ -4,24 +4,24 @@
 
 ## Application structure
 
-Streams applications are structured according to the `iota-streams-app` directory, which includes the following sub-directories:
-
-- Message
-- Transport
-
-### Message
-
 Streams applications use a message-oriented protocol, where each message consists of a header and application-specific content.
 
-The `message` module allows you to define the application participants, their roles, and the message syntax.
+Messages are written in the [Protobuf3](#protobuf3-messaging) syntax and are processed according to Protobuf3 rules that define:
 
-Messages are written in the [Protobuf3](#protobuf3-messaging) syntax and are processed according to Protobuf3 rules.
+- The roles of applications users
+- The message types
 
-### Transport
+## Protobuf3 messaging
 
-To send messages in Streams applications, you need to use the `transport` module.
+Protobuf3 is a cryptographic message definition language that we built for encoding and decoding Streams messages.
 
-This module includes:
+Protobuf3 builds on the idea of [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) by adding keywords that indicate how a certain message field should be processed. For example, the `mssig` keyword indicates that the content contains a signature that must be generated or verified.
+
+Protobuf3 is highly extensible so that it's easy to add new keywords such as those for Diffie-Hellman signatures.
+
+## Transport
+
+To send messages in Streams applications, you need to use the `transport` module, which includes:
 
 - A generic module, which defines the traits and functions for sending and receiving messages
 - A Tangle-specific module for converting messages into bundles and converting bundles back into messages
@@ -40,21 +40,13 @@ When a transaction relies on information in others with certain message identifi
 The rest of the header is stored in the first few trytes of the `signatureMessageFragment` field, which are encoded as Protobuf3 messages:
 
 - **Streams version:** The Streams version that was used to create and encode the message
-- **Streams message type:** The type of message content to give the receiver an indication of how to decode it
+- **Streams message type:** The type of message content, which gives the receiver an indication of how to decode it
 
 The rest of the application-specific content is stored in the `signatureMessageFragment` fields.
 
-![Message structure](../introduction/images/message-structure.png)
+![Message structure](../images/message-structure.png)
 
-For an example of application-specific content, [see the message types of the Channels app](../channels/message-types.md).
-
-## Protobuf3 messaging
-
-Protobuf3 is a cryptographic message definition language that we built for encoding and decoding Streams messages.
-
-Protobuf3 builds on the idea of [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) by adding keywords that indicate how a certain message field should be processed. For example, the `mssig` keyword indicates that the content contains a signature that must be generated or verified.
-
-We built Protobuf3 to be highly extensible so that it's easy to add new keywords such as those for Diffie-Hellman signatures.
+For an example of application-specific content, [see the message types of the Channels app](root://channels/0.1/references/message-types.md).
 
 ## Cryptography
 

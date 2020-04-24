@@ -1,12 +1,16 @@
 # Streams overview
 
-**Streams is a cryptographic framework for building applications that stream authenticated and/or encrypted messages. Streams comes with a built-in method of sending messages to IOTA nodes, but it's also flexible enough to allow you to build applications that send messages over another medium such as IPFS.**
+**Streams is a cryptographic framework for building applications that need to share authenticated and/or encrypted messages. Streams comes with a built-in method of sending messages to IOTA nodes, but it's also flexible enough to allow you to build applications that send messages over another medium such as HTTP URLs.**
 
 Here are just a few ideas of what you can build with Streams:
 
 - An API service that encrypts data if it's behind a paywall
 - A marketing subscription service that keeps an auditible record of subscriptions on the Tangle
 - A secure messaging application that does not require personally identifiable information
+
+## Limitations
+
+Streams messages are intended to be read and processed. After a message is sent, you should not rely on being able to read that message again.
 
 ## Blog posts
 
@@ -34,5 +38,5 @@ We have the following channels for Streams:
 
 ## Next steps
 
-Take a look at our built-in Streams application called [Channels](../channels/overview.md).
+Take a look at our built-in Streams application called [Channels](root://channels/0.1/introduction/overview.md).
 

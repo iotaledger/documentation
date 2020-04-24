@@ -15,45 +15,16 @@ If you're new to Rust, or don't understand something in the code, the following 
 - [Rust Book](https://doc.rust-lang.org/book/)
 - [Rust documentation](https://doc.rust-lang.org/std/) (you can also open the documentation offline with the `rustup doc` command)
 - IOTA Streams API documentation (use the `cargo doc --open` command to open the API documentation in your default web browser)
-- [Types of Channels message](../channels/message-types.md)
+- [Types of Channels message](../references/message-types.md)
 
-## Terminology
-
-Here is some important terminology that we use to define the users of a channel:
-
-- **Author:** A device that announces and owns channels
-- **Subscriber:** A device that can read and send messages on channels
-
-## Step 1. Understand what Channels are
-
-Channels are streams of messages that are linked to one another by their [Stream identifiers and message identifiers](../introduction/core-concepts.md).
-
-In Channels, the Stream identifier is the channel address, which is the address of a transaction, and the message identifier is the tag of the transaction. Together, these identifiers are called the link.
-
-![Header structure](../channels/images/header-structure.png)
-
-The channel address is the same for all messages in a channel so that authors and subscribers can find messages on the same channel. The message identifier is different for each new message so that authors and subscribers can still differentiate messages that they've already read from new ones to avoid reading the same message twice.
-
-## Step 2. Decide who will have access to private messages on your channel
-
-In Channels, authors can send public as well as private message payloads. Public message payloads can be seen by anyone, but private ones can be seen only by subscribers that the author chooses.
-
-Before authors announce a channel, it's important that they decide how they will manage subscribers' access to the channel's private messages.
-
-For example, if an author were an API service, that author may want all subscribers to be able to see a public alert about breaking changes. However, the author may also want to keep some messages private such as sensor data from a private endpoint. In this case, the author would encrypt the private message payloads with a key.
-
-![API application example](../channels/images/api-app-example.png)
-
-In this guide, you [allow new subscribers](../channels/controlling-access.md#allowing-subscribers-to-request-access-at-any-time) to request access to your channel's private messages at any time.
-
-## Step 3. Create your project
+## Step 1. Create your project
 
 In this guide, you create a Channels project that includes the following:
 
-- An author who creates and sends a signed [`Announce`](../channels/message-types.md#announce) message to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet)
+- An author who creates and sends a signed [`Announce`](../references/message-types.md#announce) message to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet)
 - A subscriber who reads and authenticates the `Announce` message on the Tangle
 
-![Announce workflow](../channels/images/announce.png)
+![Announce workflow](../images/announce.png)
 
 The best way to start a new project is to use the [Cargo](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html) build tool because it handles a lot of tasks for you such as building your code, downloading the libraries your code depends on (dependencies), and building those libraries.
 
@@ -113,7 +84,7 @@ In this step, you use Cargo to create a new project and install the dependencies
     In Rust, it's best practice to follow the convention of using underscores to separate words in the names of functions and variables.
     :::
 
-## Step 4. Announce a new channel
+## Step 2. Announce a new channel
 
 Each channel is a unique stream of transactions on the Tangle, which is owned by the channel's author.
 
@@ -121,18 +92,22 @@ In this step, you announce a new channel by creating an `Announce` message and s
 
 Add the code in this step to the `start_a_new_channel()` function that you created in step 1.
 
-1. Create a new `Author` object
+1. Create a new channel by creating an instance of the `Author` object
 
     ```rust
     let mut author = Author::new("AUTHORSECRET", 2, true);
     println!("Channel address: {}", author.channel_address());
     ```
 
-    This object generates a new [Channels Merkle tree](../channels/merkle-tree.md) whose root is used as the channel's address.
+    The `new()` method generates a new [Merkle tree](../introduction/core-concepts.md#merkle-tree) whose root is used as the author's channel address.
 
     The Merkle tree is generated using the first and second arguments. 
 
-    The first argument is the author's secret string, which is used by a pseudo-random number generator to generate a seed. 
+    The first argument is the author's secret string, which is used by a pseudo-random number generator to generate a seed.
+
+    The second argument is the height of the Merkle tree.
+
+    The third argument indicates whether to generate an [NTRU key pair](https://en.wikipedia.org/wiki/NTRU), which is used for allowing new subscribers.
 
     :::danger:Do not share the secret string
     The same secret string will always result in the same seed.
@@ -140,11 +115,7 @@ Add the code in this step to the `start_a_new_channel()` function that you creat
     Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your channel.
     :::
 
-    The second argument is the height of the Merkle tree.
-
-    The third argument indicates whether to generate an [NTRU key pair](https://en.wikipedia.org/wiki/NTRU), which is used for allowing new subscribers.
-
-2. Use your new `author` object to create an [`Announce`](../channels/message-types.md#announce) message
+2. Use your new `author` object to create an [`Announce`](../references/message-types.md#announce) message
 
     ```rust
     let announcement = author.announce()?;
@@ -198,7 +169,7 @@ Now you can use your `Author` object to send more message on your channel.
 
 Before, you do that, you should write some code to get your channel messages from the Tangle.
 
-## Step 5. Set up the subscriber
+## Step 3. Set up the subscriber
 
 In this step, you write a function to get your channel messages from the Tangle and authenticate that they were sent by the author.
 

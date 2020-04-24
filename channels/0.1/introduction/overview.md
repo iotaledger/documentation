@@ -1,6 +1,6 @@
 # Channels overview
 
-**Channels is a Streams application for sending authenticated messages between two or more parties on the Tangle.**
+**Channels is a [Streams](root://iota-streams/0.1/introduction/overview.md) application for sending authenticated messages between two or more parties on the Tangle.**
 
 With Channels, you can do the following:
 
@@ -22,7 +22,7 @@ Channels uses quantum-robust cryptography as well as distributed ledger technolo
 
 ## Get started
 
-Start your journey with Channels in our [beginner tutorial](../channels/get-started.md).
+Start your journey with Channels in our [beginner tutorial](../introduction/get-started.md).
 
 
 
