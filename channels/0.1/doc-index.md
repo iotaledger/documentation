@@ -6,7 +6,7 @@
 
 [Introduction/Get started](/introduction/get-started.md)
 
-[Authors/Conrolling access to private messages](/authors/controlling-access.md)
+[Authors/Controlling access to private messages](/authors/controlling-access.md)
 
 [References/Message types](/references/message-types.md)
 
