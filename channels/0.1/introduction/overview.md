@@ -16,6 +16,10 @@ Channels come with a host of benefits for messaging applications. These are just
 
 Messages in Channels can be signed and encrypted, allowing you to build applications that authenticate the sender and restrict access to private messages.
 
+### Ensure the integrity of messages
+
+Messages on the Tangle are unchangeable, providing your applications with built-in integrity.
+
 ### Innovate on bleeding edge technology
 
 Channels uses quantum-robust cryptography as well as distributed ledger technology to put your applications at the forefront of innovation in these fields.

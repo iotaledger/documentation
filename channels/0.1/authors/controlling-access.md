@@ -23,7 +23,7 @@ Authors can allow new subscribers to send [`Subscribe`](../references/message-ty
 
 Authors may choose this option in cases where all subscribers are not known before the start of the channel.
 
-To allow subscribers to send these message, the Channels application must use a workflow such as the following:
+To allow subscribers to send these message, the application must use a workflow such as the following:
 
 - The author generates an [NTRU key pair](https://en.wikipedia.org/wiki/NTRU) and sends the public key to the subscribers in an `Announce` message
 - Subscribers read the `Announce` message and use the author's NTRU public key to encrypt their own NTRU public keys for privacy before sending them in the `Subscribe` message
@@ -38,4 +38,4 @@ Before announcing a channel, authors can decide which subscribers should be allo
 
 Authors may choose this option to avoid the overhead of managing `Subscribe` messages.
 
-To set up subscriber before announcing the channel, authors can choose the subscribers in advance and either establish a pre-shared key or request the subscribers' NTRU keys.
+To set up subscribers before announcing the channel, authors can choose them in advance and either establish a pre-shared key or request their NTRU keys.

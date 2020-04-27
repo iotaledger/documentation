@@ -23,15 +23,15 @@ Authors are devices that are responsible for the following:
 Subscribers are devices that can do the following:
 
 - Read messages on a channel
-- Authenticate messages to make sure they were sent by the author
+- Authenticate messages to make sure they were sent by the trusted author
 - Request access to private message
 - Send messages on the channel
 
 ## Channels messages
 
-Channels are streams of messages that are linked to one another by their [Stream identifiers and message identifiers](../introduction/core-concepts.md).
+Channels are messages that are linked to one another by their [stream identifiers and message identifiers](../introduction/core-concepts.md).
 
-In Channels, the Stream identifier is the channel address, which is the address of a transaction, and the message identifier is the tag of the transaction. Together, these identifiers are called the link.
+On the Tangle, the stream identifier is the address of a transaction, and the message identifier is the tag of the transaction. Together, these identifiers are called the link.
 
 ![Header structure](../images/header-structure.png)
 
@@ -54,7 +54,7 @@ By generating a Merkle tree, the author can prove ownership of the channel by do
 - Signing each channel message with a different private key that belongs to one of the public key leaves
 - Sending enough of the Merkle tree in the signed message to allow subscribers to validate the signature
 
-The number of public keys that are pre-generated depends on the height of the Merkle tree..
+The number of public keys that are pre-generated depends on the height of the Merkle tree.
 
 When you create a new instance of the `Author` object, you have the option to decide the height of your author's Merkle tree. Here, the second argument indicates the height of the author's Merkle tree.
 

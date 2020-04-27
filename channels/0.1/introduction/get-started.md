@@ -165,6 +165,14 @@ Add the code in this step to the `start_a_new_channel()` function that you creat
     }
     ```
 
+    :::info:
+    In this case, all messages will be sent to the nodes behind the load balancer at `https://nodes.devnet.iota.org:443`.
+
+    These nodes are maintained by the IOTA Foundation.
+    
+    For more control over where your messages are sent, we recommend setting up your own node.
+    :::
+
 Now you can use your `Author` object to send more message on your channel.
 
 Before, you do that, you should write some code to get your channel messages from the Tangle.
