@@ -4,7 +4,7 @@
 
 ## More than one message found
 
-This error message is sent by the Channels app.
+This error message is sent by the Channels application.
 
 You may see this error when trying to use the `Client` object to receive a message on a channel when other copies of that message exist.
 
@@ -23,4 +23,12 @@ You may see this error if the Channels messages are sent in an inconsistent bund
 This is a bug in the Rust client library. You can track this bug on [GitHub](https://github.com/iotaledger/streams/issues/10).
 
 If you see this message please reach out to us in the #streams-discussion on [Discord](https://discord.iota.org/).
+
+## No Author's MSS public key found
+
+This error message is sent by the Channels application.
+
+You may see this error when trying to unwrap a message that relies on information in an `Announce` message.
+
+To resolve this error, you need to get the `Announce` message and use the `unwrap_announcement` method to load the channel information into the `Subscriber` object.
 

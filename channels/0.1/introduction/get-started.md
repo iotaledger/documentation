@@ -1,6 +1,8 @@
 # Get started with Channels
 
-**This tutorial guides you through the process of announcing a new channel. At the end of the tutorial, you will have an understanding of how Channels work and how you can use it to create your own applications.**
+**This tutorial guides you through the process of publishing a message to a new channel. At the end of the tutorial, you will have an understanding of how Channels work and how you can use it to create your own applications.**
+
+![Announce workflow](../images/workflow.png)
 
 ## Prerequisites
 
@@ -15,16 +17,9 @@ If you're new to Rust, or don't understand something in the code, the following 
 - [Rust Book](https://doc.rust-lang.org/book/)
 - [Rust documentation](https://doc.rust-lang.org/std/) (you can also open the documentation offline with the `rustup doc` command)
 - IOTA Streams API documentation (use the `cargo doc --open` command to open the API documentation in your default web browser)
-- [Types of Channels message](../references/message-types.md)
+- [Types of Channels message](../introduction/core-concepts.md#message-types)
 
 ## Step 1. Create your project
-
-In this guide, you create a Channels project that includes the following:
-
-- An author who creates and sends a signed [`Announce`](../references/message-types.md#announce) message to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet)
-- A subscriber who reads and authenticates the `Announce` message on the Tangle
-
-![Announce workflow](../images/announce.png)
 
 The best way to start a new project is to use the [Cargo](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html) build tool because it handles a lot of tasks for you such as building your code, downloading the libraries your code depends on (dependencies), and building those libraries.
 
@@ -48,94 +43,54 @@ In this step, you use Cargo to create a new project and install the dependencies
     iota-lib-rs = "0.4"
     ```
 
-    These dependencies are the libraries that you will use to create an app.
+Now you have all the dependencies, you're ready to start coding.
 
-3. Open the `src/main.rs` file and add the following at the top of the file to import your dependencies
-    
+## Step 2. Publish a new channel
+
+Each channel is a unique stream of transactions on the Tangle, which is owned by the channel's author.
+
+In this step, you write the function that will create and publish a new channel on the IOTA Devnet.
+
+1. In the `src` directory, create a new directory called `author` and create two files: `mod.rs` and `announce.rs`
+
+2. In the `announce.rs` file, import the dependencies
+
     ```rust
-    use iota_lib_rs::prelude::iota_client;
-    use iota_streams::{
-        app_channels::api::tangle::{Author, Transport}
-    };
-    use iota_streams::app::transport::tangle::client::SendTrytesOptions;
+    use iota_streams::app_channels::api::tangle::{Author, Transport};
     use std::string::ToString;
     use failure::Fallible;
     ```
 
-    By importing the libraries, you make them available to use in this file.
-
-4. Define a new function called `start_a_new_channel`
+3. Create a function called `start_a_new_channel`
 
     ```rust
-    fn start_a_new_channel<T: Transport>(client: &mut T, send_opt: T::SendOptions) -> Fallible<()> {
+    pub fn start_a_new_channel<T: Transport>(author: &mut Author, client: &mut T, send_opt: T::SendOptions) -> Fallible<()> {
+    }
     ```
 
-    This function takes a special type of object that implements the [`Transport`](https://github.com/iotaledger/streams/blob/master/iota-streams-app/src/transport/tangle/client.rs) trait for sending and receiving Channels messages.
-    
-    In Channels, the IOTA client library is extended to implement this trait, which means that we can use it to create a bundle from the `Announce` message and send it to a node.
+    As well as the author, this function takes a special type of object that implements the [`Transport`](https://github.com/iotaledger/streams/blob/master/iota-streams-app/src/transport/tangle/client.rs) trait for sending and receiving messages.
 
-    Many methods in the Channels app return a [`Fallible`](https://docs.rs/failure/0.1.5/failure/type.Fallible.html) type, which is an error-handling wrapper in Rust.
-    
-    To handle any errors that may be returned from these methods, you have a choice of calling them inside your own function that returns a `Fallible` type or to handle the results yourself.
+    In Channels, the IOTA client library is extended to implement this trait, which means that we can use it to create a [bundle](root://getting-started/0.1/transactions/bundles.md) from the messages and send them to a node.
 
-    This example uses a function that returns a `Fallible` type because it looks cleaner and requires less code.
-    
     :::info:
     In Rust, it's best practice to follow the convention of using underscores to separate words in the names of functions and variables.
-    :::
+    :::   
 
-## Step 2. Announce a new channel
-
-Each channel is a unique stream of transactions on the Tangle, which is owned by the channel's author.
-
-In this step, you announce a new channel by creating an `Announce` message and sending it to a node on the IOTA Devnet.
-
-Add the code in this step to the `start_a_new_channel()` function that you created in step 1.
-
-1. Create a new channel by creating an instance of the `Author` object
-
-    ```rust
-    let mut author = Author::new("AUTHORSECRET", 2, true);
-    println!("Channel address: {}", author.channel_address());
-    ```
-
-    The `new()` method generates a new [Merkle tree](../introduction/core-concepts.md#merkle-tree) whose root is used as the author's channel address.
-
-    The Merkle tree is generated using the first and second arguments. 
-
-    The first argument is the author's secret string, which is used by a pseudo-random number generator to generate a seed.
-
-    The second argument is the height of the Merkle tree.
-
-    The third argument indicates whether to generate an [NTRU key pair](https://en.wikipedia.org/wiki/NTRU), which is used for allowing new subscribers.
-
-    :::danger:Do not share the secret string
-    The same secret string will always result in the same seed.
-
-    Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your channel.
-    :::
-
-2. Use your new `author` object to create an [`Announce`](../references/message-types.md#announce) message
+4. Use your `author` object to create an [`Announce`](../introduction/core-concepts.md#message-types) message
 
     ```rust
     let announcement = author.announce()?;
     ```
 
-    This message contains information that others need to be able to later find messages on the channel and authenticate them.
-
-3. Get the message identifier of your `Annonce` message, and use the `to_string()` method to convert it from trits to trytes
+5. Get the message identifier of your `Announce` message, and use the `to_string()` method to convert it from trits to trytes
 
     ```rust
     println!("Message identifier: {}", announcement.link.msgid.to_string());
     ```
 
-    As an author, you must send the channel address and the message identifier to anyone who wants to follow your channel. You'll do this in the next step by adding these identifiers to the code. However, you can imagine that in real-world scenarios, the author would send the subscribers this information over another medium such as an encrypted email.
+    As an author, you must send the channel address and message identifiers to anyone who wants to read the messages on your channel. In this guide, you'll do this by hardcoding these identifiers. However, you can imagine that in real-world scenarios, the author would send the subscribers this information over another medium such as an encrypted email.
 
-    :::info:
-    The rest of your message is in the `announcement.body` property.
-    :::
-
-4. Use the IOTA client library to convert the `Announce` message to a bundle and send the transaction to a node
+6. Use the IOTA client library to convert the `Announce` message into a bundle and send the transactions to a node
 
     ```rust
     client.send_message_with_options(&announcement, send_opt)?;
@@ -144,42 +99,146 @@ Add the code in this step to the `start_a_new_channel()` function that you creat
 
     This method returns an error only if the bundle was not sent to the node. Therefore, if you see no error, the bundle was sent.
 
-5. At the end of the `start_a_new_channel()` function, add the following to return without errors
+7. At the end of the function, add the following to return without errors
 
     ```rust
     OK(())
     ```
 
-6. In the `main()` function, add the following to create an instance of the IOTA client library, connect it to a node, and to pass it to the `start_a_new_channel()` function 
+8. In the `mod.rs` file, add the following to expose this function to the rest of your project
 
     ```rust
+    pub mod announce;
+    ```
+
+9. In the `src/main.rs` file, import the dependencies that you need to publish the channel
+
+    ```rust
+    use iota_streams::{
+    app_channels::api::tangle::{Author, Subscriber}
+    };
+    use iota_lib_rs::prelude::iota_client;
+    use iota_streams::app::transport::tangle::client::SendTrytesOptions;
+    use crate::author::announce::start_a_new_channel;
+    mod author;
+    ```
+
+10. In the `main()` function, add the code to create a new channel, connect to an IOTA node, and call the `start_a_new_channel()` function
+
+    ```rust
+    // Create a new channel
+    let mut author = Author::new("AUTHORSECRET", 3, true);
+    
     // Connect to a node and pass this object to the function
     let mut client = iota_client::Client::new("https://nodes.devnet.iota.org:443");
+
     // Change the default settings to use a lower minimum weight magnitude for the Devnet
     let send_opt = SendTrytesOptions::default();
+
     // Default MWM is 14
     send_opt.min_weight_magnitude = 9; 
-    match start_a_new_channel(&mut client, send_opt) {
+
+    match start_a_new_channel(&mut author, &mut client, send_opt) {
         Ok(()) => (),
-        Err(error) => println!("failed with error {}", error),
+        Err(error) => println!("Failed with error {}", error),
     }
     ```
 
-    :::info:
-    In this case, all messages will be sent to the nodes behind the load balancer at `https://nodes.devnet.iota.org:443`.
+    The `new()` method generates a new [Merkle tree](../introduction/core-concepts.md#merkle-tree) whose root is used as the channel address.
 
-    These nodes are maintained by the IOTA Foundation.
-    
-    For more control over where your messages are sent, we recommend setting up your own node.
+    :::danger:Do not share the secret string
+    In production applications, you should change the author's secret string.
+
+    The same secret string will always result in the same seed. Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your channel.
     :::
 
-Now you can use your `Author` object to send more message on your channel.
+Now you can use your `Author` object to send messages on your channel.
 
-Before, you do that, you should write some code to get your channel messages from the Tangle.
+## Step 3. Send a signed message
 
-## Step 3. Set up the subscriber
+In this step, you write a function that will create and publish a `SignedPacket` message on your channel.
 
-In this step, you write a function to get your channel messages from the Tangle and authenticate that they were sent by the author.
+1. In the `author` directory, create a new file called `send_message.rs`
+
+2. In the `send_message.rs` file, import the dependencies
+
+    ```rust
+    use iota_streams::app_channels::api::tangle::{Author, Address, Transport};
+    use iota_streams::protobuf3::types::Trytes;
+    use iota_streams::core::tbits::Tbits;
+    use std::str::FromStr;
+    use std::string::ToString;
+    use failure::Fallible;
+    ```
+
+3. Create a function called `send_signed_message`
+
+    ```rust
+    pub fn send_signed_message<T: Transport>(author: &mut Author, channel_address: String, announce_message_identifier: String, public_payload: String, private_payload: String, client: &mut T, send_opt: T::SendOptions ) -> Fallible<()> {
+    }
+    ```
+
+    As well as the author, this method takes a public and private payload to publish.
+
+4. Convert the public and private payloads to [trytes](root://getting-started/0.1/introduction/ternary.md)
+
+    ```rust
+    let public_payload = Trytes(Tbits::from_str(&public_payload).unwrap());
+    let private_payload = Trytes(Tbits::from_str(&private_payload).unwrap());
+    ```
+
+5. Convert the channel address and the `Announce` message identifier into a `Link` type
+
+    ```rust
+    let announcement_link = Address::from_str(&channel_address, &announce_message_identifier).unwrap();
+    ```
+
+6. Create a `SignedPacket` message, using the payloads and the announcement link
+
+    ```rust
+    let message = author.sign_packet(&announcement_link, &public_payload, &private_payload)?;
+    ```
+
+    The `SignedPacket` message references the `Announce` message because it contains information that allows the subscriber to authenticate the signed message.
+
+    :::info:
+    You can also reference `ChangeKey` messages in `SignedPacket` messages.
+    :::
+
+7. Get the message identifier of your `SignedPacket` message, and use the `to_string()` method to convert it from trits to trytes
+
+    ```rust
+    println!("Message identifier: {}", message.link.msgid.to_string());
+    ```
+
+8. Use the IOTA client library to convert the `SignedPacket` message into a bundle and send the transaction to a node
+
+    ```rust
+    client.send_message_with_options(&message, send_opt)?;
+    println!("Sent signed message");
+    ```
+
+    This method returns an error only if the bundle was not sent to the node. Therefore, if you see no error, the bundle was sent.
+
+9. In the `main()` function, add the code to create the payloads and call the `send_signed_message()` function
+
+    ```rust
+    let announce_message_identifier = "RACLH9SDQZEYXOLWFG9WOLVDQHT";
+
+    let public_payload = "MYPUBLICMESSAGE";
+    let private_payload = "MYPRIVATEMESSAGE";
+
+    match send_signed_message(&mut author, channel_address, (&announce_message_identifier).to_string(), public_payload.to_string(), private_payload.to_string(), &mut client, send_opt){
+        Ok(()) => (),
+        Err(error) => println!("Failed with error {}", error),
+    }
+    ```
+
+Now subscribers can use the channel address and the message identifiers of the `Announce` and `SignedPacket` messages to authenticate and read the messages.
+
+## Step 4. Set up the subscriber
+
+In this step, you write a function to read your channel's messages from the Tangle and authenticate that they were sent by the trusted author.
 
 1. Inside the `src` directory, create a new directory called `bin`
 
@@ -188,11 +247,12 @@ In this step, you write a function to get your channel messages from the Tangle 
 3. Add the following at the top of the file to import your dependencies
 
     ```rust
-    use iota_lib_rs::prelude::iota_client;
     use iota_streams::app_channels::{
-        api::tangle::{Address, Transport}
-        , message
+    api::tangle::{Address, Transport, Subscriber}
+    , message
     };
+    use iota_lib_rs::prelude::iota_client;
+    use iota_streams::app::transport::tangle::client::SendTrytesOptions;
     use failure::{Fallible, ensure};
     ```
 
@@ -212,15 +272,11 @@ In this step, you write a function to get your channel messages from the Tangle 
     println!("Receiving announcement message");
     ```
 
-    The `Client` object expects the channel address and message identifier to be converted to this type.
-
-6. Use the `Client` object to get the message from the Tangle
+6. Use the `client` object to get the message from the Tangle
 
     ```rust
     let list = client.recv_messages_with_options(&announcement_link, recv_opt)?;
     ```
-
-    The `recv_messages_with_options()` method authenticates any messages that it finds by validating the signature against the channel address.
 
 7. Iterate through the messages and make sure that they are `Announce` messages by checking the header
 
@@ -228,7 +284,9 @@ In this step, you write a function to get your channel messages from the Tangle 
     for tx in list.iter() {
         let header = tx.parse_header()?;
         ensure!(header.check_content_type(message::announce::TYPE));
+        subscriber.unwrap_announcement(header.clone())?;
         println!("Found and authenticated {} message", header.content_type());
+        break;
     }
     Ok(())
     ```
@@ -237,7 +295,40 @@ In this step, you write a function to get your channel messages from the Tangle 
 
     For example, an author may have sent the same `Announce` message more than once, or someone else may have reattached the `Announce` message.
 
-8. In the `main()` function, add the following to create an instance of the `Client` object, define your channel address and message identifier, and call the `get_announcement()` function:
+    :::info:
+    The `unwrap_announcement()` method authenticates any messages that it finds by validating the signature against the channel address.
+
+    This method also saves the author's information so that you can use it to read other messages.
+    :::
+
+8. Define a new function called `get_messages`, which is similar to the `get_announcement` function, except it finds and authenticates `SignedPacket` messages
+
+    ```rust
+    fn get_messages<T: Transport>(subscriber: &mut Subscriber, channel_address: String, signed_message_identifier: String, client: &mut T, recv_opt: T::RecvOptions) -> Fallible<()> {
+        // Convert the channel address and message identifier to a link
+        let message_link = Address::from_str(&channel_address, &signed_message_identifier).unwrap();
+    
+        println!("Receiving signed messages");
+    
+        // Use the IOTA client to find transactions with the corresponding channel address and tag
+        let list = client.recv_messages_with_options(&message_link, recv_opt)?;
+
+        // Iterate through all the transactions and stop at the first valid message
+        let mut found_valid_msg = false;
+        for tx in list.iter() {
+            let header = tx.parse_header()?;
+            ensure!(header.check_content_type(message::signed_packet::TYPE));
+            let (public_message, private_message) = subscriber.unwrap_signed_packet(header.clone())?;
+            println!("Found and authenticated messages");
+            println!("Public message: {}, private message: {}", public_message, private_message);
+            found_valid_msg = true;
+            break;
+        }
+        Ok(())
+    }
+    ```
+
+9. In the `main()` function, add the code to connect to an IOTA node, define your channel address and message identifier, and call the `get_announcement()` function
 
     ```rust
     // Connect to a node and pass this object to the function
@@ -253,39 +344,111 @@ In this step, you write a function to get your channel messages from the Tangle 
         Ok(()) => (),
         Err(error) => println!("failed with error {}", error),
     }
+
+    let signed_message_identifier = "ICOTSLXXTKVXDNWFPG9LOFUQRJS";
+
+    match get_messages(&mut subscriber, channel_address.to_string(), signed_message_identifier.to_string(), &mut client, recv_opt){
+        Ok(()) => (),
+        Err(error) => println!("Failed with error {}", error),
+    }
     ```
 
+    :::danger:Do not share the secret string
+    In production applications, you should change the subscriber's secret string.
+
+    The same secret string will always result in the same seed. Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your subscriber's messages.
+    :::
+
 :::success:Congratulations :tada:
-You've got an author application that announces the start of a new channel, and you've got a subscriber application that reads and authenticates the new channel.
+You've got an author application that publishes a signed message on a new channel, and you've got a subscriber application that reads and authenticates the message.
 ::: 
 
 ## Run the code
 
 These files are hosted on [GitHub](https://github.com/JakeSCahill/channels-examples).
 
-To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Rust](https://www.rust-lang.org/tools/install) installed on your device.
 
-You also need [Rust](https://www.rust-lang.org/tools/install).
-
-1. To announce the channel, do the following:
+1. Clone the sample code repository
 
     ```bash
     git clone https://github.com/JakeSCahill/channels-examples
     cd channels-examples
+    ```
+
+2. Open the `src/main.rs` file and change the author's secret to something secure
+
+    ```rust
+    // REPLACE THE SECRET WITH YOUR OWN
+    let mut author = Author::new("MYAUTHORSECRET", 3, true);
+    ```
+
+3. To announce the channel, do the following:
+
+    ```bash
     cargo run --release --bin my_channel_app
     ```
 
     It may take a minute or two to download and compile the dependencies.
 
-    In the console, you should see that the `Announce` message was sent.
+    In the console, you should see that the messages was sent.
 
     ```bash
-    Announced a new channel
-    Channel address: VZGHRWHIYKQBOMWSNRFGT9VAXPZASVOPGLYHBIV9NTTAAVAVHTMOZO9XHDDRDGADHRPJWWGJJEWLWPQXY
-    Message identifier: UV9QBYJRVURWYGFIZENHOLUL9DD
+    Channel address: ESSPLXFXCODZEDRDZ9MEVSQAEDB9ENELCZD9YEWJZTMWFEPSONIMPATCBTKBOSEX9KCESXEWD9MIZSAPT
+    Announcement message identifier: RACLH9SDQZEYXOLWFG9WOLVDQHT
+    Sent Announce message
     ```
 
-2. To read and authenticate the message, do the following:
+4. Copy the announcement message identifier to the clipboard
+
+5. Open the `src/main.rs` file, uncomment the following code, and update the variables with your copied message identifier and your own public and private message payloads:
+
+    ```rust
+    // REPLACE WITH YOUR OWN MESSAGE IDENTIFIER
+    let announce_message_identifier = "RACLH9SDQZEYXOLWFG9WOLVDQHT";
+
+    let public_payload = "MYPUBLICMESSAGE";
+    let private_payload = "MYPRIVATEMESSAGE";
+
+    match send_signed_message(&mut author, channel_address, (&announce_message_identifier).to_string(), public_payload.to_string(), private_payload.to_string(), &mut client, send_opt){
+        Ok(()) => (),
+        Err(error) => println!("Failed with error {}", error),
+    }
+    ```
+
+6. Comment out the following code:
+
+    ```rust
+    /*
+    // Send the `Announce` message
+    match start_a_new_channel(&mut author, &mut client, send_opt) {
+        Ok(()) => (),
+        Err(error) => println!("Failed with error {}", error),
+    }
+    */
+    ```
+
+7. To send the signed message, do the following:
+
+    ```bash
+    cargo run --release --bin my_channel_app
+    ```
+
+    In the console, you should see that the message was sent.
+
+    ```bash
+    Signed message identifier: ICOTSLXXTKVXDNWFPG9LOFUQRJS
+    Sent signed message
+    ```
+
+8. Open the `bin/subscriber.rs` file, change the subscriber's secret to something secure, and update the variables with your own channel address and message identifiers
+
+    ```rust
+     // REPLACE THE SECRET WITH YOUR OWN
+    let mut subscriber = Subscriber::new("MYSUBSCRIBERSECRET", true);
+    ```
+
+9. To read and authenticate the message, do the following:
 
     ```bash
     cargo run --release --bin subscriber
@@ -294,7 +457,11 @@ You also need [Rust](https://www.rust-lang.org/tools/install).
     In the console, you should see that the subscriber was able to receive and authenticate the message.
 
     ```
-    Found and authenticated Type=STREAMS9CHANNEL9ANNOUNCE message
+    Receiving announcement messages
+    Found and authenticated STREAMS9CHANNEL9ANNOUNCE message
+    Receiving signed messages
+    Found and authenticated messages
+    Public message: MYPUBLICMESSAGE, private message: MYPRIVATEMESSAGE
     ```
 
 ## Next steps

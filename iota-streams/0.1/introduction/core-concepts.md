@@ -6,10 +6,9 @@
 
 Streams applications use a message-oriented protocol, where each message consists of a header and application-specific content.
 
-Messages are written in the [Protobuf3](#protobuf3-messaging) syntax and are processed according to Protobuf3 rules that define:
+Messages are written in the [Protobuf3](#protobuf3-messaging) syntax and are processed according to Protobuf3 rules that define both the roles of the application's users and the application's message types.
 
-- The roles of applications users
-- The message types
+To publish messages in Streams applications, you use the `transport` module, which includes a Tangle-specific module for converting messages into [bundles](root://getting-started/0.1/transactions/bundles.md) and converting bundles back into messages.
 
 ## Protobuf3 messaging
 
@@ -18,13 +17,6 @@ Protobuf3 is a cryptographic message definition language that we built for encod
 Protobuf3 builds on the idea of [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) by adding keywords that indicate how a certain message field should be processed. For example, the `mssig` keyword indicates that the content contains a signature that must be generated or verified.
 
 Protobuf3 is highly extensible so that it's easy to add new keywords such as those for Diffie-Hellman signatures.
-
-## Transport
-
-To send messages in Streams applications, you need to use the `transport` module, which includes:
-
-- A generic module, which defines the traits and functions for sending and receiving messages
-- A Tangle-specific module for converting messages into bundles and converting bundles back into messages
 
 ## Transaction structure
 
@@ -45,39 +37,4 @@ The rest of the header is stored in the first few trytes of the `signatureMessag
 The rest of the application-specific content is stored in the `signatureMessageFragment` fields.
 
 ![Message structure](../images/message-structure.png)
-
-For an example of application-specific content, [see the message types of the Channels app](root://channels/0.1/references/message-types.md).
-
-## Cryptography
-
-Cryptography is what makes Streams so powerful. Built into the framework are the following cryptographic tools.
-
-### Core
-
-The `iota-streams-core` directory contains tools for the following:
-
-- Working with ternary and binary data
-- Using the [Troika](https://medium.com/asecuritysite-when-bob-met-alice/meet-troika-a-hashing-method-fit-for-iot-blockchains-47857b4ca1f3) hashing function
-- Generating pre-shared keys
-- Generating pseudo-random numbers
-
-### Keccak
-
-The `iota-streams-core-keccak` directory contains tools for working with Keccak-F[1600] sponge constructions.
-
-### Merkle tree
-
-The `iota-streams-core-merkletree` directory contains tools for creating traversable Merkle trees.
-
-### MSS
-
-The `iota-streams-core-mss` directory contains tools for creating a [Merkle tree signature scheme (MSS)](https://en.wikipedia.org/wiki/Merkle_signature_scheme) for Winternitz one-time-signatures.
-
-### NTRU
-
-The `iota-streams-core-ntru` directory contains tools for the following:
-
-- Generating [NTRU key pairs](https://en.wikipedia.org/wiki/NTRU)
-- Encrypting messages with NTRU private keys
-- Decrypting messages with NTRU public keys
 

@@ -1,12 +1,27 @@
 # Streams overview
 
-**Streams is a cryptographic framework for building applications that need to share authenticated and/or encrypted messages. Streams comes with a built-in method of sending messages to IOTA nodes, but it's also flexible enough to allow you to build applications that send messages over another medium such as HTTP URLs.**
+**Streams is a cryptographic framework for building messaging applications. Streams comes with a built-in method of sending messages to IOTA nodes, but it's also flexible enough to allow you to extend it to send messages over another medium such as in HTTP URLs.**
 
 Here are just a few ideas of what you can build with Streams:
 
 - An API service that encrypts data if it's behind a paywall
 - A marketing subscription service that keeps an auditible record of subscriptions on the Tangle
 - A secure messaging application that does not require personally identifiable information
+
+## Cryptography
+
+Cryptography is what makes Streams so powerful. Built into the framework are cryptographic tools for the following.
+
+- Working with ternary and binary data
+- Using the [Troika](https://medium.com/asecuritysite-when-bob-met-alice/meet-troika-a-hashing-method-fit-for-iot-blockchains-47857b4ca1f3) hashing function
+- Generating pre-shared keys
+- Generating pseudo-random numbers
+- Working with Keccak-F[1600] sponge constructions
+- Creating traversable Merkle trees
+- Creating a [Merkle tree signature scheme (MSS)](https://en.wikipedia.org/wiki/Merkle_signature_scheme) for Winternitz one-time-signatures
+- Generating [NTRU key pairs](https://en.wikipedia.org/wiki/NTRU)
+- Encrypting messages with NTRU private keys
+- Decrypting messages with NTRU public keys
 
 ## Limitations
 
