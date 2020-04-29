@@ -31,7 +31,7 @@ Messages can be one of seven [types](../introduction/core-concepts.md#message-ty
 
 |**Message type**| **Description**| **Sent by**|
 |:-----------|:-----------|:---------------------------------------|
-|`Announce`| Publishes information to allow subscribers to authenticate other messages on the channel | Authors|
+|`Announce`| Publishes a new channel with information to allow subscribers to authenticate other messages on it | Authors|
 |`ChangeKey`| Generates a new Merkle tree of the same height as the original `Author` object and publishes information to allow subscribers to authenticate other messages on the channel, using the new Merkle root| Authors|
 |`Keyload`|Generates and publishes reusable session keys to allow subscribers to decrypt messages in `TaggedPacket` messages and `SignedPacket` messages|Authors|
 |`TaggedPacket`| Publishes encrypted or plain text messages on a channel|Authors and subscribers
@@ -77,8 +77,8 @@ To control access to private payloads on a channel, authors use either a pre-sha
 
 Authors have two choices for communicating with subscribers before generating the session key:
 
-- Allowing subscribers to send `Subscribe` messages
-- Setting up subscribers outside of the channel
+- Allow subscribers to send `Subscribe` messages
+- Set up subscribers outside of the channel
 
 #### Allowing subscribers to send `Subscribe` messages
 
@@ -86,7 +86,7 @@ Authors can allow new subscribers to publish their NTRU keys in [`Subscribe`](..
 
 Authors may choose this option in cases where all subscribers are not known before the start of the channel.
 
-To allow subscribers to send these message, the author must be generated with an NTRU key pair.
+To allow subscribers to send these message, the author must be generated with an NTRU key pair. Subscribers can then use to the author's NTRU public key to encrypt their own NTRU public keys and mask their identities.
 
 #### Setting up subscribers before announcing the channel
 
