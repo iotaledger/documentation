@@ -13,7 +13,7 @@ Each channel has only one author, but may have many subscribers.
 
 Authors and subscribers communicate asynchronously by publishing messages on a channel.
 
-The main difference between authors and subscribers is that authors can prove their identity by signing messages.
+The main difference between authors and subscribers is that authors can prove their identity and ownership of a channel by signing messages.
 
 ## Messages
 
@@ -44,11 +44,10 @@ Messages can be one of seven [types](../introduction/core-concepts.md#message-ty
 Authors are devices that can do the following:
 
 - Create a channel and prove ownership of it
-- Control subscribers' access to private messages
+- Control subscribers' read access to private messages
 - Publish messages on the channel
-- Read messages from subscribers on the channel
 
-### Creating channels
+### How channels are created
 
 Authors create channels by generating a Merkle tree, whose root is the channel address.
 
@@ -65,7 +64,7 @@ The number of public keys that are pre-generated depends on the height of the Me
 
 When you create a new instance of the `Author` object, you have the option to decide the height of your author's Merkle tree.
 
-### Controlling subscribers' access to private messages
+### How authors can control subscribers' read access to private messages
 
 Authors can choose to send plain text and/or encrypted payloads in both `SignedPacket` and `TaggedPacket` messages.
 
@@ -73,20 +72,20 @@ For example, if an author were an API service, that author may want all subscrib
 
 ![API application example](../images/api-app-example.png)
 
-To control access to private payloads on a channel, authors use either a pre-shared key or the subscribers' [NTRU](https://en.wikipedia.org/wiki/NTRU) public keys to generate a session key that subscribers can use to decrypt the private messages. Then, authors publish the session key to the channel in a [`Keyload`](../introduction/core-concepts.md#message-types#keyload) message.
+To control read access to private payloads on a channel, authors generate an encrypted session key that only authorized subscribers can use to decrypt the private messages. Then, authors publish the session key to the channel in a [`Keyload`](../introduction/core-concepts.md#message-types#keyload) message.
 
-Authors have two choices for communicating with subscribers before generating the session key:
+Authors have two choices for choosing authorizing subscribers before generating the session key:
 
 - Allow subscribers to send `Subscribe` messages
 - Set up subscribers outside of the channel
 
 #### Allowing subscribers to send `Subscribe` messages
 
-Authors can allow new subscribers to publish their NTRU keys in [`Subscribe`](../introduction/core-concepts.md#message-types#subscribe) messages.
+Authors can allow new subscribers to publish [`Subscribe`](../introduction/core-concepts.md#message-types#subscribe) messages to request read access to private messages. These messages contain the subscribers' NTRU public keys that are encrypted with the author's NTRU public key to mask the subscribers' identities. Authors can then decrypt the public keys and use them to encrypt the session key.
 
 Authors may choose this option in cases where all subscribers are not known before the start of the channel.
 
-To allow subscribers to send these message, the author must be generated with an NTRU key pair. Subscribers can then use to the author's NTRU public key to encrypt their own NTRU public keys and mask their identities.
+To allow subscribers to publish these message, the author must be generated with an NTRU key pair.
 
 #### Setting up subscribers before announcing the channel
 
@@ -96,6 +95,8 @@ Authors may choose this option to avoid the overhead of managing `Subscribe` mes
 
 To set up subscribers before announcing the channel, authors can choose them in advance and either establish a pre-shared key or request their NTRU keys.
 
+Authors can then later use these keys to encrypt the session key.
+
 ## Subscribers
 
 Subscribers are devices that can do the following:
@@ -104,6 +105,5 @@ Subscribers are devices that can do the following:
 - Publish messages on a channel
 
 Subscribers communicate with authors and other subscribers by sending `TaggedPacket` messages.
-
 
 

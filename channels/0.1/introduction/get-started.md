@@ -1,6 +1,6 @@
 # Get started with Channels
 
-**This tutorial guides you through the process of publishing a message to a new channel. At the end of the tutorial, you will have an understanding of how Channels work and how you can use it to create your own applications.**
+**This tutorial guides you through the process of publishing a signed  message to a new channel. At the end of the tutorial, you will have an understanding of how Channels work and how you can use it to create your own applications.**
 
 ![Announce workflow](../images/workflow.png)
 
@@ -51,11 +51,9 @@ Now you have all the dependencies, you're ready to start coding.
 
 ## Step 2. Publish a new channel
 
-Each channel is a unique stream of transactions on the Tangle, which is owned by the channel's author.
-
 In this step, you write the function that will create and publish a new channel on the IOTA Devnet.
 
-1. In the `src` directory, create a new directory called `author` and create two files: `mod.rs` and `announce.rs`
+1. In the `src` directory, create a new directory called `author` and create two files inside it: `mod.rs` and `announce.rs`
 
 2. In the `announce.rs` file, import the dependencies
 
@@ -198,12 +196,10 @@ In this step, you write a function that will create and publish a `SignedPacket`
     let message = author.sign_packet(&announcement_link, &public_payload, &private_payload)?;
     ```
 
-    The `SignedPacket` message references the `Announce` message because it contains information that allows the subscriber to authenticate the signed message.
+    The `SignedPacket` message references the `Announce` message because it contains the information that allows the subscriber to authenticate the signed message.
 
     :::info:
-    You can also reference `ChangeKey` messages in `SignedPacket` messages.
-
-    Or, if you want to encrypt the `private_payload` argument, you should reference a `Keyload` message.
+    If you want to encrypt the `private_payload` argument, you should reference a `Keyload` message.
     :::
 
 6. Publish the message on the channel
@@ -381,7 +377,7 @@ To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Ins
 
     It may take a minute or two to download and compile the dependencies.
 
-    In the console, you should see that the messages were sent.
+    In the console, you should see that the message was sent.
 
     ```bash
     Channel address: ESSPLXFXCODZEDRDZ9MEVSQAEDB9ENELCZD9YEWJZTMWFEPSONIMPATCBTKBOSEX9KCESXEWD9MIZSAPT

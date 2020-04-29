@@ -2,24 +2,17 @@
 
 **Channels is a [Streams](root://iota-streams/0.1/introduction/overview.md) application for sending authenticated messages between two or more parties on the Tangle.**
 
-With Channels, you can do the following:
-
-- Create new channels
-- Read messages on channels
-- Prove that you are the owner of the channel
-- Publish encrypted or plain text messages on your channel
-
 ## Why build channels
 
-Channels come with a host of benefits for messaging applications. These are just a couple of reasons for building your own applications on Channels.
+Channels comes with lots of features for communicating with other devices. The following are just a few reasons for building your own applications on Channels.
 
 ### Secure your communications
 
-Messages in Channels can be signed and encrypted, allowing you to build applications that authenticate the sender and restrict access to private messages.
+Messages can be signed and encrypted, allowing you to build applications that authenticate the sender and restrict access to private messages.
 
 ### Ensure the integrity of messages
 
-Messages on the Tangle are unchangeable, providing your applications with built-in integrity.
+Messages are published on the [Tangle](root://getting-started/0.1/), making them tamperproof.
 
 ### Innovate on bleeding edge technology
 
