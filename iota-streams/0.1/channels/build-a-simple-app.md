@@ -400,11 +400,15 @@ To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Ins
     }
     ```
 
-    :::info:Keep the private payload empty
+    :::danger:Keep the private payload empty
     The `private_payload` argument is encrypted only if you link the `SignedPacket` message to a `Keyload` message.
 
     In this case, you link the message to an `Announce` message, so the `private_payload` argument would not be encrypted anyway.
-    :::  
+    :::
+
+    :::info:
+    Your message must contain only [tryte-encoded characters](root://getting-started/0.1/introduction/ternary.md) (A-Z or 9).
+    :::
 
 6. Comment out the following code so that you don't publish another instance of the channel
 
