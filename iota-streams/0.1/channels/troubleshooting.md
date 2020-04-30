@@ -30,5 +30,5 @@ This error message is sent by the Channels application.
 
 You may see this error when trying to unwrap a message that relies on information in an `Announce` message.
 
-To resolve this error, you need to get the `Announce` message and use the `unwrap_announcement` method to load the channel information into the `Subscriber` object.
+To resolve this error, you need to get the `Announce` message and use the `unwrap_announcement` method to load the channel information into the subscriber's [state](../channels/how-channels-works.md#author-and-subscriber-states).
 
