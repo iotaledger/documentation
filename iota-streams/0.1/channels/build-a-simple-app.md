@@ -1,8 +1,8 @@
-# Get started with Channels
+# Build a simple Channels app
 
-**This tutorial guides you through the process of publishing a signed  message to a new channel. At the end of the tutorial, you will have an understanding of how Channels work and how you can use it to create your own applications.**
+**This tutorial guides you through the process of building a simple app that publishes a signed message about breaking changes to an API. At the end of the tutorial, you will have a better understanding of how Channels work and how you can use it in your own applications.**
 
-![Announce workflow](../images/workflow.png)
+![API workflow](../images/api-workflow.png)
 
 :::info:Just want to run the code?
 See the [Run the code](#run-the-code) section to go straight to publishing a message.
@@ -49,9 +49,9 @@ In this step, you use Cargo to create a new project and install the dependencies
 
 Now you have all the dependencies, you're ready to start coding.
 
-## Step 2. Publish a new channel
+## Step 2. Publish the API channel
 
-In this step, you write the function that will create and publish a new channel on the IOTA Devnet.
+In this step, you write the function that will create and publish a new channel on the IOTA Devnet. This channel will be the one that your API author will use to publish messages for subscribers to read.
 
 1. In the `src` directory, create a new directory called `author` and create two files inside it: `mod.rs` and `announce.rs`
 
@@ -90,7 +90,7 @@ In this step, you write the function that will create and publish a new channel 
     println!("Message identifier: {}", announcement.link.msgid.to_string());
     ```
 
-    As an author, you must send the channel address and message identifiers to anyone who wants to read the messages on your channel. In this guide, you'll do this by hardcoding these identifiers. However, you can imagine that in real-world scenarios, the author would send the subscribers this information over another medium such as an encrypted email.
+    As an author, you must send the channel address and message identifiers to anyone who wants to read the messages on your channel. In this guide, you'll do this by hardcoding these identifiers. However, you can imagine that in real-world scenarios, you would send the subscribers this information programatically such as in a push notification to the subscriber's phone.
 
 6. Publish your channel on the Tangle
 
@@ -99,7 +99,7 @@ In this step, you write the function that will create and publish a new channel 
     println!("Channel published");
     ```
 
-    The `send_message_with_options()` method uses the IOTA client library to convert the `Announce` message into a bundle and send the transactions to a node.
+    The `send_message_with_options()` method uses the IOTA client library to convert the `Announce` message into a bundle and send the resulting transactions to a node.
 
 7. At the end of the function, add the following to return without errors
 
@@ -146,19 +146,17 @@ In this step, you write the function that will create and publish a new channel 
     }
     ```
 
-    The `new()` method generates a new [Merkle tree](../introduction/core-concepts.md#merkle-tree) whose root is used as the channel address.
-
-    :::danger:Do not share the secret string
+   :::danger:Do not share the secret string
     In production applications, you should change the author's secret string.
 
-    The same secret string will always result in the same seed. Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your channel.
+    The same secret string will always result in the same signature keys. Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your channel.
     :::
 
 Now you can use your `author` object to send messages on your channel.
 
-## Step 3. Send a signed message
+## Step 3. Publish a public message about breaking changes
 
-In this step, you write a function that will create and publish a `SignedPacket` message on your channel.
+In this step, you write a function that will create and publish a `SignedPacket` message on your channel. This message will include a plain text message that anyone can read.
 
 1. In the `author` directory, create a new file called `send_message.rs`
 
@@ -216,7 +214,7 @@ In this step, you write a function that will create and publish a `SignedPacket`
     ```rust
     let announce_message_identifier = "RACLH9SDQZEYXOLWFG9WOLVDQHT";
 
-    let public_payload = "MYPUBLICMESSAGE";
+    let public_payload = "BREAKINGCHANGES";
     let private_payload = "";
 
     match send_signed_message(&mut author, channel_address, (&announce_message_identifier).to_string(), public_payload.to_string(), private_payload.to_string(), &mut client, send_opt){
@@ -225,11 +223,11 @@ In this step, you write a function that will create and publish a `SignedPacket`
     }
     ```
 
-Now subscribers can authenticate and read the messages when they have the channel address and the message identifiers.
+Now you need to write the subscribers' application so they can authenticate and read the messages.
 
-## Step 4. Set up the subscriber
+## Step 4. Set up the subscribers' application
 
-In this step, you write a function to read your channel's messages from the Tangle and authenticate that they were sent by the trusted author.
+In this step, you write a function to read your channel's messages from the Tangle and authenticate that they were sent by the trusted author. 
 
 1. Inside the `src` directory, create a new directory called `bin`
 
@@ -284,7 +282,7 @@ In this step, you write a function to read your channel's messages from the Tang
     :::info:
     The `unwrap_announcement()` method authenticates any messages that it finds by validating the signature against the channel address.
 
-    This method also saves the author's information so that you can use it to read other messages.
+    This method also saves the author's information in the subscriber's state so that you can use it to read other messages without having to unwrap the announcement again.
     :::
 
 7. Define a new function called `get_messages`, which is similar to the `get_announcement` function, except it finds and authenticates `SignedPacket` messages

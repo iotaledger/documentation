@@ -4,7 +4,16 @@
 
 [Introduction/Core concepts](/introduction/core-concepts.md)
 
-[Applications/Channels](root://channels/0.1/introduction/overview.md)
+[Channels/Why build Channels applications](/channels/why-build-channels.md)
+
+[Channels/How Channels works](/channels/how-channels-works.md)
+
+[Channels/Design your messaging workflow](/channels/design-the-workflow.md)
+
+[Channels/Build a simple Channels application](/channels/build-a-simple-app.md)
+
+[Channels/Troubleshooting](/channels/troubleshooting.md)
+
 
 
 

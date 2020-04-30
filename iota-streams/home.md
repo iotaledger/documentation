@@ -6,8 +6,5 @@
 [Core concepts](/0.1/introduction/core-concepts.md)
 ## Dive into the technical details of Streams
 
-[Channels overview](root://channels/0.1/introduction/overview.md)
-## Discover Channels, the built-in Streams application for public and private messaging
-
-[Get started with Channels](root://channels/0.1/introduction/get-started.md)
-## Complete your first Channels project to learn the basics
+[Get started with Channels](0.1/channels/why-build-channels.md)
+## Complete your first Channels project from learning the basics to creating your own simple app

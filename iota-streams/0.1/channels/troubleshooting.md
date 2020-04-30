@@ -1,6 +1,6 @@
 # Troubleshooting
 
-**This article aims to help you understand and resolve common issues and errors that you may see while using Channels.**
+**This article helps you understand and resolve common issues and errors that you may see while using Channels.**
 
 ## More than one message found
 

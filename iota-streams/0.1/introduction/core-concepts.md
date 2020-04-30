@@ -38,3 +38,18 @@ The rest of the application-specific content is stored in the `signatureMessageF
 
 ![Message structure](../images/message-structure.png)
 
+## Cryptography
+
+Cryptography is what makes Streams so powerful. Built into the framework are cryptographic tools for the following.
+
+- Working with ternary and binary data
+- Using the [Troika](https://medium.com/asecuritysite-when-bob-met-alice/meet-troika-a-hashing-method-fit-for-iot-blockchains-47857b4ca1f3) hashing function
+- Generating pre-shared keys
+- Generating pseudo-random numbers
+- Working with Keccak-F[1600] sponge constructions
+- Creating traversable Merkle trees
+- Creating a [Merkle tree signature scheme (MSS)](https://en.wikipedia.org/wiki/Merkle_signature_scheme) for Winternitz one-time-signatures
+- Generating [NTRU key pairs](https://en.wikipedia.org/wiki/NTRU)
+- Encrypting messages with NTRU private keys
+- Decrypting messages with NTRU public keys
+
