@@ -4,7 +4,7 @@
 
 ## More than one message found
 
-This error message is sent by the Channels application.
+This error message is produced by the `iota_client::Client` object.
 
 You may see this error when trying to use the `Client` object to receive a message on a channel when other copies of that message exist.
 
@@ -16,7 +16,7 @@ To resolve this error, you could do one of the following:
 
 ## Provided hashes are not valid: []
 
-This error message is sent by the IOTA node that the `Client` object is connected to.
+This error message is produced by the IOTA node that the `iota_client::Client` object is connected to.
 
 You may see this error if the Channels messages are sent in an inconsistent bundle.
 
@@ -26,7 +26,7 @@ If you see this message please reach out to us in the #streams-discussion on [Di
 
 ## No Author's MSS public key found
 
-This error message is sent by the Channels application.
+This error message is produced by the Channels application.
 
 You may see this error when trying to unwrap a message that relies on information in an `Announce` message.
 

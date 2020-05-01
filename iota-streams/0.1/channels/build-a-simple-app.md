@@ -21,7 +21,7 @@ If you're new to Rust, or don't understand something in the code, the following 
 - [Rust Book](https://doc.rust-lang.org/book/)
 - [Rust documentation](https://doc.rust-lang.org/std/) (you can also open the documentation offline with the `rustup doc` command)
 - IOTA Streams API documentation (use the `cargo doc --open` command to open the API documentation in your default web browser)
-- [Types of Channels message](../introduction/core-concepts.md#message-types)
+- [Types of Channels message](../channels/how-channels-works.md#message-types)
 
 ## Step 1. Create your project
 
@@ -49,9 +49,9 @@ In this step, you use Cargo to create a new project and install the dependencies
 
 Now you have all the dependencies, you're ready to start coding.
 
-## Step 2. Publish the API channel
+## Step 2. Announce the API channel
 
-In this step, you write the function that will create and publish a new channel on the IOTA Devnet. This channel will be the one that your API author will use to publish messages for subscribers to read.
+In this step, you write a function that publishes a new channel on the IOTA Devnet. This channel is the one on which your API author will publish messages for subscribers to read.
 
 1. In the `src` directory, create a new directory called `author` and create two files inside it: `mod.rs` and `announce.rs`
 
@@ -70,19 +70,23 @@ In this step, you write the function that will create and publish a new channel 
     }
     ```
 
-    As well as the author, this function takes a special type of object that implements the [`Transport`](https://github.com/iotaledger/streams/blob/master/iota-streams-app/src/transport/tangle/client.rs) trait for sending and receiving messages.
+    As well as the author, this function takes a generic type that implements the [`Transport`](https://github.com/iotaledger/streams/blob/master/iota-streams-app/src/transport/tangle/client.rs) trait for sending and receiving messages.
 
     In Channels, the IOTA client library is extended to implement this trait, which means that we can use it to create a [bundle](root://getting-started/0.1/transactions/bundles.md) from the messages and send them to a node.
 
     :::info:
-    In Rust, it's best practice to follow the convention of using underscores to separate words in the names of functions and variables.
+    In Rust, it's best practice to follow the convention of using underscores to separate words (snake_case) in the names of functions and variables.
     :::   
 
-4. Create an [`Announce`](../introduction/core-concepts.md#message-types) message, which you can later use to publish the channel on the Tangle
+4. Create an [`Announce`](../channels/how-channels-works.md#message-types) message, which you can later use to publish the channel on the Tangle
 
     ```rust
     let announcement = author.announce()?;
     ```
+
+    :::info:
+    The [`?`](https://doc.rust-lang.org/edition-guide/rust-2018/error-handling-and-panics/the-question-mark-operator-for-easier-error-handling.html) operator is for handling any errors that may be produced while creating the message.
+    :::
 
 5. Get the message identifier of your `Announce` message, and use the `to_string()` method to convert it from trits to trytes
 
@@ -156,7 +160,7 @@ Now you can use your `author` object to send messages on your channel.
 
 ## Step 3. Publish a public message about breaking changes
 
-In this step, you write a function that will create and publish a `SignedPacket` message on your channel. This message will include a plain text message that anyone can read.
+In this step, you write a function that creates and publishes a `SignedPacket` message on your channel.
 
 1. In the `author` directory, create a new file called `send_message.rs`
 
@@ -423,7 +427,7 @@ To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Ins
     ```
 
     :::info:
-    Authors should publish only one instance of a channel.
+    The author should publish only one instance of a channel.
 
     Otherwise, subscribers will not know which channel to use.
     :::

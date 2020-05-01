@@ -2,7 +2,7 @@
 
 [Introduction/Streams overview](/introduction/overview.md)
 
-[Introduction/Core concepts](/introduction/core-concepts.md)
+[Introduction/How Streams works](/introduction/how-streams-works.md)
 
 [Channels/Why build Channels applications](/channels/why-build-channels.md)
 
