@@ -1,52 +1,58 @@
 # Design the messaging workflow
 
-**This article walks you through the process of designing a Channels messaging app.**
-
-As a channel author, you have many options for designing how you and your subscribers will interact.
-
-To create a fluid and natural experience, it is important to think about all the different ways a subscriber might need to interact with your app as well as the types of messages you may need to send.
-
-## Messaging workflows
+**As a channel author, you have many options for designing how you and your subscribers will interact. To create a fluid and natural experience, it is important to think about all the different ways a subscriber might need to interact with your app as well as the types of messages you may need to send. This article walks you through the process of designing a Channels messaging app.**
 
 In a channel, messages can reference the message identifier of any other [message type](../channels/how-channels-works.md#message-types).
 
 These references allow the author and subscribers to make sure that the information in their [state](../channels/how-channels-works.md#author-and-subscriber-states) came from the correct message.
 
-This section guides you through some best practices for creating messaging workflows.
+References can be **linear** for simple workflows or they can create **tree-like** structures for more complex ones.
 
-### Sending public messages
+This section guides you through some common messaging workflows that use both of these structures.
 
-The most basic messaging workflow links all messages to the `Announce` message.
+## Sending public payloads
 
-This workflow is useful if your application needs to publish only plain text messages that subscribers can authenticate.
+Public payloads are sent in plain text by both authors and subscribers.
+
+Authors can send public payloads in both `SignedPacket` and `TaggedPacket` messages. Subscribers can send public payloads only in `TaggedPacket` messages.
+
+The difference between `SignedPacket` and `TaggedPacket` messages is that `SignedPacket` messages can be signed and sent only by authors because only authors have signature keys.
+
+`TaggedPacket` messages contain a message authentication code (MAC), which is used to prove that a payload was not changed. If the `TaggedPacket` message references a `Keyload` message, the MAC is a cryptographic checksum that uses the session key. If not, the MAC is just a hash of the payload.
+
+The most basic messaging workflow for sending public payloads is linear, where all messages reference the `Announce` message.
 
 ![Announce workflow](../images/workflow.png)
 
-In this workflow, subscribers read and authenticate the `Announce` message, then they add the information to their states, using the `unwrap_announcement()` method.
+In this workflow, subscribers read and verify the `Announce` message, then they add the information to their states, using the `unwrap_announcement()` method.
 
-Subscribers can then use the information in their key stores to authenticate future `SignedPacket` messages that reference this `Announce` message.
+Subscribers can then use the information in their states to verify future `SignedPacket` messages that reference this `Announce` message.
 
-### Sending encrypted messages
+## Authorizing access to encrypted messages
 
 To control read access to private payloads on a channel, the author generates an encrypted session key from the public keys of authorized subscribers. Then, the author publishes the session key to the channel in a `Keyload` message. This way, only authorized subscribers can decrypt the session key and use it to decrypt the author's private payloads.
 
 The author has two choices of workflow to generate the session key for authorized subscribers.
 
-#### Accepting subscribers' requests for read access
+### Accepting requests for read access
 
 In this workflow, subscribers request read access to private payloads by using the information in the `Announce` message to create and publish a `Subscribe` message.
 
-The author listens for these messages and adds the information in them to the state, using the `unwrap_subscribe()` method.
+The author listens for these messages and adds the subscribers' public encryption keys to its state, using the `unwrap_subscribe()` method.
 
-Using this information, the author generates a session key for subscribers and publishes it in a `Keyload` message. This message should reference the `Announce` message because it contains the information that subscribers need to decrypt the session key.
+Using these keys, the author generates a session key for the authorized subscribers and publishes it in a `Keyload` message.
 
-When subscribers read and decrypt the `Keyload` message, they add the information to their states, using the `unwrap_keyload()` method.
+:::info:
+This message should reference the `Announce` message because it contains the information that subscribers need to decrypt the session key.
+:::
 
-The author can then publish encrypted messages in either `SignedPacket` or `TaggedPacket` messages and reference the `Keyload` message to tell subscribers where the correct session key for the encrypted message is.
+When subscribers process the `Keyload` message, the session key is added to their spongos states, using the `unwrap_keyload()` method.
 
-#### Pre-selecting authorized subscribers 
+The author can then publish private payloads in either `SignedPacket` or `TaggedPacket` messages and reference the `Keyload` message to tell subscribers where the correct session key is.
 
-In this workflow, the author decide which subscribers should be allowed access to private payloads before announcing a channel. These subscribers may come from an external source such as a list of members' email addresses in a database.
+### Pre-selecting authorized subscribers 
+
+In this workflow, the author decides which subscribers should be allowed access to private payloads before announcing the channel. These subscribers may come from an external source such as a list of members' email addresses in a database.
 
 The author may choose this option to avoid the overhead of managing `Subscribe` messages.
 
@@ -62,13 +68,15 @@ If the author runs out of signature keys, a new set can be generated by publishi
 The author needs at least one key pair left in the Merkle tree to be able to sign the `ChangeKey` message and prove your ownership of the channel.
 :::
 
-The `ChangeKey` message should reference either an `Announce` message or a previous `ChangeKey` message so that subscribers can authenticate the author's current public key against the previous one.
+The `ChangeKey` message should reference either an `Announce` message or a previous `ChangeKey` message so that subscribers can verify signatures using the author's current public key.
 
-To authenticate future messaging using the author's latest public key, subscribers must use the `unwrap_change_key()` method to update their states.
+To verify future signatures using the author's latest public key, subscribers must use the `unwrap_change_key()` method to update their states.
 
-### Unsubscribing from a channel
+## Unsubscribing from a channel
 
-If subscribers no longer plan on reading encrypted messages on the channel, they can send an `Unsubscribe` message to notify the author. This way the author can do fewer computations while generating future session keys because those unsubscribed subscribers will not be included.
+If subscribers no longer plan on reading encrypted messages on the channel, they can notify the author by publishing an `Unsubscribe` message.
+
+By notifying the author of their intent to unsubscribe, subscribers reduce the amount of computation that the author must do to generate future session keys.
 
 `Unsubscribe` messages must always reference the corresponding `Subscribe` message because it contains the information that the author needs to verify message.
 

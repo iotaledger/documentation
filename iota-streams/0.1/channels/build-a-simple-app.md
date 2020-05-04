@@ -53,7 +53,7 @@ Now you have all the dependencies, you're ready to start coding.
 
 In this step, you write a function that publishes a new channel on the IOTA Devnet. This channel is the one on which your API author will publish messages for subscribers to read.
 
-1. In the `src` directory, create a new directory called `author` and create two files inside it: `mod.rs` and `announce.rs`
+1. In the `src` directory, create a new directory called `api_author` and create two files inside it: `mod.rs` and `announce.rs`
 
 2. In the `announce.rs` file, import the dependencies
 
@@ -91,7 +91,7 @@ In this step, you write a function that publishes a new channel on the IOTA Devn
 5. Get the message identifier of your `Announce` message, and use the `to_string()` method to convert it from trits to trytes
 
     ```rust
-    println!("Message identifier: {}", announcement.link.msgid.to_string());
+    println!("Message identifier: {}", announcement.link.msgid);
     ```
 
     As an author, you must send the channel address and message identifiers to anyone who wants to read the messages on your channel. In this guide, you'll do this by hardcoding these identifiers. However, you can imagine that in real-world scenarios, you would send the subscribers this information programatically such as in a push notification to the subscriber's phone.
@@ -103,7 +103,7 @@ In this step, you write a function that publishes a new channel on the IOTA Devn
     println!("Channel published");
     ```
 
-    The `send_message_with_options()` method uses the IOTA client library to convert the `Announce` message into a bundle and send the resulting transactions to a node.
+    The `send_message_with_options()` method uses the IOTA client library to convert messages into bundles and send the resulting transactions to a node.
 
 7. At the end of the function, add the following to return without errors
 
@@ -111,7 +111,7 @@ In this step, you write a function that publishes a new channel on the IOTA Devn
     OK(())
     ```
 
-8. In the `mod.rs` file, add the following to expose this function to the rest of your project
+8. In the `mod.rs` file, add the following to expose this module to the rest of your project
 
     ```rust
     pub mod announce;
@@ -125,8 +125,8 @@ In this step, you write a function that publishes a new channel on the IOTA Devn
     };
     use iota_lib_rs::prelude::iota_client;
     use iota_streams::app::transport::tangle::client::SendTrytesOptions;
-    use crate::author::announce::start_a_new_channel;
-    mod author;
+    use crate::api_author::announce::start_a_new_channel;
+    mod api_author;
     ```
 
 10. In the `main()` function, add the code to create a new channel, connect to an IOTA node, and call the `start_a_new_channel()` function
@@ -150,11 +150,19 @@ In this step, you write a function that publishes a new channel on the IOTA Devn
     }
     ```
 
-   :::danger:Do not share the secret string
+    When you create an instance of the `Author` object, a [Merkle tree](../channels/how-channels-works.md#author) is generated and the root is used as the author's public signature key (MSS key) and the channel address.
+​
+    The first argument is the author's secret, which is used to generate the author's signature keys (public and private keys).
+
+    :::danger:Do not share the secret string
     In production applications, you should change the author's secret string.
 
     The same secret string will always result in the same signature keys. Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your channel.
     :::
+    ​
+    The second argument is the height of the Merkle tree, which is used to define how many signature keys the author has. To calculate the number of signature keys an author has, use this formula: Number of signature keys = 2<sup>height</sup>. For example a height of 3 would result in 8 signature keys.
+    ​
+    The third argument defines whether the author has encryption keys.
 
 Now you can use your `author` object to send messages on your channel.
 
@@ -162,7 +170,7 @@ Now you can use your `author` object to send messages on your channel.
 
 In this step, you write a function that creates and publishes a `SignedPacket` message on your channel.
 
-1. In the `author` directory, create a new file called `send_message.rs`
+1. In the `api_author` directory, create a new file called `send_message.rs`
 
 2. In the `send_message.rs` file, import the dependencies
 
@@ -178,30 +186,30 @@ In this step, you write a function that creates and publishes a `SignedPacket` m
 3. Create a function called `send_signed_message`
 
     ```rust
-    pub fn send_signed_message<T: Transport>(author: &mut Author, channel_address: String, announce_message_identifier: String, public_payload: String, private_payload: String, client: &mut T, send_opt: T::SendOptions ) -> Fallible<()> {
+    pub fn send_signed_message<T: Transport>(author: &mut Author, channel_address: &String, announce_message_identifier: &String, public_payload: &String, client: &mut T, send_opt: T::SendOptions ) -> Fallible<()> {
     }
     ```
 
-    As well as the author, this method takes a public and private payload to publish on the channel.
+    As well as the author, this method takes a public payload to publish on the channel.
 
-4. Convert the public and private payloads to [trytes](root://getting-started/0.1/introduction/ternary.md)
+4. Convert the public payload to [trytes](root://getting-started/0.1/introduction/ternary.md)
 
     ```rust
     let public_payload = Trytes(Tbits::from_str(&public_payload).unwrap());
-    let private_payload = Trytes(Tbits::from_str(&private_payload).unwrap());
     ```
 
 5. Create a `SignedPacket` message, using the payloads and the announcement link
 
     ```rust
+    let empty_private_payload = Trytes(Tbits::from_str("").unwrap());
     let announcement_link = Address::from_str(&channel_address, &announce_message_identifier).unwrap();
-    let message = author.sign_packet(&announcement_link, &public_payload, &private_payload)?;
+    let message = author.sign_packet(&announcement_link, &public_payload, &empty_private_payload)?;
     ```
 
-    The `SignedPacket` message references the `Announce` message because it contains the information that allows the subscriber to authenticate the signed message.
+    The `SignedPacket` message references the `Announce` message because it contains the information that allows the subscriber to verify the signed message.
 
     :::info:
-    If you want to encrypt the `private_payload` argument, you should reference a `Keyload` message.
+    If you want to send an encrypted payload, you should reference a `Keyload` message.
     :::
 
 6. Publish the message on the channel
@@ -219,19 +227,18 @@ In this step, you write a function that creates and publishes a `SignedPacket` m
     let announce_message_identifier = "RACLH9SDQZEYXOLWFG9WOLVDQHT";
 
     let public_payload = "BREAKINGCHANGES";
-    let private_payload = "";
 
-    match send_signed_message(&mut author, channel_address, (&announce_message_identifier).to_string(), public_payload.to_string(), private_payload.to_string(), &mut client, send_opt){
+    match send_signed_message(&mut author, &channel_address, &announce_message_identifier.to_string(), &public_payload.to_string(), &mut client, send_opt){
         Ok(()) => (),
         Err(error) => println!("Failed with error {}", error),
     }
     ```
 
-Now you need to write the subscribers' application so they can authenticate and read the messages.
+Now you need to write the subscribers' application so they can read and verify the messages.
 
 ## Step 4. Set up the subscribers' application
 
-In this step, you write a function to read your channel's messages from the Tangle and authenticate that they were sent by the trusted author. 
+In this step, you write a function to read your channel's messages from the Tangle and verify that they were sent by the trusted author. 
 
 1. Inside the `src` directory, create a new directory called `bin`
 
@@ -252,7 +259,7 @@ In this step, you write a function to read your channel's messages from the Tang
 4. Define a new function called `get_announcement`
 
     ```rust
-    fn get_announcement<T: Transport>(channel_address: String, announce_message_identifier: String, client: &mut T, recv_opt: T::RecvOptions) -> Fallible<()> {
+    fn get_announcement<T: Transport>(channel_address: &String, announce_message_identifier: &String, client: &mut T, recv_opt: T::RecvOptions) -> Fallible<()> {
     }
     ```
 
@@ -273,7 +280,7 @@ In this step, you write a function to read your channel's messages from the Tang
         let header = tx.parse_header()?;
         ensure!(header.check_content_type(message::announce::TYPE));
         subscriber.unwrap_announcement(header.clone())?;
-        println!("Found and authenticated {} message", header.content_type());
+        println!("Found and verified {} message", header.content_type());
         break;
     }
     Ok(())
@@ -284,15 +291,15 @@ In this step, you write a function to read your channel's messages from the Tang
     For example, an author may have sent the same `Announce` message more than once, or someone else may have reattached the `Announce` message.
 
     :::info:
-    The `unwrap_announcement()` method authenticates any messages that it finds by validating the signature against the channel address.
+    The `unwrap_announcement()` method verifies any messages that it finds by validating the signature against the channel address.
 
     This method also saves the author's information in the subscriber's state so that you can use it to read other messages without having to unwrap the announcement again.
     :::
 
-7. Define a new function called `get_messages`, which is similar to the `get_announcement` function, except it finds and authenticates `SignedPacket` messages
+7. Define a new function called `get_messages`, which is similar to the `get_announcement` function, except it finds and verifies `SignedPacket` messages
 
     ```rust
-    fn get_messages<T: Transport>(subscriber: &mut Subscriber, channel_address: String, signed_message_identifier: String, client: &mut T, recv_opt: T::RecvOptions) -> Fallible<()> {
+    fn get_messages<T: Transport>(subscriber: &mut Subscriber, channel_address: &String, signed_message_identifier: &String, client: &mut T, recv_opt: T::RecvOptions) -> Fallible<()> {
         // Convert the channel address and message identifier to a link
         let message_link = Address::from_str(&channel_address, &signed_message_identifier).unwrap();
     
@@ -307,7 +314,7 @@ In this step, you write a function to read your channel's messages from the Tang
             let header = tx.parse_header()?;
             ensure!(header.check_content_type(message::signed_packet::TYPE));
             let (public_message, private_message) = subscriber.unwrap_signed_packet(header.clone())?;
-            println!("Found and authenticated messages");
+            println!("Found and verified messages");
             println!("Public message: {}, private message: {}", public_message, private_message);
             found_valid_msg = true;
             break;
@@ -319,27 +326,34 @@ In this step, you write a function to read your channel's messages from the Tang
 8. In the `main()` function, add the code to connect to an IOTA node, define your channel address and message identifier, and call the `get_announcement()` function
 
     ```rust
+
+    // Create a new subscriber
+    // REPLACE THE SECRET WITH YOUR OWN
+    let mut subscriber = Subscriber::new("MYSUBSCRIBERSECRET", true);
+
     // Connect to a node and pass this object to the function
     let mut client = iota_client::Client::new("https://nodes.devnet.iota.org:443");
 
-    // Subscribers need the channel address and `Announce` message identifier to be able to authenticate messages on a channel
+    // Subscribers need the channel address and `Announce` message identifier to be able to verify messages on a channel
     let channel_address = "PDDEPZGGFQCMGQJBZEEZOJUQLANOMLFNCVOTJQQBPABFIAPVKLMLMOFKAUWYXSCZLKPKNLR9JPTKGLXVQ";
     let announce_message_identifier = "NIVMCSOJZHMVAQQHSBTMRKKVNNX";
         
     let recv_opt = ();
 
-    match get_announcement(channel_address.to_string(), announce_message_identifier.to_string(), &mut client, recv_opt) {
+    match get_announcement(&channel_address.to_string(), &announce_message_identifier.to_string(), &mut client, recv_opt) {
         Ok(()) => (),
         Err(error) => println!("failed with error {}", error),
     }
 
     let signed_message_identifier = "ICOTSLXXTKVXDNWFPG9LOFUQRJS";
 
-    match get_messages(&mut subscriber, channel_address.to_string(), signed_message_identifier.to_string(), &mut client, recv_opt){
+    match get_messages(&mut subscriber, &channel_address.to_string(), &signed_message_identifier.to_string(), &mut client, recv_opt){
         Ok(()) => (),
         Err(error) => println!("Failed with error {}", error),
     }
     ```
+
+    When you create an instance of the `Subscriber` object, you specify the secret and whether to generate encryption keys. The secret is used to generate the encryption keys.
 
     :::danger:Do not share the secret string
     In production applications, you should change the subscriber's secret string.
@@ -348,7 +362,7 @@ In this step, you write a function to read your channel's messages from the Tang
     :::
 
 :::success:Congratulations :tada:
-You've got an author application that publishes a signed message on a new channel, and you've got a subscriber application that reads and authenticates the message.
+You've got an author application that publishes a signed message on a new channel, and you've got a subscriber application that reads and verifies the message.
 ::: 
 
 ## Run the code
@@ -377,7 +391,7 @@ To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Ins
     cargo run --release --bin my_channel_app
     ```
 
-    It may take a minute or two to download and compile the dependencies.
+    When you run this command for the first time, it may take a minute or two to download and compile the dependencies.
 
     In the console, you should see that the message was sent.
 
@@ -395,20 +409,13 @@ To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Ins
     // REPLACE WITH YOUR OWN MESSAGE IDENTIFIER
     let announce_message_identifier = "RACLH9SDQZEYXOLWFG9WOLVDQHT";
 
-    let public_payload = "MYPUBLICMESSAGE";
-    let private_payload = "";
+    let public_payload = "BREAKINGCHANGES";
 
-    match send_signed_message(&mut author, channel_address, (&announce_message_identifier).to_string(), public_payload.to_string(), private_payload.to_string(), &mut client, send_opt){
+    match send_signed_message(&mut author, &channel_address, &announce_message_identifier.to_string(), &public_payload.to_string(), &mut client, send_opt){
         Ok(()) => (),
         Err(error) => println!("Failed with error {}", error),
     }
     ```
-
-    :::danger:Keep the private payload empty
-    The `private_payload` argument is encrypted only if you link the `SignedPacket` message to a `Keyload` message.
-
-    In this case, you link the message to an `Announce` message, so the `private_payload` argument would not be encrypted anyway.
-    :::
 
     :::info:
     Your message must contain only [tryte-encoded characters](root://getting-started/0.1/introduction/ternary.md) (A-Z or 9).
@@ -452,20 +459,20 @@ To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Ins
     let mut subscriber = Subscriber::new("MYSUBSCRIBERSECRET", true);
     ```
 
-9. Read and authenticate the message
+9. Read and verify the message
 
     ```bash
     cargo run --release --bin subscriber
     ```
 
-    In the console, you should see that the subscriber was able to receive and authenticate the message.
+    In the console, you should see that the subscriber was able to receive and verify the message.
 
     ```
     Receiving announcement messages
-    Found and authenticated STREAMS9CHANNEL9ANNOUNCE message
+    Found and verified STREAMS9CHANNEL9ANNOUNCE message
     Receiving signed messages
-    Found and authenticated messages
-    Public message: MYPUBLICMESSAGE, private message: 
+    Found and verified messages
+    Public message: BREAKINGCHANGES, private message: 
     ```
 
 ## Next steps
