@@ -12,14 +12,6 @@ This section guides you through some common messaging workflows that use both of
 
 ## Sending public payloads
 
-Public payloads are sent in plain text by both authors and subscribers.
-
-Authors can send public payloads in both `SignedPacket` and `TaggedPacket` messages. Subscribers can send public payloads only in `TaggedPacket` messages.
-
-The difference between `SignedPacket` and `TaggedPacket` messages is that `SignedPacket` messages can be signed and sent only by authors because only authors have signature keys.
-
-`TaggedPacket` messages contain a message authentication code (MAC), which is used to prove that a payload was not changed. If the `TaggedPacket` message references a `Keyload` message, the MAC is a cryptographic checksum that uses the session key. If not, the MAC is just a hash of the payload.
-
 The most basic messaging workflow for sending public payloads is linear, where all messages reference the `Announce` message.
 
 ![Announce workflow](../images/workflow.png)
@@ -28,9 +20,7 @@ In this workflow, subscribers read and verify the `Announce` message, then they 
 
 Subscribers can then use the information in their states to verify future `SignedPacket` messages that reference this `Announce` message.
 
-## Authorizing access to encrypted messages
-
-To control read access to private payloads on a channel, the author generates an encrypted session key from the public keys of authorized subscribers. Then, the author publishes the session key to the channel in a `Keyload` message. This way, only authorized subscribers can decrypt the session key and use it to decrypt the author's private payloads.
+## Generating a session key
 
 The author has two choices of workflow to generate the session key for authorized subscribers.
 
