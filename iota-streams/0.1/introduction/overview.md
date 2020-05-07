@@ -1,6 +1,6 @@
 # Streams overview
 
-**Streams is a cryptographic framework for building messaging applications. Streams comes with a built-in method of sending messages to IOTA nodes, but it's also flexible enough to allow you to extend it to send messages in other ways such as in HTTP URLs.**
+**Streams is a cryptographic framework for building secure messaging applications. Streams comes with a built-in method of sending messages to IOTA nodes, but it's also flexible enough to allow you to extend it to send messages in other ways such as in HTTP URLs.**
 
 Here are just a few ideas of what you can build with Streams:
 
@@ -35,6 +35,18 @@ We have the following channels for Streams:
 - **#streams-dev:** A read-only channel where developers discuss topics and where any GitHub updates are displayed
 
 - **#streams-discussion:** An open channel where anyone is free to discuss Streams
+
+## Streams Experience Team
+
+The [Streams Experience Team](https://github.com/iota-community/IOTAStreams) (X-Team) is a collaborative effort to help improve the developer experience.
+
+The Streams Experience Team focus on:
+
+- Quality assurance and review
+- Documentation
+- Code samples
+
+If you'd like to get involved, [add your information to an issue on GitHub](https://github.com/iota-community/IOTAStreams/issues/new/choose) and join the #experience channel on [Discord](https://discord.iota.org).
 
 ## Next steps
 

@@ -10,7 +10,7 @@
 
 [Channels/Design your messaging workflow](/channels/design-the-workflow.md)
 
-[Channels/Build a simple Channels application](/channels/build-a-simple-app.md)
+[Channels/Build your first Channels application](/channels/build-a-simple-app.md)
 
 [Channels/Troubleshooting](/channels/troubleshooting.md)
 

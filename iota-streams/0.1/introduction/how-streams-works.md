@@ -1,12 +1,20 @@
 # How Streams works
 
-**This article explains the core concepts of Streams. Before you start working with Streams, you should get to know the core concepts to understand how applications are built.**
+**This article explains the core concepts of Streams to help you understand how to build your own applications.**
 
 ## Application structure
 
-A Streams application is a message-oriented protocol, where each message consists of a header and application-specific content.
+A Streams application is a message-oriented protocol where the rules for processing the messages are defined in a custom syntax called [Protobuf3](#protobuf3-messaging).
 
-Messages are written in the [Protobuf3](#protobuf3-messaging) syntax and are processed according to Protobuf3 rules that define both the application's message types and the rules for cryptographic processing.
+## Protobuf3 messaging
+
+Protobuf3 is a cryptographic message definition language that we built for Streams messages.
+
+Protobuf3 builds on the idea of [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) by adding keywords that indicate how a certain message field should be processed. For example, the `mssig` keyword indicates that the content contains a signature that must be generated or verified.
+
+Protobuf3 is highly extensible so that it's easy to add new keywords such as those for Diffie-Hellman key exchange.
+
+## Transport
 
 To publish messages in Streams applications, you use the `transport` module, which includes a Tangle-specific module for converting messages into [bundles](root://getting-started/0.1/transactions/bundles.md) and converting bundles back into messages.
 
@@ -18,14 +26,6 @@ To allow others to find messages in a stream, each one has a header, which inclu
 - **Streams message type:** The type of message content. This type gives the receiver an indication of how to process it.
 
 ![Message structure](../images/message-structure.png)
-
-## Protobuf3 messaging
-
-Protobuf3 is a cryptographic message definition language that we built for encoding and decoding Streams messages.
-
-Protobuf3 builds on the idea of [Protocol Buffers](https://en.wikipedia.org/wiki/Protocol_Buffers) by adding keywords that indicate how a certain message field should be processed. For example, the `mssig` keyword indicates that the content contains a signature that must be generated or verified.
-
-Protobuf3 is highly extensible so that it's easy to add new keywords such as those for Diffie-Hellman key exchange.
 
 ## Cryptography
 

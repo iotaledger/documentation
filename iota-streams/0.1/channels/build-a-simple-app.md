@@ -1,6 +1,6 @@
-# Build a simple Channels app
+# Build your first Channels application
 
-**This tutorial guides you through the process of building a simple app that publishes a signed message about breaking changes to an API. At the end of the tutorial, you will have a better understanding of how Channels work and how you can use it in your own applications.**
+**This tutorial guides you through the process of building an app that publishes a signed message about an API's breaking changes to the Tangle. At the end of the tutorial, you will have a better understanding of how Channels works and how you can use it in your own applications.**
 
 ![API workflow](../images/api-workflow.png)
 
@@ -25,7 +25,7 @@ If you're new to Rust, or don't understand something in the code, the following 
 
 ## Step 1. Create your project
 
-The best way to start a new project is to use the [Cargo](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html) build tool because it handles a lot of tasks for you such as building your code, downloading the libraries your code depends on (dependencies), and building those libraries.
+The best way to start a new project is to use the [Cargo](https://doc.rust-lang.org/book/ch01-03-hello-cargo.html) build tool because it handles a lot of tasks for you such as building your code and downloading and building the dependencies.
 
 In this step, you use Cargo to create a new project and install the dependencies.
 
@@ -88,13 +88,13 @@ In this step, you write a function that publishes a new channel on the IOTA Devn
     The [`?`](https://doc.rust-lang.org/edition-guide/rust-2018/error-handling-and-panics/the-question-mark-operator-for-easier-error-handling.html) operator is for handling any errors that may be produced while creating the message.
     :::
 
-5. Get the message identifier of your `Announce` message, and use the `to_string()` method to convert it from trits to trytes
+5. Get the message identifier of your `Announce` message
 
     ```rust
     println!("Message identifier: {}", announcement.link.msgid);
     ```
 
-    As an author, you must send the channel address and message identifiers to anyone who wants to read the messages on your channel. In this guide, you'll do this by hardcoding these identifiers. However, you can imagine that in real-world scenarios, you would send the subscribers this information programatically such as in a push notification to the subscriber's phone.
+    As an author, you must send the channel address and message identifiers to anyone who wants to read the messages on your channel. In this guide, you'll do this by passing them to the subscriber as command-line arguments.
 
 6. Publish your channel on the Tangle
 
@@ -149,20 +149,6 @@ In this step, you write a function that publishes a new channel on the IOTA Devn
         Err(error) => println!("Failed with error {}", error),
     }
     ```
-
-    When you create an instance of the `Author` object, a [Merkle tree](../channels/how-channels-works.md#author) is generated and the root is used as the author's public signature key (MSS key) and the channel address.
-​
-    The first argument is the author's secret, which is used to generate the author's signature keys (public and private keys).
-
-    :::danger:Do not share the secret string
-    In production applications, you should change the author's secret string.
-
-    The same secret string will always result in the same signature keys. Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your channel.
-    :::
-    ​
-    The second argument is the height of the Merkle tree, which is used to define how many signature keys the author has. To calculate the number of signature keys an author has, use this formula: Number of signature keys = 2<sup>height</sup>. For example a height of 3 would result in 8 signature keys.
-    ​
-    The third argument defines whether the author has encryption keys.
 
 Now you can use your `author` object to send messages on your channel.
 
@@ -385,6 +371,12 @@ To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Ins
     let mut author = Author::new("MYAUTHORSECRET", 3, true);
     ```
 
+    :::danger:Do not share the secret string
+    In production applications, you should change the author's secret string.
+
+    The same secret string will always result in the same signature keys. Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your channel.
+    :::
+
 3. Publish the channel
 
     ```bash
@@ -458,6 +450,12 @@ To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Ins
      // REPLACE THE SECRET WITH YOUR OWN
     let mut subscriber = Subscriber::new("MYSUBSCRIBERSECRET", true);
     ```
+
+    :::danger:Do not share the secret string
+    In production applications, you should change the author's secret string.
+
+    The same secret string will always result in the same signature keys. Therefore, you should not share it with anyone, otherwise you risk giving others ownership of your channel.
+    :::
 
 9. Read and verify the message
 

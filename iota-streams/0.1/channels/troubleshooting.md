@@ -4,12 +4,7 @@
 
 ## Link not found
 
-You may see this error if the IOTA node the you're connected to does not have the bundle that contains the message that you're trying to reference or process.
-
-To resolve this error, you could do one of the following:
-
-- Wait a few minutes to give the transactions time to propagate through the network
-- Send the message again
+You may see this error if you're trying to process a message before having processed the message that it's linked to.
 
 ## More than one message found
 
@@ -29,7 +24,7 @@ If you see this message please reach out to us in the #streams-discussion on [Di
 
 ## No Author's MSS public key found
 
-You may see this error when trying to unwrap a message that relies on information in an `Announce` message.
+You may see this error when trying to process a message that relies on information in an `Announce` message.
 
 To resolve this error, you first need to process the `Announce` message by using  the `unwrap_announcement()` method to add the channel information to the subscriber's [state](../channels/how-channels-works.md#author-and-subscriber-states).
 
