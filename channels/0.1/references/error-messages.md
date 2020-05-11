@@ -2,6 +2,12 @@
 
 **This topic helps you understand and resolve errors that you may see while using Channels.**
 
+## Authenticity is violated, bad signature
+
+You may see this error if a signed message contains an invalid signature.
+
+If you see this error message, whoever published the message may be trying to impersonate the channel author.
+
 ## Link not found
 
 You may see this error if you're trying to process a message before having processed the message that it's linked to.
@@ -24,9 +30,9 @@ If you see this message please reach out to us in the #streams-discussion on [Di
 
 ## No Author's MSS public key found
 
-You may see this error when trying to process a message that relies on information in an `Announce` message.
+You may see this error when trying to process a message that relies on information in an `Announce` and/or `ChangeKey` message.
 
-To resolve this error, you first need to process the `Announce` message by using  the `unwrap_announcement()` method to add the channel information to the subscriber's [state](../how-channels-works.md#author-and-subscriber-states).
+To resolve this error, you first need to process these messages by using the `unwrap_announcement()` or `unwrap_change_key()` method to add the channel information to the subscriber's [state](../how-channels-works.md#author-and-subscriber-states).
 
 ## Can't see your error message?
 

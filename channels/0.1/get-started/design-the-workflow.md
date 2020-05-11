@@ -20,7 +20,7 @@ The first argument is the author's secret, which is used by a [pseudo-random num
 
 The second argument is the height of the Merkle tree, which is used to define how many signature keys the author has. To calculate the number of signature keys an author has, use this formula: Number of signature keys = 2<sup>height</sup>. For example a height of 3 would result in 8 signature keys, which could be used to sign 8 messages.
     ​
-The third argument defines whether the author has an encryption key pair. This argument must be `true` if you plan on [getting the public encryption keys of subscribers on the channel](#getting-the-public-encryption-keys-of-subscribers).
+The third argument defines whether the author has an encryption key pair. This argument must be `true` if you plan on using the channel to [get the public encryption keys of subscribers](#getting-the-public-encryption-keys-of-subscribers).
 
 ### Announcing a channel
 
@@ -82,14 +82,16 @@ The most basic messaging workflow for publishing **public payloads** on a channe
 
 ### Publishing masked payloads
 
-The workflow for publishing masked payloads is a little bit more complex because it depends on how you [get the public encryption keys from subscribers](#getting-the-public-encryption-keys-of-subscribers).
-
-In general though, all masked payloads rely on a `Keyload` message. This message contains an encrypted session key that allows authorized subscribers to do the following:
+In general, all masked payloads rely on a `Keyload` message. This message contains an encrypted session key that allows authorized subscribers to do the following:
 
 - Decrypt the author's masked payloads in future messages that are linked to the `Keyload` message
 - Encrypt their own masked payloads in `TaggedPacket` messages
 
+As a result, each `Keyload`message essentially acts as the start of a private channel within the main public channel, allowing you to create fine-grained access permissions for authorized subscribers. 
+
 flowchart
+
+The workflow for publishing masked payloads is more complex than public payloads because it depends on how you [get the public encryption keys from subscribers](#getting-the-public-encryption-keys-of-subscribers).
 
 To make sure that only authorized subscribers can decrypt the session key, the author encrypts it using their public [encryption keys](#encryption-keys).
 
@@ -148,15 +150,13 @@ The author can then later use these keys to publish a `Keyload` message.
 
 You may want to change the author's signature keys before running out of them so the author can continue publishing messages on the same channel instead of starting a new one.
 
-flowchart
-
 To generate a new set of [signature keys](../how-channels-works.md#signature-keys), the author publishes a `ChangeKey` message.
 
 :::info:
 The author needs at least one signature key left in the Merkle tree to be able to sign the `ChangeKey` message and prove your ownership of the channel.
 :::
 
-The `ChangeKey` message should be linked to either an `Announce` message or a previous `ChangeKey` message so that subscribers can process it.
+The `ChangeKey` message should be linked to either an `Announce` message or a previous `ChangeKey` message so that subscribers can use a previous public signature key to verify the new one.
 
 ## Next steps
 
