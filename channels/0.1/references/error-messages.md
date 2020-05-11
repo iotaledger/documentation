@@ -1,6 +1,6 @@
-# Troubleshooting
+# Error messages
 
-**This article helps you understand and resolve common issues and errors that you may see while using Channels.**
+**This topic helps you understand and resolve errors that you may see while using Channels.**
 
 ## Link not found
 
@@ -26,5 +26,9 @@ If you see this message please reach out to us in the #streams-discussion on [Di
 
 You may see this error when trying to process a message that relies on information in an `Announce` message.
 
-To resolve this error, you first need to process the `Announce` message by using  the `unwrap_announcement()` method to add the channel information to the subscriber's [state](../channels/how-channels-works.md#author-and-subscriber-states).
+To resolve this error, you first need to process the `Announce` message by using  the `unwrap_announcement()` method to add the channel information to the subscriber's [state](../how-channels-works.md#author-and-subscriber-states).
+
+## Can't see your error message?
+
+Get in touch with us on [Discord](https://discord.iota.org/) in the #streams-discussion channel, or [create an issue](https://github.com/iotaledger/documentation/issues/new/choose) on GitHub.
 

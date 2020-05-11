@@ -1,6 +1,6 @@
-# Why build Channels applications
+# Channels overview
 
-**Channels comes with lots of features for securely communicating with others and authenticating the owner of the channel. This article discusses the reasons for building your own applications on Channels.**
+**Channels is a built-in [Streams](root://iota-streams/0.1/overview.md) protocol for building secure messaging applications.**
 
 ## Secure communications
 
@@ -16,4 +16,4 @@ The owner of a channel can decide who has access to private data.
 
 ## Next step
 
-[Understand how Channels works](../channels/how-channels-works.md).
+[Understand how Channels works](how-channels-works.md).

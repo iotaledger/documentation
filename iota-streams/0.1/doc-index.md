@@ -1,19 +1,14 @@
 # Index
 
-[Introduction/Streams overview](/introduction/overview.md)
+[Overview](overview.md)
 
-[Introduction/How Streams works](/introduction/how-streams-works.md)
+[Get started/Building a protocol](/get-started/building-a-protocol.md)
 
-[Channels/Why build Channels applications](/channels/why-build-channels.md)
+[Protocols/Channels](root://channels/0.1/overview.md)
 
-[Channels/How Channels works](/channels/how-channels-works.md)
+[Contribute to the project](/contribute.md)
 
-[Channels/Design your messaging workflow](/channels/design-the-workflow.md)
-
-[Channels/Build your first Channels application](/channels/build-a-simple-app.md)
-
-[Channels/Troubleshooting](/channels/troubleshooting.md)
-
+[Get in touch](/get-in-touch.md)
 
 
 

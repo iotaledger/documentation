@@ -1,11 +1,13 @@
 # Build your first Channels application
 
-**This tutorial guides you through the process of building an app that publishes a signed message about an API's breaking changes to the Tangle. At the end of the tutorial, you will have a better understanding of how Channels works and how you can use it in your own applications.**
+**This tutorial guides you through the process of building a simple app, using the Channels protocol. At the end of the tutorial, you will have an app that publishes a signed message about an API's breaking changes to the Tangle.**
 
 ![API workflow](../images/api-workflow.png)
 
 :::info:Just want to run the code?
 See the [Run the code](#run-the-code) section to go straight to publishing a message.
+
+Or take a look at the [source code](https://github.com/JakeSCahill/channels-examples) on GitHub.
 :::
 
 ## Prerequisites
@@ -21,7 +23,7 @@ If you're new to Rust, or don't understand something in the code, the following 
 - [Rust Book](https://doc.rust-lang.org/book/)
 - [Rust documentation](https://doc.rust-lang.org/std/) (you can also open the documentation offline with the `rustup doc` command)
 - IOTA Streams API documentation (use the `cargo doc --open` command to open the API documentation in your default web browser)
-- [Types of Channels message](../channels/how-channels-works.md#message-types)
+- [Types of Channels message](../how-channels-works.md#message-types)
 
 ## Step 1. Create your project
 
@@ -78,7 +80,7 @@ In this step, you write a function that publishes a new channel on the IOTA Devn
     In Rust, it's best practice to follow the convention of using underscores to separate words (snake_case) in the names of functions and variables.
     :::   
 
-4. Create an [`Announce`](../channels/how-channels-works.md#message-types) message, which you can later use to publish the channel on the Tangle
+4. Create an [`Announce`](../how-channels-works.md#message-types) message, which you can later use to publish the channel on the Tangle
 
     ```rust
     let announcement = author.announce()?;
@@ -475,7 +477,7 @@ To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Ins
 
 ## Next steps
 
-We'll be adding more information about Channels as well as more guides for sending different types of messages.
+We'll be adding more information about Channels as well as more tutorials for sending different types of message.
 
 In the meantime, take a look at the [source code](https://github.com/iotaledger/streams) and get involved by discussing your own ideas in the #streams-discussion channel on [Discord](https://discord.iota.org/).
 

@@ -1,6 +1,6 @@
 # How Channels works
 
-**Channels is a protocol for publishing cryptographic messages on a communication channel. This article explains the core concepts of Channels to help you understand how it works.**
+**Channels is a protocol for publishing cryptographic messages on a communication channel. This topic explains the core concepts of Channels to help you understand how it works.**
 
 ## Roles
 
@@ -22,7 +22,7 @@ By default, Channels comes with an API for publishing messages on the [Tangle](r
 
 The `Address` link type includes the channel address in the `address` field of a [transaction](root://getting-started/0.1/transactions/transactions.md) and the message identifier is in the `tag` field of a transaction.
 
-![Header structure](../images/header-structure.png)
+![Header structure](images/header-structure.png)
 
 ## Messages
 
@@ -36,13 +36,13 @@ Messages can be one of seven types, which can be created and published only by p
 
 |**Message type**| **Description**| **Published by**|
 |:-----------|:-----------|:---------------------------------------|
-|![Announce](../images/announce.png)| All channels must start with an `Announce` message. This message contains information that allows subscribers to process other messages on the same channel and to publish their own messages | Author|
-|![ChangeKey](../images/changekey.png)| Publishes the author's new [public MSS key](#author) and authenticates it with the previous one, allowing the author to sign messages with the new private key without changing the channel address| Author|
-|![Keyload](../images/keyload.png)|Publishes a session key that's encrypted for a set of authorized subscribers to give them access to masked payloads in subsequent `TaggedPacket` and `SignedPacket` messages|Author|
-|![TaggedPacket](../images/taggedpacket.png)| Publishes public and/or masked payloads that are authenticated with a [message authentication code](https://searchsecurity.techtarget.com/definition/message-authentication-code-MAC), which is used to prove that a payload is unchanged|Author and subscribers|
-|![SignedPacket](../images/signedpacket.png)|Publishes a signed message that includes a public and/or masked payload| Author|
-|![Subscribe](../images/subscribe.png)| Publishes the subscriber's public NTRU key on the channel so that the author can use it to publish a `Keyload` messages| Subscribers
-|![Unsubscribe](../images/unsubscribe.png)| Publishes the subscriber's intent to unsubscribe from the channel to save the author the trouble of generating a session key for the subscriber|Subscribers
+|![Announce](images/announce.png)| All channels must start with an `Announce` message. This message contains information that allows subscribers to process other messages on the same channel and to publish their own messages | Author|
+|![ChangeKey](images/changekey.png)| Publishes the author's new [public MSS key](#author) and authenticates it with the previous one, allowing the author to sign messages with the new private key without changing the channel address| Author|
+|![Keyload](images/keyload.png)|Publishes a session key that's encrypted for a set of authorized subscribers to give them access to masked payloads in subsequent `TaggedPacket` and `SignedPacket` messages|Author|
+|![TaggedPacket](images/taggedpacket.png)| Publishes public and/or masked payloads that are authenticated with a [message authentication code](https://searchsecurity.techtarget.com/definition/message-authentication-code-MAC), which is used to prove that a payload is unchanged|Author and subscribers|
+|![SignedPacket](images/signedpacket.png)|Publishes a signed message that includes a public and/or masked payload| Author|
+|![Subscribe](images/subscribe.png)| Publishes the subscriber's public NTRU key on the channel so that the author can use it to publish a `Keyload` messages| Subscribers
+|![Unsubscribe](images/unsubscribe.png)| Publishes the subscriber's intent to unsubscribe from the channel to save the author the trouble of generating a session key for the subscriber|Subscribers
 
 ## Payloads
 
@@ -51,12 +51,12 @@ You can publish your own custom data on a channel in public (unencrypted) or mas
 Payloads can be published in `SignedPacket` and `TaggedPacket` messages.
 
 :::info:
-`SignedPacket` messages can be published **only by authors** because only authors have [signature keys](../channels/how-channels-works.md#signature-keys).
+`SignedPacket` messages can be published **only by authors** because only authors have [signature keys](#signature-keys).
 :::
 
 For example, if an author were an API service, that author may want all subscribers to be able to see a public alert about breaking changes. However, the author may also want to keep some messages private such as sensor data from a private endpoint. In this case, the author would send the breaking changes as a public payload, but encrypt the sensor data in a masked payload, using a session key.
 
-![API application example](../images/api-app-example.png)
+![API application example](images/api-app-example.png)
 
 ## States
 
@@ -70,11 +70,11 @@ An author's state may also include:
 - A private [encryption key](#encryption-keys), which is used by subscribers to create `Subscribe` messages
 - The encryption keys of any trusted subscribers. These keys are used to create `Keyload` messages.
 
-![Author state](../images/author-state.png)
+![Author state](images/author-state.png)
 
 A subscriber's state may also include:
 
-- A private encryption key#encryption-keys, which is used to process `Keyload` messages
+- A private encryption key, which is used to process `Keyload` messages
 - The author's public encryption key, which may be used when creating `Keyload` and `Subscribe` messages
 - The author's current public signature key, which is used to verify signatures in signed messages
 
@@ -95,7 +95,7 @@ Only authors have signature keys, which are used to sign messages and prove owne
 ​
 To sign messages, the author uses a [Merkle signature scheme (MSS)](https://en.wikipedia.org/wiki/Merkle_signature_scheme). This signature scheme uses a pseudo-random number generator and a secret string to generate [Winternitz one-time signature keys](https://en.wikipedia.org/wiki/Hash-based_cryptography#One-time_signature_schemes). These signatures are quantum robust, meaning that they are resistant against attacks by quantum computers. However, the 'one-time' part, means that each private key can be used only once. Therefore, authors need to decide in advance how many private keys to pre-generate because the public half of these keys is then used to generate the channel address, which is also the Merkle root.
 ​
-![Example of a Merkle tree](../images/merkle-tree-channel.png)
+![Example of a Merkle tree](images/merkle-tree-channel.png)
 
 To verify signatures, subscribers use the author's public signature key from either an `Announce` message or a `ChangeKey` message.
 
@@ -113,8 +113,8 @@ So that receivers know whether they are processing messages in the correct order
 
 This means that messages on a channel can fork into many directions, depending on the use case. For example, a message may link to another message that contains supplementary information.
 
-The order in which you and your subscribers publish and process messages is [messaging workflow](../channels/design-the-workflow.md).
+The order in which you and your subscribers publish and process messages is messaging workflow.
 ​
 ## Next step
 ​
-[Design your own messaging workflow](../channels/design-the-workflow.md).
+[Design your own messaging workflow](get-started/design-the-workflow.md).

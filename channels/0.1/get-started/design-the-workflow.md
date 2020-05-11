@@ -1,12 +1,12 @@
 # Design the messaging workflow
 
-**As a channel author, you have many options for designing how you and your subscribers will interact. To create a fluid and natural experience, it is important to think about all the different ways a subscriber might need to interact with your app as well as the types of messages you may need to send. This article walks you through the process of designing a Channels messaging app.**
+**As a channel author, you have many options for designing how you and your subscribers will interact. To create a fluid and natural experience, it is important to think about all the different ways a subscriber might need to interact with your app as well as the types of messages you may need to send. This topic walks you through the process of designing a messaging app on the Channels protocol.**
 
 ## Starting a channel
 
 All channels must start with this simple workflow to announce the channel.
 
-Flowchart
+![Flowchart for starting a channel](../images/announce-flowchart.png)
 
 ### Creating the author
 
@@ -16,7 +16,7 @@ The first step in starting a channel is to create an instance of the `Author` ob
 let mut author = Author::new("AUTHORSECRET", 3, true);
 ```
 
-The first argument is the author's secret, which is used by a [pseudo-random number generator](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) (PRNG) to generate the author's [signature keys](../channels/how-channels-works.md#signature-keys).
+The first argument is the author's secret, which is used by a [pseudo-random number generator](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) (PRNG) to generate the author's [signature keys](../how-channels-works.md#signature-keys).
 
 The second argument is the height of the Merkle tree, which is used to define how many signature keys the author has. To calculate the number of signature keys an author has, use this formula: Number of signature keys = 2<sup>height</sup>. For example a height of 3 would result in 8 signature keys, which could be used to sign 8 messages.
     ​
@@ -26,7 +26,7 @@ The third argument defines whether the author has an encryption key pair. This a
 
 A channel does not exist until it has been announced.
 
-To announce the channel, an author must publish an [`Announce`](../channels/how-channels-works.md#message-types) message.
+To announce the channel, an author must publish an [`Announce`](../how-channels-works.md#message-types) message on the communication channel.
 
 The author object has a method for creating each type of message.
 
@@ -51,7 +51,7 @@ let message_identifier = announcement.link.msgid;
 All message types include the `link` property, which you can use to get the channel address (`appinst`) and message identifier (`msgid`).
 :::
 
-Subscribers can then get the message from the commmunication channel and process it, using the corresponding `unwrap()` method.
+Subscribers can then get the message from the commmunication channel and process it, using the message type's corresponding `unwrap()` method.
 
 ```rust
 subscriber.unwrap_announcement(parsed_message);
@@ -70,13 +70,13 @@ After announcing a channel, you can start interacting with others on the channel
 - [Getting the public encryption keys of subscribers](#getting-the-public-encryption-keys-of-subscribers)
 - [Changing the author's signature keys](#changing-the-signature-keys)
 
-The workflow is important because it affects whether receivers (the author and subscribers) have the correct information in their [states](../channels/how-channels-works.md#author-and-subscriber-states) to be able to process messages correctly.
+These workflows describe some best practices for linking messages.
+
+The way that messages are linked affects whether receivers (the author and subscribers) have the correct information in their [states](../how-channels-works.md#author-and-subscriber-states) to be able to process messages correctly.
 
 ### Publishing public payloads
 
-The most basic messaging workflow for publishing **public payloads** on a channel is where all messages are linked to the `Announce` message. In this workflow, subscribers only rely on the `Announce` message to be able to process future `SignedPacket` or `TaggedPacket` messages.
-
-Subscribers can also send their own `TaggedPacket` messages and link them to the `Announce` message.
+The most basic messaging workflow for publishing **public payloads** on a channel is where all messages are linked to the `Announce` message. In this workflow, subscribers only rely on the `Announce` message to be able to process the author's `SignedPacket` messages.
 
 ![Annonce message linked to a SignedPacket message](../images/workflow.png)
 
@@ -84,20 +84,20 @@ Subscribers can also send their own `TaggedPacket` messages and link them to the
 
 The workflow for publishing masked payloads is a little bit more complex because it depends on how you [get the public encryption keys from subscribers](#getting-the-public-encryption-keys-of-subscribers).
 
-In general though, all masked payloads rely on a `Keyload` message, which contains the encrypted session key for authorized subscribers. With this session key, authorized subscribers can do the following:
+In general though, all masked payloads rely on a `Keyload` message. This message contains an encrypted session key that allows authorized subscribers to do the following:
 
-- Decrypt the author's masked payloads in future messages that use this session key
+- Decrypt the author's masked payloads in future messages that are linked to the `Keyload` message
 - Encrypt their own masked payloads in `TaggedPacket` messages
 
 flowchart
 
-To give authorized subscribers access to decrypt the session key in a `Keyload` message, the author encrypts it using their public [encryption keys](#encryption-keys).
+To make sure that only authorized subscribers can decrypt the session key, the author encrypts it using their public [encryption keys](#encryption-keys).
 
 :::info:
-The author must trust subscribers because their keys are used to encrypt the session key. If the subscribers were malicious, they could share the session key with anyone and expose the masked payloads.
+You must trust these subscribers because their keys are used to encrypt the session key. If the subscribers were malicious, they could share the session key with anyone and expose the masked payloads.
 :::
 
-Authorized subscribers can then process the `Keyload` message and use the resulting session key that's in their states.
+To use the session key, authorized subscribers can then process the `Keyload` message to update their states.
 
 :::info:
 Before being able to decrypt a masked payload, susbcribers need to process the corresponding `Keyload` and `Announce` messages.
@@ -146,11 +146,11 @@ The author can then later use these keys to publish a `Keyload` message.
 
 ## Changing the signature keys
 
-You may want to change the author's signature keys if it runs out of them and you want to continue sending messages on the same channel instead of starting a new one.
+You may want to change the author's signature keys before running out of them so the author can continue publishing messages on the same channel instead of starting a new one.
 
 flowchart
 
-To generate a new set of [signature keys](../channels/how-channels-works.md#signature-keys), the author publishes a `ChangeKey` message.
+To generate a new set of [signature keys](../how-channels-works.md#signature-keys), the author publishes a `ChangeKey` message.
 
 :::info:
 The author needs at least one signature key left in the Merkle tree to be able to sign the `ChangeKey` message and prove your ownership of the channel.
@@ -160,6 +160,6 @@ The `ChangeKey` message should be linked to either an `Announce` message or a pr
 
 ## Next steps
 
-Once your messaging workflows are ready, you can build the logic that defines how these messages will be processed.
+Once your messaging workflows are ready, you're ready to code your application.
 
-Try our guide for [building a simple app](../channels/build-a-simple-app.md) that uses the public message workflow.
+Try our guide for [building a simple app](../get-started/build-a-simple-app.md).

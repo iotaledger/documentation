@@ -3,6 +3,7 @@
 [Node Software](/node-software)
 [Private Tangle](/compass)
 [Streams](/iota-streams)
+[Channels](/channels)
 [Wallets](/wallets)
 [Utilities](/utils)
 [App Blueprints](/blueprints)
