@@ -32,7 +32,7 @@
 
 [nRF52/Setup Guides/Connect a programmer to your microcontroller](/nrf52/setup-guides/connect-programmer.md)
 
-[nRF52/Setup Guides/Connect to the serial interface of your microcontroller](/nrf52/setup-guides/connect-to-serial-interface.md)
+[nRF52/Setup Guides/Connect to the serial interface to your microcontroller](/nrf52/setup-guides/connect-to-serial-interface.md)
 
 [nRF52/How-to Guides/Read sensor data from your microcontroller](/nrf52/how-to-guides/read-sensor-data.md)
 
@@ -41,10 +41,6 @@
 [nRF52/IOTA Projects/Attach sensor data to the Tangle](/nrf52/iota-projects/run-an-environment-to-tangle-app.md)
 
 [PlatformIO/Introduction/Get started with PlatformIO](/platformio/introduction/get-started.md)
-
-[PlatformIO/Setup Guides/Connect a programmer to your microcontroller](/platformio/setup-guides/connect-programmer-bluepill.md)
-
-[PlatformIO/Setup Guides/Connect to the serial interface of your microcontroller](/platformio/setup-guides/connect-bluepill-serial-interface.md)
 
 [SBC/Introduction/Get started](/sbc/introduction/get-started.md)
 

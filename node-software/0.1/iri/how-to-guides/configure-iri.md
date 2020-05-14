@@ -49,7 +49,7 @@ Allowing your node to do remote PoW, means that anyone who sends a request to th
 
 By default, the `attachToTangle` endpoint is disabled in the `REMOTE_LIMIT_API` configuration option.
 
-If you want to enable this option only for certain users, you can remove it from the `REMOTE_LIMIT_API` configuration option, and [set up a reverse proxy server](../how-to-guides/set-up-a-reverse-proxy.md) to limit calls to the `attachToTangle` endpoint to certain IP addresses. Or, you can [install a proof of work proxy server](root://utils/0.1/official/proof-of-work-proxy/overview.md) to intercept calls to your node's `attachToTangle` endpoint.
+If you want to enable this option only for certain users, you can remove it from the `REMOTE_LIMIT_API` configuration option, and [set up a reverse proxy server](../how-to-guides/set-up-a-reverse-proxy.md) to limit calls to the `attachToTangle` endpoint to certain IP addresses. Or, you can [install a proof of work proxy server](root://proof-of-work-proxy/1.0/overview.md) to intercept calls to your node's `attachToTangle` endpoint.
 
 ## Do you want to keep all transactions in the ledger?
 

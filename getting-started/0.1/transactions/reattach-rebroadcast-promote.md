@@ -34,7 +34,7 @@ Promoting a bundle is often more effective than reattaching a bundle, unless the
 
 ## Related guides
 
-[Check if a transaction is confirmed in JavaScript](root://client-libraries/0.1/how-to-guides/js/check-transaction-confirmation.md).
+[Check if a transaction is confirmed in JavaScript](root://core/1.0/tutorials/js/check-transaction-confirmation.md).
 
-[Help a transaction to be confirmed in JavaScript](root://client-libraries/0.1/how-to-guides/js/confirm-pending-bundle.md).
+[Help a transaction to be confirmed in JavaScript](root://core/1.0/tutorials/js/confirm-pending-bundle.md).
 

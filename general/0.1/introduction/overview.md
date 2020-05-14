@@ -1,4 +1,4 @@
-# General overview
+# General
 
 **This section contains some prerequisite information that aims to help you complete some of our guides.**
 

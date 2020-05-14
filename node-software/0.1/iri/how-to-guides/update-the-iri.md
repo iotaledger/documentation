@@ -1,6 +1,6 @@
 # Update IRI
 
-**IRI is in a beta development stage, so it's likely to change, meaning that you'll need to update it. In this guide, you update IRI to the latest version.**
+**IRI is in a beta development stage, so it's likely to change, meaning that you'll need to update it. In this tutorial, you update IRI to the latest version.**
 
 When a new version of [IRI is released on GitHub](https://github.com/iotaledger/iri/releases), we recommend that you update your local IRI to the new version.
 

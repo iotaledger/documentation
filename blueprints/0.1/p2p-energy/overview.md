@@ -34,10 +34,10 @@ Neither a demonstration of this application nor deployment instructions are  ava
 ## Additional resources
 
 ---------------
-#### iota.js client library ####
-[Link](root://client-libraries/0.1/getting-started/js-quickstart.md)
+#### Core JavaScript client library ####
+[Link](root://core/1.0/getting-started/get-started-js.md)
 
-Learn how to use the iota.js client library to create, send, and receive transactions.
+Learn how to use the JavaScript client library to create, send, and receive transactions.
 ---
 #### MAM eloquently explained ####
 [Link](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e)

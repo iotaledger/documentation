@@ -88,9 +88,9 @@ For example, if you use security level 3 in the [--keySecLevel](../references/co
 
 When Hub sends a sweep to a node, it monitors it to check for confirmation. If the sweep takes longer than the attachment interval to become confirmed, Hub [promotes and reattaches](root://getting-started/0.1/transactions/reattach-rebroadcast-promote.md) its tail transaction.
 
-The attachment interval you choose should depend on how long it's currently taking for transactions to be confirmed. To check the current time range, see [tanglebeat.com](http://tanglebeat.com/).
+The attachment interval you choose should depend on the current rate of confirmed transactions per second (CTPS) on the Tangle. To check the current rate, see [tanglebeat.com](http://tanglebeat.com/).
 
-For example, if the current time range is between 3 and 4 minutes, you should wait at least 4 minutes before reattaching or promoting transactions in a sweep.
+For example, if the current CTPS rate is between 3 and 4 minutes, you should wait at least 4 minutes before reattaching or promoting transactions in a sweep.
 
 If the attachment interval is too frequent, you will create unnecessary bundles to promote and reattach the sweep.
 

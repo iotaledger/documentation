@@ -1,6 +1,6 @@
 # Attach sensor data to the Tangle
 
-**In this guide, you run an application that collects environment sensor data and attaches it to the Tangle using Masked Authenticated Messaging (MAM).**
+**In this tutorial, you run an application that collects environment sensor data and attaches it to the Tangle using Masked Authenticated Messaging (MAM).**
 
 ## Hardware
 

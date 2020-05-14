@@ -1,6 +1,6 @@
 # Protect your Trinity account
 
-**Between 17 December 2019 and 17 February 2020, some users’ Trinity seeds and passwords were compromised during an attack on the wallet. In this guide, you learn what you can do to secure your IOTA tokens.**
+**Between 17 December 2019 and 17 February 2020, some users’ Trinity seeds and passwords were compromised during an attack on the wallet. In this tutorial, you learn what you can do to secure your IOTA tokens.**
 
 :::warning:
 The migration period is now over.

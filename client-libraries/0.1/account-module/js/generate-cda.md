@@ -1,6 +1,6 @@
 # Generate a conditional deposit address in JavaScript
 
-**In this guide, you generate a conditional deposit address (CDA), serialize it into a magnet link, and send test IOTA tokens to it.**
+**In this tutorial, you generate a conditional deposit address (CDA), serialize it into a magnet link, and send test IOTA tokens to it.**
 
 ## Packages
 
@@ -20,7 +20,7 @@ yarn add @iota/account @iota/cda ntp-client
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+In this tutorial, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
 ## Code walkthrough
 
@@ -80,9 +80,7 @@ Now you have a CDA that contains IOTA tokens, you can make payments to it.
 
 These code samples are hosted on [GitHub](https://github.com/iota-community/account-module).
 
-To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
-
-If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](../../getting-started/js-quickstart.md).
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node.js](https://nodejs.org/en/download/) installed on your device.
 
 In the command-line, do the following:
 

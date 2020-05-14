@@ -1,6 +1,6 @@
 # Get started with Hub
 
-**If you're new to Hub, you can follow this workflow guide to start learning from the beginning.**
+**If you're new to Hub, you can follow this workflow topic to start learning from the beginning.**
 
 ## What you will learn
 

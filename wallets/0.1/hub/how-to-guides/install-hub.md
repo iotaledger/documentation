@@ -1,6 +1,6 @@
 # Run Hub
 
-**By running Hub, you expose an API that your application can use to manage users' accounts. In this guide, you install and run an instance of Hub.**
+**By running Hub, you expose an API that your application can use to manage users' accounts. In this tutorial, you install and run an instance of Hub.**
 
 You have two options for running Hub:
 
@@ -9,7 +9,7 @@ You have two options for running Hub:
 
 ## Run Hub in a Docker container
 
-In this guide, you download the Hub Docker image and run it in a Docker container.
+In this tutorial, you download the Hub Docker image and run it in a Docker container.
 
 ### Prerequisites
 
@@ -207,7 +207,7 @@ Hub is running in the background! Now, you can use its API to start creating use
 
 ## Install and run Hub on a Linux Ubuntu server
 
-In this guide, you install Hub on Ubuntu 18.04 and manage it in a supervisor process.
+In this tutorial, you install Hub on Ubuntu 18.04 and manage it in a supervisor process.
 
 ### Prerequisites
 
@@ -483,7 +483,7 @@ chmod a+x start.sh
 
 You're running Hub in your shell session. If you close this session, Hub will stop. To keep Hub running in the background, you can use a screen/tmux session, a system-wide service, or a supervised process.
 
-In this guide, you use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. 
+In this tutorial, you use a supervisor process to make sure that Hub always runs and automatically restarts after a reboot or a crash. 
 
 6\. Install the `supervisor` package (press `CTRL+C` to exit the current shell session):
 

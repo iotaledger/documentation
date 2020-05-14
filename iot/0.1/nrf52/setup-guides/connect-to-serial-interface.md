@@ -1,6 +1,6 @@
 # Connect to the microcontroller's serial interface
 
-**To read the output of your microcontroller, you need to be able to receive and transmit data on its serial port through a USB-to-UART connector. Some microcontroller development boards include an integrated USB-to-UART connector, but others do not. In this guide, you connect an external USB-to-UART connector to your microcontroller and plug it into your PC to be able to communicate with the microcontroller.**
+**To read the output of your microcontroller, you need to be able to receive and transmit data on its serial port through a USB-to-UART connector. Some microcontroller development boards include an integrated USB-to-UART connector, but others do not. In this tutorial, you connect an external USB-to-UART connector to your microcontroller and plug it into your PC to be able to communicate with the microcontroller.**
 
 ## Hardware
 

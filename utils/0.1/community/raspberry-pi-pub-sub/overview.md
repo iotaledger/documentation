@@ -1,13 +1,13 @@
 # Raspberry Pi sensor data publisher
 
-**Devices often need to share data so they can process and act on it. In this guide, you use a Raspberry Pi to send real-time temperature data (the current temperature in Celsius) to the Devnet Tangle every minute. Then, you subscribe to the event stream (ZMQ) on a Devnet node so know when it receives the data.**
+**Devices often need to share data so they can process and act on it. In this tutorial, you use a Raspberry Pi to send real-time temperature data (the current temperature in Celsius) to the Devnet Tangle every minute. Then, you subscribe to the event stream (ZMQ) on a Devnet node so know when it receives the data.**
 
 :::info:Go to GitHub
 For quickstart instructions or to read the source code, [go to the GitHub repository](https://github.com/iota-community/raspberrypi-pubsub).
 :::
 
 :::warning:
-This application uses the [IOTA JavaScript client library](root://client-libraries/0.1/introduction/overview.md), which is still in beta development. Do not use this code in production environments.
+This application uses the [core JavaScript client library](root://core/1.0/overview.md), which is still in beta development. Do not use this code in production environments.
 :::
 
 This application uses the following files:
@@ -73,9 +73,11 @@ If you wait for around a minute, you should see the ZMQ event trigger when the t
 
 One of the most important benefits of IOTA is that transactions on the Tangle are immutable (can't be changed).
 
-If you want to check that your transaction is on the Devnet Tangle, you can copy the value of the `hash` field and paste it into the search bar of the [Tangle Explorer](https://utils.iota.org/).
+If you want to check that your transaction is on the Devnet Tangle, you can copy the value of the `hash` field and paste it into the search bar of the [Devnet explorer](https://devnet.thetangle.org/).
 
-On this page, you can check that your data is unchanged by checking the Contents section and comparing the JSON message to the value that your sensor returned in the console.
+On this page, you can check that your data is unchanged by checking the `message` field and comparing it to the value that your sensor returned in the console.
+ 
+![Devnet Tangle explorer](../images/tangle-explorer.png)
 
 ## Next steps
 
@@ -83,5 +85,5 @@ After going through this tutorial, you know enough to adapt this application to 
 
 [Start encrypting your data and sending it through a MAM (masked authenticated messaging) channel](../mam-watcher/overview.md).
 
-[Get to know the IOTA client libraries](root://client-libraries/0.1/introduction/overview.md) and find out what else you can do.
+[Get to know the IOTA client libraries](root://client-libraries/1.0/overview.md) and find out what else you can do.
 

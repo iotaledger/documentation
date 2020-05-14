@@ -108,4 +108,4 @@ You can use the following IOTA Tangle Utilities with ternary data:
 
 ## Related guides
 
-[Convert data to/from trytes in JavaScript](root://client-libraries/0.1/how-to-guides/js/convert-data-to-trytes.md)
+[Convert data to/from trytes in JavaScript](root://core/1.0/tutorials/js/convert-data-to-trytes.md)

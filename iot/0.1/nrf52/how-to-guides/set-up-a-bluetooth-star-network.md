@@ -1,6 +1,6 @@
 # Set up a Bluetooth star network
 
-**Star networks are useful for setting up sensor server networks that communicate through a border router. In this guide, you set up a [6LoWPAN](https://en.wikipedia.org/wiki/6LoWPAN) over Bluetooth Low-Energy star network, using state-of-the-art IoT industry standards.**
+**Star networks are useful for setting up sensor server networks that communicate through a border router. In this tutorial, you set up a [6LoWPAN](https://en.wikipedia.org/wiki/6LoWPAN) over Bluetooth Low-Energy star network, using state-of-the-art IoT industry standards.**
 
 ## Hardware
 
@@ -50,7 +50,7 @@ This is an example application. To support sensors other than the BME/BMP 280, y
 
 ## Step 2. Set up a border router
 
-To allow the sensor servers in a star network to access the Internet, you need a border router that can pass on their data. In this guide, you set up a border router on a Linux device.
+To allow the sensor servers in a star network to access the Internet, you need a border router that can pass on their data. In this tutorial, you set up a border router on a Linux device.
 
 ## Step 2.1. Install a compatible Linux kernel
 

@@ -1,6 +1,6 @@
 # Do proof of work for a large bundle
 
-**In this guide, you use the CryptoCore to do proof of work for a bundle that contains eight zero-value transactions.**
+**In this tutorial, you use the CryptoCore to do proof of work for a bundle that contains eight zero-value transactions.**
 
 This guide walks you through the process of writing the following scripts:
 
@@ -337,9 +337,7 @@ You have just written a command-line interface (CLI) program that uses the Crypt
 
 ## Run the code
 
-To get started, you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
-
-If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](root://client-libraries/0.1/getting-started/js-quickstart.md).
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node.js](https://nodejs.org/en/download/) installed on your device.
 
 In the command-line, do the following:
 
