@@ -1,4 +1,4 @@
-# Hub overview
+# Hub
 
 **Hub is a wallet management system for cryptocurrency exchanges. Through its application programming interfaces (APIs), Hub offers you an easy way to integrate IOTA into an exchange by managing [seeds](root://getting-started/0.1/clients/seeds.md), [addresses](root://getting-started/0.1/clients/addresses.md), [transactions](root://getting-started/0.1/transactions/transactions.md), and storage of [IOTA tokens](root://getting-started/0.1/clients/token.md).**
 

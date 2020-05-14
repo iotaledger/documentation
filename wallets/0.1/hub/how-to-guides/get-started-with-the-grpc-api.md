@@ -1,6 +1,6 @@
 # Get started with the gRPC API
 
-**Hub exposes some gRPC methods that you can call using any gRPC client. These methods allow you to manage users' tokens by interfacing with the Hub database and an IOTA node. In this guide, you learn the basics of the gRPC API to create a new user with some new deposit addresses.**
+**Hub exposes some gRPC methods that you can call using any gRPC client. These methods allow you to manage users' tokens by interfacing with the Hub database and an IOTA node. In this tutorial, you learn the basics of the gRPC API to create a new user with some new deposit addresses.**
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 # Get started with the CryptoCore
 
-**The CryptoCore is IOTA hardware designed for applications that need fast, dedicated proof of work and a secure memory. The device consists of an IOTA CryptoCore FPGA (ICCFPGA) module and a development board that doubles as a Raspberry Pi HAT, making it perfect for standalone applications and/or quick prototyping. In this guide, you learn how to get started with the CryptoCore on the Raspberry Pi 3/4.**
+**The CryptoCore is IOTA hardware designed for applications that need fast, dedicated proof of work and a secure memory. The device consists of an IOTA CryptoCore FPGA (ICCFPGA) module and a development board that doubles as a Raspberry Pi HAT, making it perfect for standalone applications and/or quick prototyping. In this tutorial, you learn how to get started with the CryptoCore on the Raspberry Pi 3/4.**
 
 :::info:
 The CryptoCore is in limited supply and currently available only to partners. If you're interested in receiving one, please get in touch with your representative at the IOTA Foundation.

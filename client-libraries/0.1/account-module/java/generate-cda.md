@@ -1,10 +1,10 @@
 # Generate a conditional deposit address in Java
 
-**In this guide, you generate a conditional deposit address (CDA), serialize it into a magnet link, and send test IOTA tokens to it.**
+**In this tutorial, you generate a conditional deposit address (CDA), serialize it into a magnet link, and send test IOTA tokens to it.**
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+In this tutorial, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
 ## Code walkthrough
 
@@ -58,7 +58,7 @@ These code samples are hosted on [GitHub](https://github.com/iota-community/acco
 
 To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
 
-You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool. If this is your first time using the Java client library, complete our [getting started guide](../../getting-started/java-quickstart.md), and follow the instructions for installing the library with Maven.
+You also need a Java development environment that uses the [Maven](https://maven.apache.org/download.cgi) build tool.
 
 In the command-line, do the following:
 

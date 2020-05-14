@@ -1,6 +1,6 @@
 # Set up biometric authentication (mobile devices only)
 
-**Biometric authentication is a security process that allows you to log into Trinity with your fingerprint. In this guide, you set up biometric authentication so that you have the option to log into Trinity, using either your fingerprint or your password.**
+**Biometric authentication is a security process that allows you to log into Trinity with your fingerprint. In this tutorial, you set up biometric authentication so that you have the option to log into Trinity, using either your fingerprint or your password.**
 
 :::danger:
 On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).

@@ -2,7 +2,7 @@
 
 **You can integrate Hub into an exchange in many ways, depending on how you want to manage your users' balances.**
 
-In this workflow guide, we discuss two integration options:
+In this workflow topic, we discuss two integration options:
 
 - **Option 1: Manage user balances in Hub (default):** Easiest way to manage trades and user balances
 - **Option 2. Manage user balances outside of Hub:** Easiest way to store all users' IOTA tokens outside of Hub

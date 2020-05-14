@@ -1,6 +1,6 @@
 # Read sensor data from a microcontroller
 
-**In this guide, you create a low-budget application that allows you to read data from a sensor that's connected to an nRF52-series microcontroller.**
+**In this tutorial, you create a low-budget application that allows you to read data from a sensor that's connected to an nRF52-series microcontroller.**
 
 ## Hardware
 

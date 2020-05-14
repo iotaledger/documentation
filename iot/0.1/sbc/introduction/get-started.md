@@ -1,6 +1,6 @@
 # Get started with single-board computers
 
-**A single-board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. In this guide, you learn how to get started with SBCs. When you've completed this guide, you'll be able to connect to your SBC through the SSH protocol.**
+**A single-board computer (SBC) is a small computer in which a single circuit board includes memory, input/output ports, a microprocessor and any other necessary features. SBCs are lighter, more compact, more reliable, and more power efficient than multi-board computers such as desktops. In this tutorial, you learn how to get started with SBCs. When you've completed this guide, you'll be able to connect to your SBC through the SSH protocol.**
 
 ## Hardware
 
@@ -8,7 +8,7 @@ To complete this guide, you need the following:
 
 - SD card
 - An Internet connection
-- A Linux PC with an SSH client. In this guide, we use Ubuntu, but you can use other Linux distributions or macOS.
+- A Linux PC with an SSH client. In this tutorial, we use Ubuntu, but you can use other Linux distributions or macOS.
 
 :::info:Windows users
 If your device has a Windows operating system, you can use [a virtual machine (VM)](root://general/0.1/how-to-guides/set-up-virtual-machine.md) or the [Linux Subsystem.](https://docs.microsoft.com/en-us/windows/wsl/install-win10).

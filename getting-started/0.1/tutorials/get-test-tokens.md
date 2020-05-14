@@ -8,11 +8,11 @@ To complete this guide, you need an unspent address.
 
 You can generate an unspent address, using any of the following options:
 
-- [C client library](root://client-libraries/0.1/how-to-guides/c/generate-an-address.md)
-- [Go client library](root://client-libraries/0.1/how-to-guides/go/generate-an-address.md)
-- [Java client library](root://client-libraries/0.1/how-to-guides/java/generate-an-address.md)
-- [JavaScript client library](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md)
-- [Python client library](root://client-libraries/0.1/how-to-guides/python/generate-an-address.md)
+- [C client library](root://core/1.0/tutorials/c/generate-an-address.md)
+- [Go client library](root://core/1.0/tutorials/go/generate-an-address.md)
+- [Java client library](root://core/1.0/tutorials/java/generate-an-address.md)
+- [JavaScript client library](root://core/1.0/tutorials/js/generate-an-address.md)
+- [Python client library](root://core/1.0/tutorials/python/generate-an-address.md)
 - [Trinity wallet](root://wallets/0.1/trinity/how-to-guides/receive-a-transaction.md)
 
 :::danger:Important
@@ -53,4 +53,4 @@ You can transfer these tokens on the Devnet, using Trinity or one of the client 
 
 - [Transfer your test tokens with Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md)
 
-- [Transfer your test tokens with the JavaScript client library](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md)
+- [Transfer your test tokens with the JavaScript client library](root://core/1.0/tutorials/js/transfer-iota-tokens.md)

@@ -1,6 +1,6 @@
 # Run a command-line wallet on an ESP32
 
-**In this guide, you set up an IOTA wallet that allows you to send transactions from the command-line on an ESP32.**
+**In this tutorial, you set up an IOTA wallet that allows you to send transactions from the command-line on an ESP32.**
 
 ## Hardware
 

@@ -7,7 +7,7 @@ For this basic setup, you'll install an IRI node and Compass on the same server 
 ![Single-node private Tangle](../images/single-node-tangle.svg)
 
 :::info:
-If you want try a test private Tangle before setting up your own, you can [try the one-command Tangle](root://utils/0.1/community/one-command-tangle/overview.md). This utility sets up a private Tangle in a Docker container, allowing you to start running it in one command.
+If you want try a test private Tangle before setting up your own, you can [try the one-command Tangle](https://github.com/iota-community/one-command-tangle). This utility sets up a private Tangle in a Docker container, allowing you to start running it in one command.
 
 The difference between setting up your own private Tangle and using the one-command Tangle is that the one-command Tangle uses a pre-made seed that you didn't create. As a result, if you want to expose your private Tangle to the Internet, it's better to set up your own private Tangle.
 :::

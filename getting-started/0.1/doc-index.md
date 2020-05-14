@@ -4,13 +4,13 @@
 
 [Introduction/Ternary](/introduction/ternary.md)
 
-[Quickstart/Developers](root://client-libraries/0.1/getting-started/quickstart.md)
+[Quickstart/Developers](root://client-libraries/1.0/overview.md)
 
-[Quickstart/Exchanges and custodians](root://wallets/0.1/hub/how-to-guides/quickstart.md)
+[Quickstart/Exchanges and custodians](root://wallets/0.1/hub/introduction/overview.md)
 
-[Quickstart/Trinity wallet users](root://wallets/0.1/trinity/how-to-guides/quickstart.md)
+[Quickstart/Trinity wallet users](root://wallets/0.1/trinity/introduction/overview.md)
 
-[Quickstart/Node owners](root://node-software/0.1/iri/how-to-guides/quickstart.md)
+[Quickstart/Node owners](root://node-software/0.1/iri/introduction/overview.md)
 
 [How-to guides/Create a seed](/tutorials/create-a-seed.md)
 

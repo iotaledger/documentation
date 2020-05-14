@@ -1,6 +1,6 @@
 # Get started with IOTA on PlatformIO
 
-**PlatformIO is an ecosystem and development platform for embedded devices that comes with lots of tools for the most common integrated development environments (IDEs). In this guide, you set up PlatformIO and use it to compile, upload, and run an example IOTA application on your device.**
+**PlatformIO is an ecosystem and development platform for embedded devices that comes with lots of tools for the most common integrated development environments (IDEs). In this tutorial, you set up PlatformIO and use it to compile, upload, and run an example IOTA application on your device.**
 
 ## Hardware
 
@@ -23,7 +23,7 @@ Please post the results of your tests in the #hardware channel on the [IOTA disc
 | nRF52832        | level 1            | not supported |
 | ESP8266         | not supported      | not supported |
 
-In this guide, we use the Arduino framework because it is simple for beginners. However, PlatformIO supports other frameworks such as [mbed OS](https://www.mbed.com/en/platform/mbed-os/) and [Zephyr OS](https://www.zephyrproject.org/), which offer more flexibility and advanced functionality. If you want to use one of these other frameworks, see our [examples](#example-applications).
+In this tutorial, we use the Arduino framework because it is simple for beginners. However, PlatformIO supports other frameworks such as [mbed OS](https://www.mbed.com/en/platform/mbed-os/) and [Zephyr OS](https://www.zephyrproject.org/), which offer more flexibility and advanced functionality. If you want to use one of these other frameworks, see our [examples](#example-applications).
 
 To check if your device is supported by Arduino, [search for it on the PlatformIO website](https://platformio.org/boards), and make sure that the Frameworks column includes Arduino.
 

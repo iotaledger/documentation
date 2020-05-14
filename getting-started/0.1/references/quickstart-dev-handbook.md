@@ -131,14 +131,10 @@ MAM (Masked Authenticated Messaging) is a second layer communication protocol th
 
 MAM is particularly suitable for streaming sensitive data on the Tangle. 
 
-Currently, we have a [JavaScript MAM library](root://client-libraries/0.1/mam/introduction/overview.md). To use this library, you need one of the following:
+Currently, we have a [JavaScript MAM library](root://mam/1.0/overview.md). To use this library, you need one of the following:
 
 - An IoT device that can run Node.js such as a Raspberry Pi
 - A server that can run Node.js to act as a MAM proxy to which your device can connect
-
-:::info:
-[Learn how to stream sensor data on a Raspberry Pi through MAM channels](root://utils/0.1/community/raspberry-pi-pub-sub/overview.md).
-:::
 
 The IOTA community maintains some client library wrappers that allow you to use MAM in different languages:
 

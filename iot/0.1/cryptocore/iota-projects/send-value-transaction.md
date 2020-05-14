@@ -1,6 +1,6 @@
 # Sign a bundle with the CryptoCore
 
-**In this guide, you use the CryptoCore UART API to sign a bundle.**
+**In this tutorial, you use the CryptoCore UART API to sign a bundle.**
 
 This guide walks you through the process of writing the following scripts:
 
@@ -533,9 +533,7 @@ You have just written a command-line interface (CLI) program that uses the Crypt
 
 ## Run the code
 
-To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) installed on your device.
-
-If you don't have a JavaScript development environment, or if this is your first time using the JavaScript client library, complete our [getting started guide](root://client-libraries/0.1/getting-started/js-quickstart.md).
+To get started you need [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Node.js](https://nodejs.org/en/download/) installed on your device.
 
 In the command-line, do the following:
 

@@ -121,4 +121,4 @@ A public IOTA network is one that anyone can join and use. All transactions in a
 
 ## Related guides
 
-[Connect to a node in JavaScript](root://client-libraries/0.1/getting-started/js-quickstart.md).
+[Connect to a node in JavaScript](root://client-libraries/1.0/getting-started/js-quickstart.md).

@@ -40,4 +40,4 @@ You can also use a Tangle explorer to search for statistics such as the [richest
 
 [Send a transaction in Trinity](root://wallets/0.1/trinity/how-to-guides/send-a-transaction.md).
 
-[Transfer IOTA tokens in JavaScript](root://client-libraries/0.1/how-to-guides/js/transfer-iota-tokens.md).
+[Transfer IOTA tokens in JavaScript](root://core/1.0/tutorials/js/transfer-iota-tokens.md).

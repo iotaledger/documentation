@@ -1,6 +1,6 @@
 # Run an address monitor on an ESP32
 
-**In this guide, you set up a cashier application that allows you to display the QR code for an address on an LCD screen. This application can also monitor the balance of the address and generate a new one if IOTA tokens are ever withdrawn from it.**
+**In this tutorial, you set up a cashier application that allows you to display the QR code for an address on an LCD screen. This application can also monitor the balance of the address and generate a new one if IOTA tokens are ever withdrawn from it.**
 
 ## Hardware
 

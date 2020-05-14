@@ -1,6 +1,6 @@
 # Create a seed
 
-**You need a [seed](root://getting-started/0.1/clients/seeds.md) to prove your ownership of either messages and/or any [IOTA tokens](root://getting-started/0.1/clients/token.md) on your [addresses](root://getting-started/0.1/clients/addresses.md). In this guide, you create your own unique seed.**
+**You need a [seed](root://getting-started/0.1/clients/seeds.md) to prove your ownership of either messages and/or any [IOTA tokens](root://getting-started/0.1/clients/token.md) on your [addresses](root://getting-started/0.1/clients/addresses.md). In this tutorial, you create your own unique seed.**
 
 To create a seed, you can either [create an account in Trinity](root://wallets/0.1/trinity/how-to-guides/create-an-account.md), or you can use one of the following options:
 
@@ -100,4 +100,4 @@ This list offers you some ways to avoid losing your seed:
 
 ## Next steps
 
-Use the JavaScript client library to [generate an unspent address for your seed](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md).
+Use the JavaScript client library to [generate an unspent address for your seed](root://core/1.0/tutorials/js/generate-an-address.md).

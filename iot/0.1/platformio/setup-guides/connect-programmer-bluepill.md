@@ -1,6 +1,6 @@
 # Connect to an external programmer to the bluepill board (STM32F1)
 
-**To transfer machine code onto a microcontroller, you need a [programmer](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner), and not all microcontrollers have an integrated one. In this guide, you connect an external programmer to an STM32F1-series microcontroller.**
+**To transfer machine code onto a microcontroller, you need a [programmer](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner), and not all microcontrollers have an integrated one. In this tutorial, you connect an external programmer to an STM32F1-series microcontroller.**
 
 ## Hardware
 
