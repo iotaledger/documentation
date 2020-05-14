@@ -22,7 +22,7 @@ In this tutorial, we connect to a node on the [Devnet](root://getting-started/0.
     ```java
     IotaAPI api = new IotaAPI.Builder()
             .protocol("https")
-            .host("nodes.devnet.thetangle.org")
+            .host("nodes.devnet.iota.org")
             .port(443)
             .build();
     ```

@@ -82,7 +82,7 @@ In this step, you write a script that uses the Javascript client library to crea
     ```js
     // Define a node for each IOTA network
     const nodes = {
-            devnet: 'https://nodes.devnet.thetangle.org:443',
+            devnet: 'https://nodes.devnet.iota.org:443',
             mainnet: `https://nodes.iota.org:443`
     }
 

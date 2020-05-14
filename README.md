@@ -40,9 +40,7 @@ The `projects.md` file contains the top level navigation labels and links for th
 
 The order of the items in the file determines the order in the navigation.
 
-:::info:
-An item will appear in the navigation only if the corresponding sub-directory for that project also contains a `home.md` file. The links must be relative to the location of the `projects.md` file.
-:::
+**Note:** An item will appear in the navigation only if the corresponding sub-directory for that project also contains a `home.md` file. The links must be relative to the location of the `projects.md` file.
 
 The content of the file is a list of markdown links.
 

@@ -59,7 +59,7 @@ To transfer your test tokens from one address to another, you need to create and
     ```java
     IotaAPI api = new IotaAPI.Builder()
             .protocol("https")
-            .host("nodes.devnet.thetangle.org")
+            .host("nodes.devnet.iota.org")
             .port(443)
             .build();
     ```

@@ -31,7 +31,7 @@ In this tutorial, we connect to a node on the [Devnet](root://getting-started/0.
 2. Connect to a node
 
     ```go
-    var node = "https://nodes.devnet.thetangle.org"
+    var node = "https://nodes.devnet.iota.org"
     api, err := ComposeAPI(HTTPClientSettings{URI: node})
     must(err)
     ```

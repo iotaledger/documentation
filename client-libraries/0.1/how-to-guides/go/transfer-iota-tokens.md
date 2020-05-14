@@ -69,7 +69,7 @@ To transfer your test tokens from one address to another, you need to create and
 2. Connect to a node
 
     ```go
-    var node = "https://nodes.devnet.thetangle.org"
+    var node = "https://nodes.devnet.iota.org"
     api, err := ComposeAPI(HTTPClientSettings{URI: node})
     must(err)
     ```

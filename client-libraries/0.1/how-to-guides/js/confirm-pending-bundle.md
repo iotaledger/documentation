@@ -136,7 +136,7 @@ Click the green button to run the sample code in this guide and see the results 
 Before you run this sample code, find a pending tail transaction hash and store it in the `tails` array.
 
 :::info:Can't find a pending transaction?
-Go to [devnet.thetangle.org](https://devnet.thetangle.org) and click a transaction hash in the Latest transactions box. This transaction is a tip, so it is in a pending state.
+Go to [utils.iota.org](https://utils.iota.org) and click a transaction hash in the Latest transactions box. This transaction is a tip, so it is in a pending state.
 :::
 
 <iframe height="500px" width="100%" src="https://repl.it/@jake91/Confirm-pending-bundle?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>

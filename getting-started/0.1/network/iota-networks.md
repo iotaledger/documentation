@@ -34,7 +34,7 @@ EQSAUZXULTTYZCLNJNTXQTQHOMOFZERHTCGTXOLTVAHKSA9OGAZDEKECURBRIXIJWNPFCQIOVFVVXJVD
 
 ### Nodes
 
-It's best practice to run your own node to have direct access to the Tangle, instead of relying on third-party nodes to receive your transactions.
+It's best practice to [run your own node](root://node-software/0.1/iri/how-to-guides/install-iri.md) to have direct access to the Tangle, instead of relying on third-party nodes to receive your transactions.
 
 However, if you want to test the Mainnet, you can find a list of nodes on community websites such as the following:
 
@@ -47,8 +47,6 @@ However, if you want to test the Mainnet, you can find a list of nodes on commun
 The Devnet is similar to the Mainnet, except the tokens are free and it takes less time and computational power to create and send a transaction.
 
 On this network, you can test your applications and build proofs of concept that use free Devnet tokens.
-
-![Devnet Configuration](../images/devnet-configuration.png)
 
 ### Minimum weight magnitude
 
@@ -81,14 +79,6 @@ This endpoint gives you access to the zero message queue of a node on the Devnet
 Use the ZMQ node to listen for live transaction on the Tangle.
 
 **URL:** tcp://zmq.devnet.iota.org:5556
-
-#### PoW node
-
-This endpoint gives you access to a node that can do remote proof of work.
-
-Use the PoW node to save power on small devices.
-
-**URL:** https://powbox.devnet.iota.org
 
 ## Advice for choosing an IOTA network
 

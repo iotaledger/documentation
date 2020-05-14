@@ -125,7 +125,7 @@ Now, only those with the side key can decrypt your message, even if they find yo
 Try [running your own private Tangle](../one-command-tangle/overview.md) and sending the sending the MAM messages to it.
 
 :::info:
-Make sure to change the node URL `https://nodes.devnet.thetangle.org:443` to the URL of your node (`http:127.0.0.1:14265`) in both the `sender.js` file and the `fetcher.js` file.
+Make sure to change the node URL `https://nodes.devnet.iota.org:443` to the URL of your node (`http:127.0.0.1:14265`) in both the `sender.js` file and the `fetcher.js` file.
 :::
 
 

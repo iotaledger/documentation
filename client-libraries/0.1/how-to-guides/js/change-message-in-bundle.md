@@ -119,7 +119,7 @@ In this tutorial, we connect to a node on the [Devnet](root://getting-started/0.
     You reverse the bundle array because the library expects bundles to be sent head first.
     :::
 
-Now, you can [search for your new tail transaction](https://devnet.thetangle.org/) on the Tangle and see that it's in a bundle with the same bundle hash as the original.
+Now, you can [search for your new tail transaction](https://utils.iota.org/) on the Tangle and see that it's in a bundle with the same bundle hash as the original.
 
 :::success:Congratulations :tada:
 You've just changed the message of a tail transaction in a bundle and reattached a copy of that bundle to the Tangle.

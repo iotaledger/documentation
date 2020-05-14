@@ -248,5 +248,5 @@ Use one of our other tools and utilities with your new network.
 Try out the [MAM watcher](../mam-watcher/overview.md) to send encrypted messages through your network.
 
 :::info:
-Make sure to change the node URL `https://nodes.devnet.thetangle.org:443` to the URL of your node in both the `sender.js` file and the `fetcher.js` file.
+Make sure to change the node URL `https://nodes.devnet.iota.org:443` to the URL of your node in both the `sender.js` file and the `fetcher.js` file.
 :::

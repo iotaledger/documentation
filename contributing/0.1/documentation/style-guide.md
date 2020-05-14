@@ -221,7 +221,7 @@ We always write in US English.
 ## Punctuation
 
 - Always use a capital letter after colons
-- Always use an oxford comma (comma before and in a list, for example 'The Mainnet, Devnet, and Spamnet')
+- Always use an oxford comma (comma before and in a list, for example 'The JavaScript, Python, and C client libraries')
 - Don't use periods at the end of single sentence lists. Use periods only when list items consists of more than one sentence
 
 ## Article titles
@@ -230,8 +230,8 @@ We always write in US English.
 | :----| :-------|
 |Use sentence case for titles. Do not use title case.|'The distributed ledger', not 'The Distributed Ledger'|
 |Article titles in the 'Concepts' sections should always be nouns|'Tip selection' not 'What is tip selection?' or 'Understanding tip selection'|
-|Article titles in the 'How-to guides' section should always start with an infinitive| 'Run the IRI' not 'Running the IRI'|
-|Article titles in the 'References' section should always be plural nouns| 'IRI configuration options' not 'IRI configuration' or 'Configuring the IRI'|
+|Titles in how-to guides should always start with an infinitive| 'Run IRI' not 'Running IRI'|
+|Titles in reference articles should always be plural nouns| 'IRI configuration options' not 'IRI configuration' or 'Configuring IRI'|
 
 ## First paragraph
 

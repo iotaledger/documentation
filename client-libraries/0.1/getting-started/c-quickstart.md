@@ -67,7 +67,7 @@ The C client library is organized in packages, which contain related methods. Al
 
     ```cpp
     // The IOTA node to connect to and its port
-    #define CONFIG_IRI_NODE_URI "nodes.devnet.thetangle.org"
+    #define CONFIG_IRI_NODE_URI "nodes.devnet.iota.org"
 
     #define CONFIG_IRI_NODE_PORT 443
 

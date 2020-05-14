@@ -73,11 +73,9 @@ If you wait for around a minute, you should see the ZMQ event trigger when the t
 
 One of the most important benefits of IOTA is that transactions on the Tangle are immutable (can't be changed).
 
-If you want to check that your transaction is on the Devnet Tangle, you can copy the value of the `hash` field and paste it into the search bar of the [Devnet explorer](https://devnet.thetangle.org/).
+If you want to check that your transaction is on the Devnet Tangle, you can copy the value of the `hash` field and paste it into the search bar of the [Tangle Explorer](https://utils.iota.org/).
 
-On this page, you can check that your data is unchanged by checking the `message` field and comparing it to the value that your sensor returned in the console.
- 
-![Devnet Tangle explorer](../images/tangle-explorer.png)
+On this page, you can check that your data is unchanged by checking the Contents section and comparing the JSON message to the value that your sensor returned in the console.
 
 ## Next steps
 

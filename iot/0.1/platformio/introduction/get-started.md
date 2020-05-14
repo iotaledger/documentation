@@ -29,6 +29,26 @@ To check if your device is supported by Arduino, [search for it on the PlatformI
 
 ![PlatformIO device search](../images/platformio-board-search.png)
 
+### Microcontroller support
+
+Not all devices that are supported by Arduino can be used with IOTA. For a list of restrictions, see the following table:
+
+| **Microcontroller** | **Generating addresses** |                **Signing bundles**                 |
+|---------------------|------------------------|------------------------------------------------------|
+| ESP32               | Security levels 1 and 2| Only for addresses with security level 1 and 2       |
+| STM32F407VET6       | Security levels 1 and 2| Only for addresses with security level 1 and 2       |
+| Kendryte k210       | Security levels 1 and 2| Only for addresses with security level 1 and 2       |
+| STM32F103C6         | Security level 1       | Not supported                                        |
+| nRF52832            | Security level 1       | Not supported                                        |
+| ESP8266             | Not supported          | Not supported                                        |
+
+
+If your microcontroller is not listed, do the following:
+- Try our [Arduino workshop example](https://github.com/iota-community/platformio-arduino-iota-workshop)
+- Post your results in the #hardware channel on [Discord](https://discord.iota.org/)
+
+If you're using an STM32F1-series microcontroller, see our [setup guides](../setup-guides/connect-programmer-bluepill.md) before completing this guide.
+
 ## Step 1. Set up a development environment
 
 In this step, you install the necessary tools to start developing applications with PlatformIO.

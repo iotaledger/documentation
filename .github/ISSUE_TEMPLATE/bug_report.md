@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report a mistake in the documenation
+about: Report an error in the documentation
 title: ''
 labels: invalid, typo
 assignees: JakeSCahill

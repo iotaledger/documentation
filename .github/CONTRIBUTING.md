@@ -53,6 +53,7 @@ To report a mistake, [open a new issue](https://github.com/iotaledger/documentat
 
 If you also want to fix the mistake, submit a [pull request](#pull-requests) and reference the issue.
 </details>
+<br>
 
 <details>
 <summary>Suggest new content :bulb:</summary>

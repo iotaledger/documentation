@@ -33,7 +33,7 @@ This is the content in tab page 2.
 The h3 heading is the tab label.
 :::
 
-![Tabbed Control](/contribution/0.1/images/tabbed-control.png)
+![Tabbed Control](/contributing/0.1/documentation/images/tabbed-control.png)
 
 ### Cards
 
@@ -49,7 +49,7 @@ Data silos make it difficult to buy and sell data among different data points. T
 -------------------------
 ```
 
-![Cards](/contribution/0.1/images/card.png)
+![Cards](/contributing/0.1/documentation/images/card.png)
 
 ### Colored headings
 
@@ -63,9 +63,9 @@ To create a colored heading, use the following syntax:
 ### __COMMUNITY SUPPORT__ ###
 ```
 
-![Heading Label](/contribution/0.1/images/heading-label-primary.png)
+![Heading Label](/contributing/0.1/documentation/images/heading-label-primary.png)
 
-![Heading Label](/contribution/0.1/images/heading-label-secondary.png)
+![Heading Label](/contributing/0.1/documentation/images/heading-label-secondary.png)
 
 ### Colored bullets
 
@@ -88,7 +88,7 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui.
 ---------------
 ```
 
-![Project Topics](/contribution/0.1/images/project-topics.png)
+![Project Topics](/contributing/0.1/documentation/images/project-topics.png)
 
 ### Emoji
 
@@ -105,7 +105,7 @@ To create an emoji, use the following syntax:
 :laughing:
 ```
 
-![Emojis](/contribution/0.1/images/emojis.png)
+![Emojis](/contribution/0.1/documentation/images/emojis.png)
 
 For a list of available emoji, see this JSON file: [https://github.com/muan/emojilib/blob/master/emojis.json](https://github.com/muan/emojilib/blob/master/emojis.json)
 
@@ -133,7 +133,7 @@ A Google map can be embedded in your content by surrounding it with `¬¬¬` fen
 ¬¬¬
 ```
 
-![Google Maps for IOTA](/contribution/0.1/images/maps.png)
+![Google Maps for IOTA](/contribution/0.1/documentation/images/maps.png)
 
 ### Data feeds
 
@@ -151,7 +151,7 @@ A feed can be embedded in your content by surrounding it with `¬¬¬` fencing. 
 
 The `displayType` field specifies how the content will be rendered on the page and the `context` field is used to determine where the data is retrieved from using the documentation api e.g. `https://docs-api.iota.org/feed/training`. The feeds list supports paging and will show it when necessary. The table of contents for the page is dynamically generated from any h2 headers in the rendered items.
 
-![Event Feed](/contribution/0.1/images/feed.png)
+![Event Feed](/contribution/0.1/documentation/images/feed.png)
 
 ### Message boxes
 
@@ -177,7 +177,7 @@ Will Robinson :bomb:
 :::
 ```
 
-![Message Boxes](/contribution/0.1/images/message-boxes.png)
+![Message Boxes](/contribution/0.1/documentation/images/message-boxes.png)
 
 :::info:
 Use an `info` box to bring attention to informations. For example, you may want to give the reader a hint. Without an `info` box, a user may lose precious time and become frustrated while trying to understand why something is not working.
@@ -221,7 +221,7 @@ We always write in US English.
 ## Punctuation
 
 - Always use a capital letter after colons
-- Always use an oxford comma (comma before and in a list, for example 'The Mainnet, Devnet, and Spamnet')
+- Always use an oxford comma (comma before and in a list, for example 'The JavaScript, Python, and C client libraries')
 - Don't use periods at the end of single sentence lists. Use periods only when list items consists of more than one sentence
 
 ## Article titles
@@ -230,8 +230,8 @@ We always write in US English.
 | :----| :-------|
 |Use sentence case for titles. Do not use title case.|'The distributed ledger', not 'The Distributed Ledger'|
 |Article titles in the 'Concepts' sections should always be nouns|'Tip selection' not 'What is tip selection?' or 'Understanding tip selection'|
-|Article titles in the 'How-to guides' section should always start with an infinitive| 'Run the IRI' not 'Running the IRI'|
-|Article titles in the 'References' section should always be plural nouns| 'IRI configuration options' not 'IRI configuration' or 'Configuring the IRI'|
+|Article titles in how-to guides should always start with an infinitive| 'Run IRI' not 'Running IRI'|
+|Article titles in the reference articles should always be plural nouns| 'IRI configuration options' not 'IRI configuration' or 'Configuring IRI'|
 
 ## First paragraph
 

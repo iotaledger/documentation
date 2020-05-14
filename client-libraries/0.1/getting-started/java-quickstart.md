@@ -154,7 +154,7 @@ public static void main(String[] args) throws ArgumentException {
         // and specify which node to connect to
         IotaAPI api = new IotaAPI.Builder()
             .protocol("https")
-            .host("nodes.devnet.thetangle.org")
+            .host("nodes.devnet.iota.org")
             .port(443)
             .build();
 
