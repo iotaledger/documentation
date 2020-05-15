@@ -1,4 +1,4 @@
-# Track and trace overview
+# Track and trace
 
 **Returnable assets that are used within distribution networks are often not returned to their original owners. This blueprint describes how the IBCS Group implemented a track and trace system for recovery of returnable assets, using the IOTA Tangle and other IOTA technologies.**
 
@@ -76,10 +76,10 @@ See this website for a [demonstration of the application](http://tradedemo.iota.
 ## Additional resources
 
 ---------------
-#### iota.js client library ####
-[Link](root://client-libraries/0.1/getting-started/js-quickstart.md)
+#### Core JavaScript client library ####
+[Link](root://core/1.0/getting-started/get-started-js.md)
 
-Learn how to use the iota.js client library to create, send, and receive transactions.
+Learn how to use the JavaScript client library to create, send, and receive transactions.
 ---
 #### MAM eloquently explained ####
 [Link](https://blog.iota.org/introducing-masked-authenticated-messaging-e55c1822d50e)

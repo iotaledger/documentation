@@ -1,4 +1,4 @@
-# IOTA reference implementation overview
+# IOTA reference implementation
 
 **The IRI (IOTA reference implementation) is open-source Java software for the IOTA protocol. This software currently runs on nodes in the [public IOTA networks](root://getting-started/0.1/network/iota-networks.md), where clients can transfer the IOTA token among each other.**
 
@@ -15,7 +15,7 @@ By running your own IRI node you have the following benefits:
 
 ## Limitations
 
-IRI receives transactions and records them in a ledger, it doesn't create or sign transactions. To create or sign transactions, you must use client software such as [Trinity](root://wallets/0.1/trinity/introduction/overview.md) or a [client library](root://client-libraries/0.1/introduction/overview.md) and send the transactions to an IRI node.
+IRI receives transactions and records them in a ledger, it doesn't create or sign transactions. To create or sign transactions, you must use client software such as [Trinity](root://wallets/0.1/trinity/introduction/overview.md) or a [core client library](root://core/1.0/overview.md) and send the transactions to an IRI node.
 
 ## Blog posts
 

@@ -1,10 +1,10 @@
-# Connect to the bluepill board's serial interface
+# Connect to the bluepills serial interface
 
-**To read the output of your microcontroller, you need to be able to receive and transmit data on its serial port through a USB-to-UART connector. Some microcontroller development boards include an integrated USB-to-UART connector, but others such as the bluepill board do not. In this guide, you connect an external USB-to-UART connector to your bluepill board and plug it into your PC to be able to communicate with the microcontroller.**
+**To read the output of your microcontroller, you need to be able to receive and transmit data on its serial port through a USB-to-UART connector. Some microcontroller development boards include an integrated USB-to-UART connector, but others the bluepill does not. In this tutorial, you connect an external USB-to-UART connector to your bluepill board and plug it into your PC to be able to communicate with the microcontroller.**
 
 ## Hardware
 
-To complete this guide, you need DuPont cables, which are used to connect the USB-to-UART connector to your microcontroller
+To complete this guide, you need DuPont cables to connect the USB-to-UART connector to your microcontroller
 
 ## Step 1. Choose a USB-to-UART connector
 
@@ -16,7 +16,7 @@ Whichever connector you choose, make sure that it has a [device driver](https://
 
 To use your connector, you need to wire it to your microcontroller.
 
-1. Connect the following pins from the bluepill board to the USB-to-UART connector:
+1. Connect the following pins from the bluepill to the connector
     
     |    **bluepill (pin)**   |    **USB-to-UART**  |
     |------------------|------------------|
@@ -28,9 +28,9 @@ To use your connector, you need to wire it to your microcontroller.
     **USB-to-UART**
 
     :::info:
-    Use a black DuPont cable for GND and a red one for VCC.
+    Use a black DuPont cable for GND and a red one for VCC
     :::
 
-2. Plug the USB-to-UART connector connector into your PC
+2. Plug the UART-to-USB dongle into your PC
 
-If the wiring is correct, your PC should detect the connector.
+If the connections are correct, your PC should detect the connector.

@@ -1,6 +1,6 @@
 # Send a micropayment in Go
 
-**In this guide, you send a micropayment of 1 IOTA by sending a [transfer bundle](root://getting-started/0.1/transactions/bundles.md) to a [node](root://getting-started/0.1/network/nodes.md).**
+**In this tutorial, you send a micropayment of 1 IOTA by sending a [transfer bundle](root://getting-started/0.1/transactions/bundles.md) to a [node](root://getting-started/0.1/network/nodes.md).**
 
 ## Packages
 
@@ -14,7 +14,7 @@ go get github.com/iotaledger/iota.go/trinary
 
 ## IOTA network
 
-In this guide, we connect to a [node](root://getting-started/0.1/network/nodes.md) on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings:
+In this tutorial, we connect to a [node](root://getting-started/0.1/network/nodes.md) on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet) with the following network settings:
 
 - **[Minimum weight magnitude](root://getting-started/0.1/network/minimum-weight-magnitude.md)**: 9
 
@@ -69,7 +69,7 @@ To transfer your test tokens from one address to another, you need to create and
 2. Connect to a node
 
     ```go
-    var node = "https://nodes.devnet.iota.org"
+    var node = "https://nodes.devnet.thetangle.org"
     api, err := ComposeAPI(HTTPClientSettings{URI: node})
     must(err)
     ```

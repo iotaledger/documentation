@@ -1,19 +1,19 @@
-# The client libraries abstract the complexity of the IOTA protocol into simple methods.
+# The client libraries abstract the complexity of the IOTA protocol into simple methods for sending messages and payments, authenticating messages, and more.
 
-[Client libraries overview](/0.1/introduction/overview.md)
+[Client libraries overview](/1.0/overview.md)
 ## Learn what client libraries are, why they're useful, and which projects are using them
 
-[C quickstart](/0.1/getting-started/c-quickstart.md)
-## Get started with the C client library
+[C quickstart](root://core/1.0/getting-started/c-quickstart.md)
+## Get started with the core C client library
 
-[Go quickstart](/0.1/getting-started/go-quickstart.md)
-## Get started with the Go client library
+[Go quickstart](root://core/getting-started/go-quickstart.md)
+## Get started with the core Go client library
 
-[Java quickstart](/0.1/getting-started/java-quickstart.md)
-## Get started with the Java client library
+[Java quickstart](root://core/getting-started/java-quickstart.md)
+## Get started with the core Java client library
 
-[JavaScript quickstart](/0.1/getting-started/js-quickstart.md)
-## Get started with the JavaScript client library
+[JavaScript quickstart](root://core/getting-started/js-quickstart.md)
+## Get started with the core JavaScript client library
 
-[Python quickstart](/0.1/getting-started/python-quickstart.md)
-## Get started with the Python client library
+[Python quickstart](root://core/getting-started/python-quickstart.md)
+## Get started with the core Python client library

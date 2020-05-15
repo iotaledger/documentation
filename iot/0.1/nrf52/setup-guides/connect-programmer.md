@@ -1,6 +1,6 @@
 # Connect to an external programmer
 
-**To transfer machine code onto a microcontroller, you need a [programmer](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner), and not all microcontrollers have an integrated one. In this guide, you connect an external programmer to an nRF52-series microcontroller.**
+**To transfer machine code onto a microcontroller, you need a [programmer](https://www.engineersgarage.com/how-to-guides/microcontroller-programmer-burner), and not all microcontrollers have an integrated one. In this tutorial, you connect an external programmer to an nRF52-series microcontroller.**
 
 ## Hardware
 

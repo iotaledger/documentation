@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-To use the code samples in this guide, you must have the following:
+To use the code samples in this tutorial, you must have the following:
 
 - [Node.js (8+)](https://nodejs.org/en/) or [Python (3+)](https://www.python.org/downloads/) and [PIP](https://pip.pypa.io/en/stable/installing/)
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -127,7 +127,7 @@ The output should display something like the following:
 
 ## Run the code
 
-Click the green button to run the sample code in this guide and see the results in the web browser.
+Click the green button to run the sample code in this tutorial and see the results in the web browser.
 
 ### Node.js
 

@@ -104,7 +104,7 @@ To complete this guide, you need the following:
 
 ---
 
-All routers are different. In this guide, the router is a BT Hub 6, as a result the steps in this guide may be different for your router, but the concepts are the same. 
+All routers are different. In this tutorial, the router is a BT Hub 6, as a result the steps in this tutorial may be different for your router, but the concepts are the same. 
 
 1. In a web browser, enter the IP address of your router. This IP address should be displayed on your router. If you can't see it, find it in the command-line interface. You'll see your router's IP address under the `Gateway` column.
 

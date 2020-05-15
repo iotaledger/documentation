@@ -69,9 +69,9 @@ KeePass is a password manager that stores passwords in encrypted databases, whic
 7\. Click **OK** to save your seed
 --------------------
 
-## Step 2. Install a client library
+## Step 2. Install a core client library
 
-We have [three official libraries](root://client-libraries/0.1/introduction/overview.md). As well as these libraries, the IOTA community has created some [community ones](root://client-libraries/0.1/introduction/overview.md) so you can use a language that we don't officially support.
+We have [official libraries](root://client-libraries/0.1/introduction/overview.md), and some [community ones](root://client-libraries/0.1/introduction/overview.md) so you can use a language that we don't officially support.
 
 --------------------
 ### Node.js

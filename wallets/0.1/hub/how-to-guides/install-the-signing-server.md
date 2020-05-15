@@ -1,6 +1,6 @@
 # Install the signing server
 
-**To improve the security of Hub, you can move the bundle signing operation and the salt (used to generate seeds) to a signing server that only Hub can connect to. In this guide, you'll install and run a signing server that connects to Hub over an SSL-encrypted connection.**
+**To improve the security of Hub, you can move the bundle signing operation and the salt (used to generate seeds) to a signing server that only Hub can connect to. In this tutorial, you'll install and run a signing server that connects to Hub over an SSL-encrypted connection.**
 
 :::info:
 For maximum security, it's best practice to run the signing server in a remote location. This way, if Hub is compromised, attackers can't steal IOTA tokens without access to the signing server.

@@ -1,4 +1,4 @@
-# Tangle data storage overview
+# Tangle data storage
 
 **Data boosts innovation for public and private sector organisations, and can be used to create new revenue streams. However, without a vendor-neutral way of verifying data, it can't be trusted. This blueprint uses the IOTA Tangle as an immutable data structure to verify the contents of a file in a third-party storage solution.**
 
@@ -37,10 +37,10 @@ See this website for a [demonstration of the application](https://ipfs.iota.org/
 
 Read the code and some quickstart instructions to test this blueprint.
 ---
-#### iota.js client library ####
-[Link](root://client-libraries/0.1/getting-started/js-quickstart.md)
+#### Core JavaScript client library ####
+[Link](root://core/1.0/getting-started/get-started-js.md)
 
-Learn how to use the iota.js client library to create, send, and receive transactions.
+Learn how to use the JavaScript client library to create, send, and receive transactions.
 ---
 #### IPFS ####
 [Link](https://ipfs.io/)

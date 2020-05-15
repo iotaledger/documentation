@@ -1,6 +1,6 @@
 # Proof-of-work proxy server
 
-**A node's [`attachToTangle`](root://node-software/0.1/iri/references/api-reference.md#attachToTangle) endpoint is resource intensive. As a result, many calls to this endpoint can sometimes cause the node to crash. In this guide, you install a dedicated proxy server to do proof of work (PoW) to intercept calls this this endpoint and do the proof of work.**
+**A node's [`attachToTangle`](root://node-software/0.1/iri/references/api-reference.md#attachToTangle) endpoint is resource intensive. As a result, many calls to this endpoint can sometimes cause the node to crash. In this tutorial, you install a dedicated proxy server to do proof of work (PoW) to intercept calls this this endpoint and do the proof of work.**
 
 ## Download, build, and run the proxy server
 

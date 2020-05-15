@@ -1,4 +1,4 @@
-# IOTA overview
+# IOTA
 
 **IOTA is an open-source distributed ledger technology that allows [connected devices](https://en.wikipedia.org/wiki/Connected_Devices) to transfer data and [IOTA tokens](../clients/token.md) among each other for zero fees.**
 
@@ -85,7 +85,7 @@ eCl@ss|eCl@ss is cooperating with IOTA to share and store ISO/IEC-compliant prod
 
 **Non-developers:** Use the [official Trinity wallet](root://wallets/0.1/trinity/introduction/overview.md) to create and store your seed, send and receive transactions, and more.
 
-**Developers:** [Get started with one of the client libraries](root://client-libraries/0.1/getting-started/quickstart.md) or [join an IOTA network by running your own node](root://node-software/0.1/iri/how-to-guides/quickstart.md)
+**Developers:** [Get started with one of the client libraries](root://client-libraries/1.0/overview.md) or [join an IOTA network by running your own node](root://node-software/0.1/iri/how-to-guides/quickstart.md)
 
 **Exchanges:** Use the [official Hub wallet](root://wallets/0.1/hub/introduction/overview.md) to integrate IOTA into your exchange.
 

@@ -1,6 +1,6 @@
 # Get started with IOTA on PlatformIO
 
-**PlatformIO is an ecosystem and development platform for embedded devices that comes with lots of tools for the most common integrated development environments (IDEs). In this guide, you set up PlatformIO and use it to compile, upload, and run an example IOTA application on your device.**
+**PlatformIO is an ecosystem and development platform for embedded devices that comes with lots of tools for the most common integrated development environments (IDEs). In this tutorial, you set up PlatformIO and use it to compile, upload, and run an example IOTA application on your device.**
 
 ## Hardware
 
@@ -8,31 +8,26 @@ To complete this guide you need the following:
 - A 32-bit/64-bit microcontroller device that is supported by Arduino
 - A Linux, macOS, or Windows operating system
 
-In this guide, we use the Arduino framework because it is simple for beginners. However, PlatformIO supports other frameworks such as [mbed OS](https://www.mbed.com/en/platform/mbed-os/) and [Zephyr OS](https://www.zephyrproject.org/), which offer more flexibility and advanced functionality. If you want to use one of these other frameworks, see our [examples](#example-applications).
+## Microcontroller support
+
+Not all devices that are supported by Arduino can be used with IOTA. For a list of restrictions, see the following table
+If your microcontroller is not listed, you can try the code of a [workshop example](https://github.com/iota-community/platformio-arduino-iota-workshop).
+Please post the results of your tests in the #hardware channel on the [IOTA discord](https://discord.iota.org/). 
+
+| Microcontroller | Address generation | Signatures    |
+|-----------------|--------------------|---------------|
+| ESP32           | <= level 2         | <= level 2    |
+| STM32F407VET6   | <= level 2         | <= level 2    |
+| Kendryte k210   | <= level 2         | <= level 2    |
+| STM32F103C6     | level 1            | not supported |
+| nRF52832        | level 1            | not supported |
+| ESP8266         | not supported      | not supported |
+
+In this tutorial, we use the Arduino framework because it is simple for beginners. However, PlatformIO supports other frameworks such as [mbed OS](https://www.mbed.com/en/platform/mbed-os/) and [Zephyr OS](https://www.zephyrproject.org/), which offer more flexibility and advanced functionality. If you want to use one of these other frameworks, see our [examples](#example-applications).
 
 To check if your device is supported by Arduino, [search for it on the PlatformIO website](https://platformio.org/boards), and make sure that the Frameworks column includes Arduino.
 
 ![PlatformIO device search](../images/platformio-board-search.png)
-
-### Microcontroller support
-
-Not all devices that are supported by Arduino can be used with IOTA. For a list of restrictions, see the following table:
-
-| **Microcontroller** | **Generating addresses** |                **Signing bundles**                 |
-|---------------------|------------------------|------------------------------------------------------|
-| ESP32               | Security levels 1 and 2| Only for addresses with security level 1 and 2       |
-| STM32F407VET6       | Security levels 1 and 2| Only for addresses with security level 1 and 2       |
-| Kendryte k210       | Security levels 1 and 2| Only for addresses with security level 1 and 2       |
-| STM32F103C6         | Security level 1       | Not supported                                        |
-| nRF52832            | Security level 1       | Not supported                                        |
-| ESP8266             | Not supported          | Not supported                                        |
-
-
-If your microcontroller is not listed, do the following:
-- Try our [Arduino workshop example](https://github.com/iota-community/platformio-arduino-iota-workshop)
-- Post your results in the #hardware channel on [Discord](https://discord.iota.org/)
-
-If you're using an STM32F1-series microcontroller, see our [setup guides](../setup-guides/connect-programmer-bluepill.md) before completing this guide.
 
 ## Step 1. Set up a development environment
 
@@ -40,7 +35,7 @@ In this step, you install the necessary tools to start developing applications w
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/)
 
-    We use Visual Studio Code in this guide because it's free and [open source](https://github.com/Microsoft/vscode)
+    We use Visual Studio Code in this tutorial because it's free and [open source](https://github.com/Microsoft/vscode)
 
 2. Install the [PlatformIO extension](https://marketplace.visualstudio.com/items?itemName=platformio.platformio-ide) for Visual Studio Code
 

@@ -94,4 +94,4 @@ The Research Department at the IOTA Foundation are working on a project called [
 
 ## Related guides
 
-[Find out if a transaction is confirmed in JavaScript](root://client-libraries/0.1/how-to-guides/js/check-transaction-confirmation.md).
+[Find out if a transaction is confirmed in JavaScript](root://core/1.0/tutorials/js/check-transaction-confirmation.md).

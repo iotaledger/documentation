@@ -1,4 +1,4 @@
-# Document immutability overview
+# Document immutability
 
 **Documents are an important means of transporting information and contracts between parties. Being able to reliably prove that a document has not been changed from an established state helps ensure trust between parties. As well as protect the parties. This blueprint describes a solution that automatically checks the signature of a previously signed document using the IOTA Tangle.**
 
@@ -22,7 +22,7 @@ In this blueprint, we use IOTA technology to automatically check downloaded file
 
 See this website for a [demonstration of a proof of existence application](https://iota-poex.dag.sh/).
 
-Unfortuntely, you can't deploy your own local version of this demo. However, you can test the [proof of existence JavaScript library](root://utils/0.1/official/proof-of-existence/overview.md) that we built, using this blueprint.
+Unfortuntely, you can't deploy your own local version of this demo. However, you can test the [proof of existence JavaScript library](root://proof-of-existence/1.0/overview.md) that we built, using this blueprint.
 
 ## Additional resources
 

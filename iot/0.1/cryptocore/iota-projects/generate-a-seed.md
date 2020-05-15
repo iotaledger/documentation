@@ -1,6 +1,6 @@
 # Generate a seed
 
-**In this guide, you use the CryptoCore to generate a random seed and store it in the secure memory.**
+**In this tutorial, you use the CryptoCore to generate a random seed and store it in the secure memory.**
 
 :::warning:
 For your convenience, all sample code uses the default secret key and the default API key.

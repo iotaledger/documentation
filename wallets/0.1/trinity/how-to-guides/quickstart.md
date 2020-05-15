@@ -1,6 +1,6 @@
 # Get started with Trinity
 
-**If you're new to Trinity, you can follow this workflow guide to start learning from the beginning.**
+**If you're new to Trinity, you can follow this workflow topic to start learning from the beginning.**
 
 :::danger:
 On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).

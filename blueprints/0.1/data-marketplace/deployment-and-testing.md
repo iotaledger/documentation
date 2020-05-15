@@ -52,7 +52,7 @@ Choose from one of the following cloud services:
 
 ### IOTA knowledge
 
-An understanding of [MAM channels](root://client-libraries/0.1/mam/introduction/overview.md).
+An understanding of [MAM channels](root://mam/1.0/overview.md).
 
 ## Deploy the Data Marketplace app
 

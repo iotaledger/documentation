@@ -1,6 +1,6 @@
 # Secure the Hub API
 
-**To secure the API connection between Hub and your application, you can configure Hub to use SSL encryption. In this guide, you'll secure the Hub API so that the connection is encrypted.**
+**To secure the API connection between Hub and your application, you can configure Hub to use SSL encryption. In this tutorial, you'll secure the Hub API so that the connection is encrypted.**
 
 Depending on which API type you configured Hub to expose, you should follow one of the following:
 

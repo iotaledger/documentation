@@ -1,6 +1,6 @@
 # Send spam transactions to your node
 
-**In this guide, you test how many transactions per second your node can process by using the `spammer` API endpoint to send it spam transactions.**
+**In this tutorial, you test how many transactions per second your node can process by using the `spammer` API endpoint to send it spam transactions.**
 
 When you send your node spam transactions, it processes them, adds them to its ledger, and forwards them to its neighbors for processing.
 

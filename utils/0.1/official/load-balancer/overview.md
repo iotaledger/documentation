@@ -1,6 +1,6 @@
 # Client load balancer
 
-**The [client load balancer](https://github.com/iotaledger/client-load-balancer) allows you to configure the [JavaScript client library](root://client-libraries/0.1/getting-started/js-quickstart.md) with backup nodes in case of request errors. This utility is a useful for cases where the connected node goes offline or it has deleted the transactions you are searching for during one of its local snapshots.**
+**The [client load balancer](https://github.com/iotaledger/client-load-balancer) allows you to configure the core JavaScript client library with backup nodes in case of request errors. This utility is a useful for cases where the connected node goes offline or it has deleted the transactions you are searching for during one of its local snapshots.**
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Each instance of the client load balancer can include the following options:
 - [timeoutMs](https://github.com/iotaledger/client-load-balancer/blob/master/docs/classes/loadbalancersettings.md#optional-timeoutms): The amount of time in milliseconds that you want to wait for a response from a node before using the fail mode
 - [snapshotAware](https://github.com/iotaledger/client-load-balancer/blob/master/docs/classes/loadbalancersettings.md#optional-snapshotaware): Whether to log a message to the console if the requested transactions have been deleted by the node during a snapshot
 
-In this guide, we use a random walk strategy that selects the next node in the list after every successful request and that tries all nodes before throwing an exception.
+In this tutorial, we use a random walk strategy that selects the next node in the list after every successful request and that tries all nodes before throwing an exception.
 
 1. Create a new file called `index.js`, and require the package
 

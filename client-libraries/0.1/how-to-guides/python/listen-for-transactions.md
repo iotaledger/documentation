@@ -1,6 +1,6 @@
 # Listen for live transactions in Python
 
-**In this guide, you listen to the Tangle for confirmed transactions by subscribing to the [zero message queue (ZMQ)](https://zeromq.org/) on [nodes](root://getting-started/0.1/network/nodes.md) that run the [IRI node software](root://node-software/0.1/iri/introduction/overview.md).**
+**In this tutorial, you listen to the Tangle for confirmed transactions by subscribing to the [zero message queue (ZMQ)](https://zeromq.org/) on [nodes](root://getting-started/0.1/network/nodes.md) that run the [IRI node software](root://node-software/0.1/iri/introduction/overview.md).**
 
 ## Packages
 
@@ -12,7 +12,7 @@ pip install zmq
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+In this tutorial, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
 ## Code walkthrough
 

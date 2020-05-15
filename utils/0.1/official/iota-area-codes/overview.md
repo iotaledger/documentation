@@ -183,7 +183,7 @@ You've just used the IAC API to tag a transaction with a geo-location, and find 
 
 ### Run the code
 
-Click the green button to run the sample code in this guide and see the results in the web browser.
+Click the green button to run the sample code in this tutorial and see the results in the web browser.
 
 <iframe height="600px" width="100%" src="https://repl.it/@jake91/IOTA-area-codes?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -219,6 +219,11 @@ Bundle sent with tagged transaction
 Use the [IAC finder utility](https://utils.iota.org/area-codes) to find the location of a new IAC.
 
 ![IAC finder](../images/iac-finder.png)
+
+:::info:
+The [Devnet Tangle explorer](https://devnet.thetangle.org/) also uses the IAC API to decode IACs for you.
+Just search for your transaction and scroll down.
+:::
 
 Try removing trytes from the right of an IAC to expand the area.
 

@@ -1,6 +1,6 @@
 # Get started with the ESP32
 
-**ESP32 microcontrollers are an ideal solution for applications that need to connect to WiFi or Bluetooth. In this guide, you learn how to get started with the ESP32 microcontrollers. When you've completed this guide, you'll be able to follow our series of tutorials for using IOTA on the Internet of Things.**
+**ESP32 microcontrollers are an ideal solution for applications that need to connect to WiFi or Bluetooth. In this tutorial, you learn how to get started with the ESP32 microcontrollers. When you've completed this guide, you'll be able to follow our series of tutorials for using IOTA on the Internet of Things.**
 
 ## Hardware
 

@@ -1,6 +1,6 @@
 # Develop features on Trinity
 
-**As well as an application, Trinity is an open-source platform on which you can develop new features. In this guide, you learn how to develop your own features for Trinity.**
+**As well as an application, Trinity is an open-source platform on which you can develop new features. In this tutorial, you learn how to develop your own features for Trinity.**
 
 :::danger:
 On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).

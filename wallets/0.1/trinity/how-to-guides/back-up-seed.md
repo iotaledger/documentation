@@ -1,6 +1,6 @@
 # Back up your seed
 
-**Trinity secures and stores your [seed](root://getting-started/0.1/clients/seeds.md) on your device. As a result, if you were to ever lose your mobile device or computer, your seed would be lost. To avoid losing your seed (and your IOTA tokens), you must back it up and keep the backup in a safe place. In this guide, you learn how to back up your seed.**
+**Trinity secures and stores your [seed](root://getting-started/0.1/clients/seeds.md) on your device. As a result, if you were to ever lose your mobile device or computer, your seed would be lost. To avoid losing your seed (and your IOTA tokens), you must back it up and keep the backup in a safe place. In this tutorial, you learn how to back up your seed.**
 
 :::danger:
 On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).

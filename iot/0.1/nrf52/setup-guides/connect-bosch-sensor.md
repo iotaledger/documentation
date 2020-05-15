@@ -1,6 +1,6 @@
 # Connect to a Bosch BME/BMP 280 sensor
 
-**The Bosch BME/BMP 280 sensors are developed specifically for mobile applications where size and low power consumption are key design constraints. In this guide, you connect a Bosch BME/BMP 280 sensor board to your microcontroller so that they can communicate with each other.**
+**The Bosch BME/BMP 280 sensors are developed specifically for mobile applications where size and low power consumption are key design constraints. In this tutorial, you connect a Bosch BME/BMP 280 sensor board to your microcontroller so that they can communicate with each other.**
 
 ## Hardware
 

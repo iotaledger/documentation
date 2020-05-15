@@ -1,13 +1,13 @@
 # Set up a private Tangle
 
-**In this guide, you set up a private Tangle and use both the IRI API and the IOTA light wallet to interact with your IOTA network.**
+**A private Tangle is one that you control and that contains only nodes that you know. You may want to set up a private Tangle if you want to test an application without using a public IOTA network such as the Mainnet or the Devnet where everyone can see your transactions in the public Tangle.**
 
 For this basic setup, you'll install an IRI node and Compass on the same server or virtual machine with the same configuration settings as the [Devnet](root://getting-started/0.1/network/iota-networks.md).
 
 ![Single-node private Tangle](../images/single-node-tangle.svg)
 
 :::info:
-If you want try a test private Tangle before setting up your own, you can [try the one-command Tangle](root://utils/0.1/community/one-command-tangle/overview.md). This utility sets up a private Tangle in a Docker container, allowing you to start running it in one command.
+If you want try a test private Tangle before setting up your own, you can [try the one-command Tangle](https://github.com/iota-community/one-command-tangle). This utility sets up a private Tangle in a Docker container, allowing you to start running it in one command.
 
 The difference between setting up your own private Tangle and using the one-command Tangle is that the one-command Tangle uses a pre-made seed that you didn't create. As a result, if you want to expose your private Tangle to the Internet, it's better to set up your own private Tangle.
 :::
@@ -17,9 +17,9 @@ The difference between setting up your own private Tangle and using the one-comm
 A Linux server with the following minimum requirements. If you are on a Windows or macOS operating system, you can [create a Linux server in a virtual machine](root://general/0.1/how-to-guides/set-up-virtual-machine.md).
 
 - A new installation of an Ubuntu 18.04 Server / Virtual Machine
-- At least 8 GB RAM
+- At least 8GB RAM
 - Preferably 4+ CPU cores, the more cores the faster the Merkle tree will be generated.
-- At least a 10 GB SSD
+- At least a 10GB SSD
 
 ## Step 1. Install the dependencies
 
@@ -34,19 +34,19 @@ Compass uses [Bazel](https://bazel.build/) to build and [Docker](https://www.doc
 2. Download the latest Bazel installer
 
 	```bash
-	wget https://github.com/bazelbuild/bazel/releases/download/0.28.1/bazel-0.28.1-installer-linux-x86_64.sh
+	wget https://github.com/bazelbuild/bazel/releases/download/0.18.0/bazel-0.18.0-installer-linux-x86_64.sh
 	```
 
 3. Check that you can execute the script before you run it
 
 	```bash
-	chmod +x bazel-0.28.1-installer-linux-x86_64.sh
+	chmod +x bazel-0.18.0-installer-linux-x86_64.sh
 	```
 
-4. Install Bazel under your active user
+4. Install Bazel under your active user, using the `--user` flag
 
 	```bash
-	./bazel-0.28.1-installer-linux-x86_64.sh --user
+	./bazel-0.18.0-installer-linux-x86_64.sh --user
 	```
 	You may need to restart your computer after you install Bazel.
 
@@ -95,14 +95,18 @@ The Compass repository includes a tool to compute a Merkle tree and save it in a
 	bazel run //docker:layers_calculator
 	```
 
-	This process can take up to five minutes, depending on your device. When the process is finished, you should see the following in the output:
+	:::info:
+	If you see a `no such package @io_netty_netty_tcnative_boringssl_static//jar` error, see the [related issue](https://github.com/iotaledger/compass/issues/142#issuecomment-586735326) for guidance.
+	:::
+
+	This process can take some time. You should see the following in the output:
 
 	```
 	INFO: SHA256 (https://github.com/grpc/grpc-java/archive/fe7f043504d66e1b3f674c0514ce794c8a56884e.zip) = 19c51698d4837d1978a10ed7a01f4e45a0b15bcbd3db44de2a2a1c3bdd1cf234
 	Analyzing: target //docker:layers_calculator (8 packages loaded)
 	```
 
-3. Create a seed for Compass. Compass will use this seed to generate private keys for signing bundles.
+3. Create a seed for Compass. Compass will use this seed to derive public/private keys for signing bundles.
 
 	```bash
 	cat /dev/urandom |LC_ALL=C tr -dc 'A-Z9' | fold -w 81 | head -n 1 
@@ -154,7 +158,7 @@ The Compass repository includes a tool to compute a Merkle tree and save it in a
 	Find out how to [customize the configuration of Compass](../references/compass-configuration-options.md) for your own private Tangle.
 	:::
 
-9. Generate the Merkle tree by executing the script in the `docs/private_tangle` directory
+9. Compute the Merkle tree by executing the script in the `docs/private_tangle` directory
 
 	```bash
 	sudo ./01_calculate_layers.sh
@@ -168,7 +172,7 @@ This process will take a while (with a 4 core virtual machine it takes around 15
 [main] INFO org.iota.compass.LayersCalculator - Successfully wrote Merkle Tree with root: JMRTYHMGNZGNOLPSSBVLWRPMGIAMOXPLURNDIBKXIFTCJCLOYKH9FMVNKPBVFVMGSUFEYVUUIEARFQXAK
 ```
 
-The Merkle tree is stored in the data directory, so Compass can read the private keys from it.
+The Merkle tree is stored in the data directory, so Compass can use the private keys when it starts running.
 
 ## Step 3. Run an IRI node
 
@@ -198,7 +202,7 @@ The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first
 	Do not exceed the maximum supply of 2.7Pi
 	:::
 
-3. Run IRI
+3. Run the IRI
 
 	```bash
 	sudo ./02_run_iri.sh
@@ -218,15 +222,16 @@ The `snapshot.example.txt` file puts the total IOTA supply of 2.7Pi in the first
 
 4. Press **Ctrl** + **C** in the command-line interface. IRI will continue to run in the background.
 
-:::danger:Keep your IRI node secure
-If the IRI node to which Compass is connected becomes compromised, an attacker could manipulate Compass to receive favorable treatment.
-
-For example, an attacker could give Compass tip transactions that prioritize the attacker's transactions over the regular tip selection algorithm.
+:::danger:Important
+If the IRI node to which Compass is connected becomes compromised, an attacker could manipulate Compass to receive favorable treatment. Possible scenarios include the following:
+- Return tip transactions that prioritize the attackers transactions over the regular tip selection algorithm.
+- Return tip transactions that conflict with the ledger state (double spend IOTA tokens) causing Compass to send an inconsistent milestone. IRI nodes will not accept this milestone and no more transactions will be confirmed.
+- Stop propagating milestone transactions to the rest of the network, causing no more transactions to be confirmed.
 :::
 
 ## Step 4. Run Compass
 
-After you've generated the Merkle tree and you're running an IRI node, you can run Compass.
+After you've created the Merkle tree and you're running an IRI node, you can run Compass.
 
 1. Go back to your `compass` directory and run Bazel
 
@@ -247,16 +252,19 @@ After you've generated the Merkle tree and you're running an IRI node, you can r
 	sudo ./03_run_coordinator.sh -bootstrap -broadcast
 	```
 
-	Compass enters an indefinite `while` loop and starts sending milestones by doing the following:
+	:::info:
+	Compass enters an indefinite `while` loop and starts sending milestones.
 
-	- Ask the IRI node for tip transactions ([tip selection](root://node-software/0.1/iri/concepts/tip-selection.md))
+	When the `-bootstrap` flag is passed during setup, Compass creates a chain of four milestones that sequentially reference the previous milestone.
 
-	- Ask the IRI node to broadcast the milestone
-
-	- Sleep until the next tick interval
+	Then, Compass sends milestones by doing the following:
+	* Ask the IRI node for tip transactions ([tip selection](root://node-software/0.1/iri/concepts/tip-selection.md))
+	* Ask the IRI node to broadcast the milestone
+	* Sleep until the next tick interval
+	:::
 
 :::success:Compass is sending milestones in your own IOTA network! :tada:
-If you restart Compass, you don't need to pass it the `-bootstrap` flag (Compass won't start if you do). But, you should pass it the `-broadcast` flag so that Compass broadcasts its milestones to the IRI node.
+If you restart Compass, you don't need to pass it the `-bootstrap` flag (Compass won't start if you do). But, you should pass it 	the `-broadcast` flag as a security measure so that Compass broadcasts its milestones to the IRI node.
 :::
 
 ## Step 5. Test your network

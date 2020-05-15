@@ -1,6 +1,6 @@
 # Get started with the account module in Go
 
-**To help you get started with the Go account module, this workflow guide walks you through the essentials from creating an account to making payments and exporting your seed state.**
+**To help you get started with the Go account module, this workflow topic walks you through the essentials from creating an account to making payments and exporting your seed state.**
 
 :::info:
 The code is also hosted on [GitHub](https://github.com/iota-community/account-module).

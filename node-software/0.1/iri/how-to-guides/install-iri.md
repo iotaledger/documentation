@@ -1,6 +1,6 @@
 # Run IRI
 
-**In this guide, you install and run the IRI node software, which turns your device into a node on an IOTA network.**
+**In this tutorial, you install and run the IRI node software, which turns your device into a node on an IOTA network.**
 
 You have two options for running IRI:
 
@@ -18,7 +18,7 @@ To complete this guide, you need the following:
 
 ## Run IRI in a Docker container
 
-In this guide, you download the IRI Docker image and run it in a Docker container.
+In this tutorial, you download the IRI Docker image and run it in a Docker container.
 
 ### Prerequisites
 
@@ -133,7 +133,7 @@ Now that your node is up and running, it'll start to synchronize its ledger with
 
 ## Install and run IRI on a Linux Ubuntu server
 
-In this guide, you install and run IRI as a service on a Linux device. This guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04).
+In this tutorial, you install and run IRI as a service on a Linux device. This guide has been tested on [Ubuntu 18.04](http://releases.ubuntu.com/18.04).
     
 ### Step 1. Download the IRI Java file
 

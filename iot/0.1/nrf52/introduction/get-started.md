@@ -1,6 +1,6 @@
 # Get started with the nRF52
 
-**The nRF52-series of microcontrollers are an ideal solution for wearables, toys, smart home devices and appliances, and wireless charging. We use this series of microcontrollers because they include Bluetooth and are usually cheap. In this guide, you learn how to get started with the nRF52-series of microcontrollers. When you've completed this guide, you'll be able to follow our series of tutorials for using IOTA on the Internet of Things.**
+**The nRF52-series of microcontrollers are an ideal solution for wearables, toys, smart home devices and appliances, and wireless charging. We use this series of microcontrollers because they include Bluetooth and are usually cheap. In this tutorial, you learn how to get started with the nRF52-series of microcontrollers. When you've completed this guide, you'll be able to follow our series of tutorials for using IOTA on the Internet of Things.**
 
 ## Hardware
 

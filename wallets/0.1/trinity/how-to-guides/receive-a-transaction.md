@@ -1,6 +1,6 @@
 # Receive a transaction
 
-**To receive a transaction, you need to generate a new [address](root://getting-started/0.1/clients/addresses.md) and give it to the sender. In this guide, you generate a new address in Trinity and consider in which format to give it to the sender.**
+**To receive a transaction, you need to generate a new [address](root://getting-started/0.1/clients/addresses.md) and give it to the sender. In this tutorial, you generate a new address in Trinity and consider in which format to give it to the sender.**
 
 :::danger:
 On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).

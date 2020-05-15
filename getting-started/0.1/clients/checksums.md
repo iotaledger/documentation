@@ -23,4 +23,4 @@ Then, the last 9 or 3 trytes of the resulting hash are appended to the end of th
 
 ## Related guides
 
-[Generate an address in JavaScript](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md).
+[Generate an address in JavaScript](root://core/1.0/tutorials/js/generate-an-address.md).

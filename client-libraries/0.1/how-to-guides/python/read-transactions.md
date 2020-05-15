@@ -1,6 +1,6 @@
 # Read transactions from the Tangle in Python
 
-**In this guide, you read your "hello world" [transaction](root://getting-started/0.1/transactions/transactions.md) from the Tangle by giving a [node](root://getting-started/0.1/network/nodes.md) your tail transaction hash.**
+**In this tutorial, you read your "hello world" [transaction](root://getting-started/0.1/transactions/transactions.md) from the Tangle by giving a [node](root://getting-started/0.1/network/nodes.md) your tail transaction hash.**
 
 ## Packages
 
@@ -12,7 +12,7 @@ pip install pyota
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+In this tutorial, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
 ## Code walkthrough
 

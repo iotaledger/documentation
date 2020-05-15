@@ -34,4 +34,4 @@ Devices such as those on the Internet of Things are often power-constrained. If 
 
 ## Related guides
 
-[Generate an address in JavaScript](root://client-libraries/0.1/how-to-guides/js/generate-an-address.md).
+[Generate an address in JavaScript](root://core/1.0/tutorials/js/generate-an-address.md).

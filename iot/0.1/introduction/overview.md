@@ -1,4 +1,4 @@
-# IoT projects overview
+# IoT projects
 
 **The Internet of Things (IoT) is an umbrella term for billions of Internet-connected devices that share data with each other. Thanks to this data-sharing network, IoT is becoming the driving force in creating more efficient communication across many aspects of our lives. IOTA allows these devices to use the Tangle as a single source of truth, where they can buy, sell, or simply send data among each other for zero fees.**
 

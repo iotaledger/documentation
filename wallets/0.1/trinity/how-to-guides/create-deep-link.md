@@ -1,6 +1,6 @@
 # Create a deep link
 
-**Deep links are customizable links that open Trinity and auto-populate transaction fields. You can add deep links to your website or ecommerce platform to make IOTA payments quicker and easier for customers. In this guide, you create a deep link that, when entered in a browser, opens Trinity and auto-populates the amount and message of a transaction.**
+**Deep links are customizable links that open Trinity and auto-populate transaction fields. You can add deep links to your website or ecommerce platform to make IOTA payments quicker and easier for customers. In this tutorial, you create a deep link that, when entered in a browser, opens Trinity and auto-populates the amount and message of a transaction.**
 
 :::danger:
 On 11 February 2020, the IOTA Foundation became aware of an attack on the Trinity wallet, during which some users’ seeds and Trinity passwords were compromised. Please check our advice for [protecting your Trinity account](../how-to-guides/protect-trinity-account.md).

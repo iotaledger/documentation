@@ -1,6 +1,6 @@
 # Run a GoShimmer node
 
-**In this guide, you install and run a node on the GoShimmer network to test the network and keep up to date with regular changes.**
+**In this tutorial, you install and run a node on the GoShimmer network to test the network and keep up to date with regular changes.**
 
 You have the following options for running a node:
 

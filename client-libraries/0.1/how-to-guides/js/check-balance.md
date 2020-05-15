@@ -1,6 +1,6 @@
 # Check the balance of an address in Node.js
 
-**In this guide, you request the balance of [IOTA tokens](root://getting-started/0.1/clients/token.md) on [addresses](root://getting-started/0.1/clients/addresses.md) from a [node](root://getting-started/0.1/network/nodes.md).**
+**In this tutorial, you request the balance of [IOTA tokens](root://getting-started/0.1/clients/token.md) on [addresses](root://getting-started/0.1/clients/addresses.md) from a [node](root://getting-started/0.1/network/nodes.md).**
 
 ## Packages
 
@@ -20,7 +20,7 @@ yarn add @iota/core
 
 ## IOTA network
 
-In this guide, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
+In this tutorial, we connect to a node on the [Devnet](root://getting-started/0.1/network/iota-networks.md#devnet).
 
 ## Code walkthrough
 

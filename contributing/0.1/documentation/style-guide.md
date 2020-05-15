@@ -7,7 +7,7 @@ If you are creating or editing an article, please follow our style guide to help
 - Make our documentation straightforward to read for non-native English readers
 - Make sure that our documentation educates our readers
 
-If you have a question about writing that we don't cover in this guide, use the [Google style guide](https://developers.google.com/style/).
+If you have a question about writing that we don't cover in this tutorial, use the [Google style guide](https://developers.google.com/style/).
 
 ## Markdown
 
@@ -221,7 +221,7 @@ We always write in US English.
 ## Punctuation
 
 - Always use a capital letter after colons
-- Always use an oxford comma (comma before and in a list, for example 'The JavaScript, Python, and C client libraries')
+- Always use an oxford comma (comma before and in a list, for example 'The Mainnet, Devnet, and Spamnet')
 - Don't use periods at the end of single sentence lists. Use periods only when list items consists of more than one sentence
 
 ## Article titles
@@ -230,8 +230,8 @@ We always write in US English.
 | :----| :-------|
 |Use sentence case for titles. Do not use title case.|'The distributed ledger', not 'The Distributed Ledger'|
 |Article titles in the 'Concepts' sections should always be nouns|'Tip selection' not 'What is tip selection?' or 'Understanding tip selection'|
-|Titles in how-to guides should always start with an infinitive| 'Run IRI' not 'Running IRI'|
-|Titles in reference articles should always be plural nouns| 'IRI configuration options' not 'IRI configuration' or 'Configuring IRI'|
+|Article titles in the 'How-to guides' section should always start with an infinitive| 'Run the IRI' not 'Running the IRI'|
+|Article titles in the 'References' section should always be plural nouns| 'IRI configuration options' not 'IRI configuration' or 'Configuring the IRI'|
 
 ## First paragraph
 

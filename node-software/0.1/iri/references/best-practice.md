@@ -31,7 +31,7 @@ This way, client applications can use [other options for proof of work](root://g
 ![Local proof of work](../images/local-pow.png)
 
 :::info:
-Read our guide for [setting up a PoW proxy server](root://utils/0.1/official/proof-of-work-proxy/overview.md).
+Read our guide for [setting up a PoW proxy server](root://proof-of-work-proxy/1.0/overview.md).
 
 Learn how to [do local PoW in Node.js](https://github.com/iotaledger/ccurl.interface.js).
 :::

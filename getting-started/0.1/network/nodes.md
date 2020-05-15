@@ -11,7 +11,7 @@ Nodes are the core of an IOTA network, and are responsible for the following key
 - Attaching valid transactions to the Tangle
 
 :::info:
-Many applications such as [Trinity](root://wallets/0.1/trinity/introduction/overview.md) interact with a node's API through the [client libraries](root://client-libraries/0.1/introduction/overview.md).
+Many applications such as [Trinity](root://wallets/0.1/trinity/introduction/overview.md) interact with a node's API through the [client libraries](root://client-libraries/1.0/overview.md).
 :::
 
 ## Validation
