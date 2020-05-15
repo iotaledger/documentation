@@ -1,8 +1,8 @@
 # Index
 
-[IOTA Area Codes overview](/overview.md)
+[IOTA Area Codes overview](overview.md)
 
-[How IOTA Area Codes works](/how-it-works.md)
+[How IOTA Area Codes works](how-it-works.md)
 
 [Guides/Reading IOTA Area Codes](/guides/reading-iac.md)
 
@@ -10,5 +10,5 @@
 
 [API reference](https://github.com/iotaledger/iota-area-codes/blob/master/docs/api.md)
 
-[Contribute to the project](/contribute.md)
+[Contribute to the project](contribute.md)
 

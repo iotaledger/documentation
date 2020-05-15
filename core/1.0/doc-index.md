@@ -1,6 +1,6 @@
 # Index
 
-[Core overview](/overview.md)
+[Core overview](overview.md)
 
 [Getting started/Get started with C](/getting-started/get-started-c.md)
 
@@ -90,4 +90,4 @@
 
 [API reference/Python](https://pyota.readthedocs.io/en/latest/)
 
-[Contribute to the project](/contribute.md)
+[Contribute to the project](contribute.md)

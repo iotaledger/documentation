@@ -1,8 +1,8 @@
 # Index
 
-[Account module/Overview](/overview.md)
+[Account module/Overview](overview.md)
 
-[How the account module works](/how-it-works.md)
+[How the account module works](how-it-works.md)
 
 [Guides/Creating a CDA](/guides/creating-a-cda.md)
 
@@ -52,4 +52,4 @@
 
 [Tutorials/JavaScript/Combine your balance](/tutorials/js/combine-balance.md)
 
-[Contribute to the project](/contribute.md)
+[Contribute to the project](contribute.md)

@@ -1,6 +1,6 @@
 # Index
 
-[Client load balancer overview](/overview.md)
+[Client load balancer overview](overview.md)
 
 [Guides/Configuring the API](/guides/configuring-the-api.md)
 
@@ -8,5 +8,5 @@
 
 [API reference](https://github.com/iotaledger/client-load-balancer/tree/master/docs)
 
-[Contribute to the project](/contribute.md)
+[Contribute to the project](contribute.md)
 

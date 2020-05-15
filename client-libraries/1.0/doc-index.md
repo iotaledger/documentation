@@ -1,6 +1,16 @@
 # Index
 
-[Introduction/Overview](/overview.md)
+[Overview](overview.md)
+
+[Getting started/C](/getting-started/c-quickstart.md)
+
+[Getting started/Go](/getting-started/go-quickstart.md)
+
+[Getting started/Java](/getting-started/java-quickstart.md)
+
+[Getting started/JavaScript](/getting-started/js-quickstart.md)
+
+[Getting started/Python](/getting-started/python-quickstart.md)
 
 [Core](root://core/1.0/overview.md)
 

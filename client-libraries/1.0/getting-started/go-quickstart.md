@@ -144,7 +144,7 @@ If not, try connecting to a different node. The [iota.dance website](https://iot
 
 In the `features` array, you can see that this node also support [remote proof of work](root://getting-started/0.1/transactions/proof-of-work.md) (RemotePOW). As a result, you can use this node to do proof of work instead of doing it on your local device.
 
-Also, this node has its zero message queue (ZMQ) enabled, so you can use it to [listen for live transactions](../how-to-guides/go/listen-for-transactions.md).
+Also, this node has its zero message queue (ZMQ) enabled, so you can use it to [listen for live transactions](root://core/1.0/tutorials/go/listen-for-transactions.md).
 
 For more information about these fields, see the [IRI API reference](root://node-software/0.1/iri/references/api-reference.md#getNodeInfo).
 
@@ -272,6 +272,6 @@ We have many channels, including the following:
 
 ## Next steps
 
-Continue learning with our [core Go workshop](root://core/1.0/go/get-started.md).
+Continue learning with our [core Go workshop](root://core/1.0/getting-started/get-started-go.md).
 
 Read our [developer's handbook](root://getting-started/0.1/references/quickstart-dev-handbook.md) for guidance on whether you should run your own node, whether you need a private IOTA network, and what you need to consider for both.
