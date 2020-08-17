@@ -29,7 +29,7 @@
 [References/Configuration options](https://github.com/gohornet/hornet/wiki/Configuration)
 [References/Plugins](https://github.com/gohornet/hornet/wiki/Plugins)
 [References/Tools](https://github.com/gohornet/hornet/wiki/Tools)
-[References/ZMQ events](https://github.com/gohornet/hornet/blob/master/plugins/zeromq/ZMQ_Events.md)
+[References/ZMQ events](https://github.com/gohornet/hornet/blob/master/plugins/zmq/ZMQ_Events.md)
 
 [Community resources/Hornet Playbook](https://github.com/nuriel77/hornet-playbook)
 
