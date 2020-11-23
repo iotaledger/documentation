@@ -9,7 +9,7 @@ A valid transaction is one that fulfills the following conditions:
 - Proof of work is done according to the minimum weight magnitude of the network
 - All IOTA tokens that are withdrawn from an address are also deposited into other addresses
 - The value of any transaction does not exceed the total global supply
-- The transaction's timestamp is not older than 10 minutes, according to the receiving node's local time
+- The transaction's timestamp is not older than **10** minutes, according to the receiving node's local time.
 - Any signatures are valid
 
 For an explanation of the steps involved in sending a valid transaction, see [Sending a transaction](../clients/sending-a-transaction.md).

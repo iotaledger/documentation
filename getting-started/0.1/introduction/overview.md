@@ -11,7 +11,7 @@ By using IOTA, you can build applications that benefit from the following:
 - **Authenticity:** Prove that you sent data and/or own IOTA tokens
 - **Integrity:** Prove that your data is unchanged
 - **Confidentiality:** Control who has access to your data through encryption
-- **Micropayments:** Send small amounts of IOTA tokens without paying any fees 
+- **Micropayments:** Send small amounts of IOTA tokens without paying any **fees** 
 
 ![IOTA benefits](../images/iota-benefits.png)
 
@@ -89,7 +89,7 @@ eCl@ss|eCl@ss is cooperating with IOTA to share and store ISO/IEC-compliant prod
 
 **Exchanges:** Use the [official Hub wallet](root://wallets/0.1/hub/introduction/overview.md) to integrate IOTA into your exchange.
 
-
+**A simple test for process**
 
 
 
