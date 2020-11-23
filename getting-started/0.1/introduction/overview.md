@@ -6,7 +6,7 @@
 
 ## Why should I use IOTA?
 
-By using IOTA, you can build applications that benefit from the following:
+By using **IOTA**, you can build applications that **benefit** from the following:
 
 - **Authenticity:** Prove that you sent data and/or own IOTA tokens
 - **Integrity:** Prove that your data is unchanged
