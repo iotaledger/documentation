@@ -2,7 +2,7 @@
 
 **The Tangle is the distributed ledger in IOTA that contains an up-to-date history of transactions. This section introduces you to the Tangle.**
 
-The Tangle is a single source of truth. Any client, anywhere in the world, is able to send valid transactions to any node, and that transaction will be replicated across the rest of the network to form one version of truth: The Tangle.
+The Tangle is a single source of truth. Any user, anywhere in the world, is able to send valid transactions to any node, and that transaction will be replicated across the rest of the network to form one version of truth: The Tangle.
 
 All transactions in the Tangle are attached to two others to form a [directed acyclic graph](https://en.wikipedia.org/wiki/Directed_acyclic_graph) (DAG).
 
@@ -22,7 +22,7 @@ References in the Tangle can be one of two types:
 
 - **Indirect:** Connects a transaction with those that come before the ones in its `branchTransaction` and `trunkTransaction` fields. For example, transaction 6 **indirectly** references transaction 3 (through transaction 5).
 
-These references form a transaction's history, whereby if a transaction is a **child**, its direct references are its **parents** and its indirect references are its **grandparents**, and so on.
+These references form a transaction's history, where if a transaction is a **child**, its direct references are its **parents** and its indirect references are its **grandparents**, and so on.
 
 In Tangle explorers, you can usually see links to the parents of a transaction to allow you to follow its history.
 

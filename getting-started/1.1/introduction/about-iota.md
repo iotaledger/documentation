@@ -11,13 +11,14 @@ As a distributed ledger technology, IOTA provides a trust layer for any devices 
 Through its open network of nodes, IOTA allows you and your devices to:
 
 - Use the network as a source of truth for data
-- Transfer value in IOTA tokens
+- Securely transfer value in IOTA tokens
+- Simply and seamlessly manage your IOTA tokens
 
 ![IOTA benefits](../images/iota-benefits.png)
 
 ## Who is IOTA for
 
-IOTA can benefit many people, including the following important groups.
+IOTA can benefit many people, including the following important groups:
 
 ### Anyone who does not trust centralized networks
 
@@ -29,7 +30,7 @@ Everything in the Tangle is immutable and transparent. Through cryptography, you
 
 ### Anyone who values security
 
-IOTA uses quantum-robust signatures to protect the network against the next generation of computing power.
+IOTA uses multiple, secure signature methods to protect the network against the next generation of computing power.
 
 ### Anyone who wants the freedom to transact
 
