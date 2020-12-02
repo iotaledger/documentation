@@ -10,14 +10,20 @@ Using a seed, you can generate an [almost unlimited number of addresses and priv
 
 You can prove that you own an address by doing the following:
 
-- Using the private key to sign a bundle hash
-- Adding the resulting signature fragments to the `signatureMessageFragment` fields of transactions in the bundle
+- Using the private key to sign a transaction
+- Adding the resulting signature fragments to the `signatureMessageFragment` fields of transactions
 
 :::info:
 It's safe to share addresses with anyone because only the seed owner knows the private key to prove ownership of them.
 :::
 
-## Address format
+## Address type
+
+In the past, IOTA used two address types but within and beyond Chrysalis, it uses one: Ed25519
+
+Ed25519 is a modern EdDSA signature scheme using [SHA-512](https://en.wikipedia.org/wiki/SHA-512) and [Curve25519](https://en.wikipedia.org/wiki/Curve25519). It addresses the disadvantage of statefulness, size, and speed found in previous schemes. And at its heart, Ed25519 support allows for smaller transaction sizes and to safely spend funds which were sent to an already used deposit address. 
+
+## Address formats
 
 An address is a unique string of 81 [trytes](../the-tangle/ternary.md) (or 90 trytes with a [checksum](../accounts/checksums.md)).
 
@@ -25,34 +31,16 @@ An address is a unique string of 81 [trytes](../the-tangle/ternary.md) (or 90 tr
 OGMMQJUDMNNYSOAXMJWAMNAJPHWMGVAY9UWBXRGTXXVEDIEWSNYRNDQY99NDJQB9QQBPCRRNFAIUPGPLZ
 ```
 
-## Address types
+To support Ed22519 and legacy W-OTS (but nothing beyond), IOTA also uses Bech32.
 
-Addresses can be one of the following types:
+The human-readable encoding of the address is Bech32 (as described in [BIP-0173](https://github.com/bitcoin/bips/blob/master/bip-0173.mediawiki)). A Bech32 string is at most 90 characters long and consists of:
 
-- One-time address
-- Merkle root address
+- The **human-readable part (HRP), which conveys the IOTA protocol and distinguishes between Mainnet (the IOTA token) and Testnet (testing version):
+  - iot is the human-readable part for Mainnet addresses
+  - tio is the human-readable part for Testnet addresses
 
-### One-time address
-
-One-time addresses are quantum robust, meaning that signatures are more secure against attacks from quantum computers.
-
-These addresses are used in most applications, including client libraries and wallets.
-
-It is safe to transfer any amount of IOTA tokens to these addresses. However, because these addresses use a [one-time signature scheme](../accounts/signatures.md), withdrawing from them reveals around half of the private key. As a result, it is safe to withdraw from these addresses only once. After IOTA tokens have been withdrawn from a one-time address, it is **spent** and must never be used again.
-
-If more IOTA tokens are later deposited into a spent address, they are at risk of being stolen in a [brute-force attack](https://en.wikipedia.org/wiki/Brute-force_attack) on the private key.
-
-For details of the cryptography involved in generating these addresses, see [How addresses are generated](../cryptography/addresses.md).
-
-### Merkle root address
-
-Merkle root addresses are also quantum robust because they are generated using the same technique as one-time addresses.
-
-The difference between a one-time address and a Merkle root address is that Merkle root addresses use a Merkle signature scheme. This signature scheme allows you to define a number of bundle hashes that you can safely sign to prove ownership of a single address.
-
-Merkle root addresses are used by special applications that need to be able to prove ownership of the same address in many bundles. For example, [the Coordinator](../the-tangle/the-coordinator.md) uses Merkle root addresses to sign milestones.
-
-For details of the cryptography involved in generating these addresses, see [How Merkle root addresses are generated](../cryptography/merkle-tree-address.md).
+- The **separator**, which is always 1.
+- The **data part**, which consists of the Base32 encoded serialized address and the 6-character checksum.
 
 ## Maximum number of addresses
 
