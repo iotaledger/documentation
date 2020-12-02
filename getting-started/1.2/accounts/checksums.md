@@ -8,7 +8,7 @@ Changing a single tryte in a seed or a checksum results in a completely differen
 
 ![Trinity checksum](../images/trinity-checksum.png)
 
-This example is from the Trinity wallet. The highlighted trytes are the checksum.
+
 
 ## Checksum format
 
@@ -17,11 +17,7 @@ The length of a checksum depends on whether it's for an address or a seed. Addre
 ||**Without checksum**|**With checksum**|
 |:--|:---|:---|
 |**Seed**|PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX|PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX**XTY**|
-|**Address**|GWQQYWCUFLDR9LIWDITVHTPYYO9BAMOADFLNBIHYLIFDTORUCFCOGRQFK9IXEHVEMDVZH9RYOXAFIVUOA|GWQQYWCUFLDR9LIWDITVHTPYYO9BAMOADFLNBIHYLIFDTORUCFCOGRQFK9IXEHVEMDVZH9RYOXAFIVUOA**DAYDSMFZW**| 
-
-:::info:
-As a security precaution, some applications such as [Trinity](root://wallets/0.1/trinity/introduction/overview.md) allow you to enter only addresses that include a checksum.
-:::
+|**Address**|GWQQYWCUFLDR9LIWDITVHTPYYO9BAMOADFLNBIHYLIFDTORUCFCOGRQFK9IXEHVEMDVZH9RYOXAFIVUOA|GWQQYWCUFLDR9LIWDITVHTPYYO9BAMOADFLNBIHYLIFDTORUCFCOGRQFK9IXEHVEMDVZH9RYOXAFIVUOA**DAYDSMFZW**|
 
 ## Next steps
 
