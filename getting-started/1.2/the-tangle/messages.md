@@ -2,6 +2,10 @@
 
 **This topic explores the makeup and management of IOTA messages.**
 
+:::info:
+Previously, IOTA used transactions that were a fixed length and had a shared bundle hash to bundle up; this proved to be limiting and time consuming and so we implemented messages as a more effective design. For reference, see Version 1.1 of this content.
+:::
+
 A message is the object nodes gossip around in the network. It always references two other messages that are known as `parents`. It is stored as a vertex on the Tangle data structure that the nodes maintain.
 
 Messages also contain payloads. Some are core payloads that are processed by all nodes as part of the core protocol. 
@@ -19,10 +23,11 @@ The same is true with how messages are parsed. The outer layer of the message en
 Messages are designed with multiple working parts including:
 
 - Data types
-- Message ID
+- A Message ID
 - Message structures
 - Message validations; and
 - Payloads 
+- Unspent transaction outputs
 
 ### Data types
 
@@ -55,7 +60,7 @@ The message ID is the `BLAKE2b-256` hash of the byte contents of the message. It
 
 ### Message validation
 
-A message is considered valid, if the following syntactic rules are met:
+A message is considered valid if the following syntactic rules are met:
 
 - The message size must not exceed 32 KB
 - When parsing the message is complete, there should not be any trailing bytes left that were not parsed
@@ -96,6 +101,48 @@ For further information on confirming conflicting messages, or how messages work
 - [RFC - 0030](https://github.com/iotaledger/protocol-rfcs/pull/30)
 
   :::
+
+### Unspent transaction outputs
+
+Unspent transaction outputs (UTXO) are used as inputs instead of an account-based model. The UTXO is a part of a larger, self-contained transaction structure within a [payload](#payload).
+
+The UTXO model defines a ledger state where balances are not directly associated to addresses but to the outputs of transactions. In this model, transactions specify the outputs of previous transactions as inputs, which are consumed to create new outputs. A transaction must consume the entirety of the specified inputs.
+
+![UTXO flow](https://camo.githubusercontent.com/718a66923f2c437fb814e8bd77ec52cb5e0d550254f641281479d6c8480e0149/68747470733a2f2f692e696d6775722e636f6d2f6833757866364e2e706e67)
+
+This approach is meant to enable a self-contained transaction structure defining the data of the entire transfer as a payload to be imbedded into a message. Additionally it provides the benefit of, but is not limited to,
+
+- Parallel validation of transaction
+- Easier double-spend detection, since conflicting transactions would reference the same UTXO
+
+### Transaction payloads
+
+A transaction payload is made up of two parts:
+
+- Transaction essence
+  - These contain the inputs, outputs, and optional embedded payloads
+- Unblock blocks
+  - These unlock the transition essence inputs. In case the unblock block contains a signature, it signs the entire transaction essence part.
+
+| Name                  | Type                                                         | Description                                                  |
+| --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Payload Type          | uint32                                                       | Set to **value 0** to denote a *Transaction Payload*.        |
+| Essence `oneOf`       | Transaction EssenceDescribes the essence data making up a transaction by defining its inputs and outputs and an optional payload.**Name****Type****Description**Transaction Typeuint8Set to **value 0** to denote a *Transaction Essence*.Inputs Countuint16The amount of inputs proceeding.Inputs `anyOf`UTXO InputOutputs Countuint16The amount of outputs proceeding.Outputs `anyOf`SigLockedSingleOutputPayload Lengthuint32The length in bytes of the optional payload.Payload `optOneOf`Indexation Payload |                                                              |
+| Unlock Blocks Count   | uint16                                                       | The count of unlock blocks proceeding. Must match count of inputs specified. |
+| Unlock Blocks `anyOf` | Signature Unlock BlockDefines an unlock block containing signature(s) unlocking input(s).NameTypeDescriptionUnlock Typeuint8Set to **value 0** to denote a *Signature Unlock Block*.Signature `oneOf`WOTS SignatureEd25519 SignatureReference Unlock BlockReferences a previous unlock block in order to substitute the duplication of the same unlock block data for inputs which unlock through the same data.NameTypeDescriptionUnlock Typeuint8Set to **value 1** to denote a *Reference Unlock Block*.Referenceuint16Represents the index of a previous unlock block. |                                                              |
+
+:::info:
+For further reference on the updated types of messages and methods, see:
+
+- [RFC - 0017]([iotaledger/protocol-rfcs#0017](https://github.com/iotaledger/protocol-rfcs/pull/0017))
+- [RFC - 0018]([iotaledger/protocol-rfcs#18](https://github.com/iotaledger/protocol-rfcs/pull/18))
+- [RFC - 0019]([iotaledger/protocol-rfcs#0019](https://github.com/iotaledger/protocol-rfcs/pull/19))
+- [RFC - 0020]([iotaledger/protocol-rfcs#0020](https://github.com/iotaledger/protocol-rfcs/pull/20))
+- [RFC - 0000]([iotaledger/protocol-rfcs#0000](https://github.com/iotaledger/protocol-rfcs/pull/0000))
+
+:::
+
+
 
 ## Next steps
 

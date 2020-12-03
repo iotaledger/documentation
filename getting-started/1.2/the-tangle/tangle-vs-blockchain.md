@@ -43,7 +43,7 @@ As a result, requiring PoW secures blockchain networks by making it difficult to
 
 In the Tangle, transactions require no fees because the network has no miners.
 
-In the Tangle, PoW is not used to secure the network. Instead, proof of work is used only to discourage spam transactions.
+In the Tangle, PoW is not used to secure the network. Instead, PoW is used only to discourage spam transactions.
 
 To reach a consensus, all IOTA nodes validate transactions and use [the Coordinator](../the-tangle/the-coordinator.md) to decide which ones are confirmed. The Coordinator helps to secure the network by making sure that only valid transactions are confirmed.
 

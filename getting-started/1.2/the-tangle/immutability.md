@@ -26,5 +26,3 @@ Previously, IOTA used [Curl](../references/glossary.md#Curl), which took [ternar
 ## Next steps
 
 Find out what [type of data you should store in the Tangle](../the-tangle/storing-data.md).
-
-For an example of changing a transaction's fields and keeping the same bundle hash, see [Change the messages in a bundle](root://core/1.0/tutorials/js/change-message-in-bundle.md).

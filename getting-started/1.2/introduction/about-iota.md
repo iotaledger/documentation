@@ -12,7 +12,7 @@ Through its open network of nodes, IOTA allows you and your devices to:
 
 - Use the network as a source of truth for data
 - Transfer value in IOTA tokens
-- Simply and seamlessly manage your tokens
+- Simply, seamlessly, and securely manage your tokens
 
 ![IOTA benefits](../images/iota-benefits.png)
 
