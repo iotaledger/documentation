@@ -28,7 +28,7 @@ These node implementations used a [local snapshot file format](https://github.co
 Based on the UTXO ledger, snapshot files are broken into two formats:
 
 - A full format which represents a complete ledger state
-- A delta format which only contains diffs (consumed and spent outputs) of milestones from a given milestone index     onwards
+- A delta format which only contains diffs (consumed and spent outputs) of milestones from a given milestone index onwards
 
 This separation allows nodes to swiftly create new delta snapshot files, which then can be distributed with a companion full snapshot file to reconstruct a recent state. These new formats do not include spent addresses since this information is no longer held by nodes.
 

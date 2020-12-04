@@ -12,7 +12,7 @@ The IOTA Foundation hosts many nodes behind the following load balancer:
 
 **URL:** https://nodes.devnet.iota.org
 
-Use this URL for sending transactions and requesting information about the Tangle from nodes in the Devnet.
+Use this URL for sending messages and requesting information about the Tangle from nodes in the Devnet.
 
 ### ZMQ node
 

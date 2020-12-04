@@ -4,7 +4,7 @@
 
 ## Nodes
 
-The IOTA community hosts many nodes behind the following load balancer; you can also use this URL for sending transactions and requesting information about the Tangle from nodes on the Comnet:
+The IOTA community hosts many nodes behind the following load balancer; you can also use this URL for sending messages and requesting information about the Tangle from nodes on the Comnet:
 
 - **URL:** https://nodes.comnet.thetangle.org
 

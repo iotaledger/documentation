@@ -2,7 +2,7 @@
 
 **This topic explains what makes transactions immutable when they are attached to the Tangle.**
 
-One of the most fundamental properties of the Tangle is that it is immutable. After a transaction is attached to the Tangle, it cannot be changed.
+One of the most fundamental properties of the Tangle is that it is immutable. After a message is attached to the Tangle, it cannot be changed.
 
 This immutability is thanks to the unique properties of hashing algorithms.
 

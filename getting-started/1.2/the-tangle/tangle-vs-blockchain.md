@@ -6,7 +6,7 @@ Blockchains and the Tangle both fall under the same category of distributed ledg
 
 The two main differences between blockchains and the Tangle are the following:
 
-- The Tangle has no transaction fees
+- The Tangle has no message fees
 - IOTA networks have no miners
 
 To explain these points, you need to understand the differences between the data structures and the consensus mechanisms in these DLTs.
@@ -21,9 +21,9 @@ As a result, you can attach new transactions to only one place: A block at the e
 
 ## The Tangle data structure
 
-The Tangle data structure is a directed acyclic graph (DAG), where each transaction is attached to two previous ones.
+The Tangle data structure is a directed acyclic graph (DAG), where each message is attached to two previous ones.
 
-Rather than being limited to a single place for attaching new transactions, you can attach transactions anywhere in the Tangle, which removes the limit on confirmation times.
+Rather than being limited to a single place for attaching new message, you can attach messages anywhere in the Tangle, which removes the limit on confirmation times.
 
 ![Tangle bottleneck](../images/tangle-bottleneck.gif)
 
@@ -41,11 +41,11 @@ As a result, requiring PoW secures blockchain networks by making it difficult to
 
 ## Consensus in the Tangle
 
-In the Tangle, transactions require no fees because the network has no miners.
+In the Tangle, messages require no fees because the network has no miners.
 
-In the Tangle, PoW is not used to secure the network. Instead, PoW is used only to discourage spam transactions.
+In the Tangle, PoW is not used to secure the network. Instead, PoW is used only to discourage spam messages.
 
-To reach a consensus, all IOTA nodes validate transactions and use [the Coordinator](../the-tangle/the-coordinator.md) to decide which ones are confirmed. The Coordinator helps to secure the network by making sure that only valid transactions are confirmed.
+To reach a consensus, all IOTA nodes validate messages and use [the Coordinator](../the-tangle/the-coordinator.md) to decide which ones are confirmed. The Coordinator helps to secure the network by making sure that only valid messages are confirmed.
 
 :::info:
 The Coordinator is temporary. The IOTA Foundation is working on a project to remove the Coordinator and from the network: [Coordicide](https://coordicide.iota.org/post-coordinator).

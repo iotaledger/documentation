@@ -4,7 +4,7 @@
 
 Wallets are useful for:
 
-- Sending transactions
+- Sending messages
 - Checking your balance
 - Keeping track of your account
 
@@ -19,7 +19,7 @@ For example, a wallet may store the following:
 |**Account data**| **Reason**|
 |:---|:------|
 |The index and security level of the address that you last generated |To keep track of spent addresses |
-|The transaction hashes of pending transactions| To help pending transactions to become confirmed|
+|The transaction hashes of pending messages| To help pending messages to become confirmed |
 |An encrypted version of your seed|To allow you to log in with a password instead of your seed|
 
 :::info:
@@ -33,14 +33,14 @@ Wallets come in the following top-level types:
 |**Type**| **Definiton** | **Use**|
 |:---|:----|:-------|
 |Hot wallet | A wallet that is connected to the Internet| For quick access to your balance and the ability to transfer tokens|
-|Cold wallet |A wallet that is not connected to the Internet |For long-term storage of your account data and for signing bundle hashes offline|
+|Cold wallet |A wallet that is not connected to the Internet |For long-term storage of your account data and for signing  offline|
 
 These wallet types can also come in the following forms:
 
 - **Command-line interface (CLI):** A text-based wallet
 - **Graphical user interface (GUI):** A interactive wallet with buttons and images
 - **Paper:** A seed or private key that is written on paper or in a QR code
-- **Hardware:** A physical electronic device that stores a seed and signs transactions
+- **Hardware:** A physical electronic device that stores a seed and signs messages
 
 ## Official IOTA wallets
 

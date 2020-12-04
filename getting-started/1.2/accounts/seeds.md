@@ -12,8 +12,6 @@ A seed is a string of 81 [trytes](../the-tangle/ternary.md) (or 90 trytes with a
 PUEOTSEITFEVEWCWBTSIZM9NKRGJEIMXTULBACGFRQK9IMGICLBKW9TTEVSDQMGWKBXPVCBMMCXWMNPDX
 ```
 
-
-
 ## Mnemonic seeds
 
 To make seeds easier to manage and more secure, IOTA uses mnonemic sentences derived from the seed.
