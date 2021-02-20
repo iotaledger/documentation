@@ -180,6 +180,8 @@ In this step, you create your snapshot file so that one of your own addresses co
 
 In this step, you run Hornet with your new configuration so that the Coordinator plugin can start attaching milestones to your private Tangle.
 
+:::info: Delete your database folder, if you already started Hornet before this setup. Otherwise, you will get the following error message: `configured coordinator address does not match database information` :::
+
 1. Change into the `hornet` directory, and run Hornet. Replace the `$YOURSEED` placeholder with your seed.
 
 	```bash
