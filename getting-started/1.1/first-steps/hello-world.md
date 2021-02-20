@@ -17,6 +17,7 @@ In this step, you create a zero-value transaction that contains a "Hello world" 
     ```js
     // Require the client library packages
     const Iota = require('@iota/core');
+    const Converter = require('@iota/converter');
 
     // Create a new instance of the IOTA API object
     // Use the `provider` field to specify which node to connect to
@@ -78,15 +79,15 @@ In this step, you create a zero-value transaction that contains a "Hello world" 
 6. Send your transaction to the node
 
     ```js
-   Iota.prepareTransfers(seed, transfers)
+   iota.prepareTransfers(seed, transfers)
         .then(trytes => {
             return iota.sendTrytes(trytes, depth, minimumWeightMagnitude);
         })
         .then(bundle => {
-            console.log(bundle[0].hash)
+            console.log(bundle[0].hash);
         })
         .catch(err => {
-            console.error(err)
+            console.error(err);
         });
    ```
 
