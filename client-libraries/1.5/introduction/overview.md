@@ -29,8 +29,8 @@ This library includes core and extended functionality to communicate through an 
 
 The wallet library is a stateful package with a standardised interface for developers to build applications involving IOTA value transactions.
 
-- [Rust](../libraries/client.md)
-- [Node.js](../libraries/client.md)
+- [Rust](../libraries/wallet.md#rust)
+- [Node.js](../libraries/wallet.md#node.js)
 
 ---------------
 
