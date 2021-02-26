@@ -7,10 +7,8 @@ For quickstart instructions or to read the source code, [go to the GitHub reposi
 :::
 
 :::warning:
-This code still in beta development. Do not use this code in production environments.
+This guide is deprecated.
 :::
-
-The test network runs one [IRI node](root://iri/1.0/overview.md) and an instance of [Compass](root://compass/1.0/overview.md) on your localhost (not connected to the Internet).
 
 The IRI node receives transactions, validates them, and keeps an up-to-date record of users' balances.
 

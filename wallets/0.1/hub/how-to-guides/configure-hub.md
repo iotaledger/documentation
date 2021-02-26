@@ -34,8 +34,6 @@ Hub needs to connect to a node's API to be able to interact with the Tangle. To 
 
 When testing Hub in a development environment, you should consider connecting to a node in the [Devnet](root://getting-started/1.1/networks/overview.md). This IOTA network requires less proof of work, which reduces the time it takes to create sweeps, and it uses free test IOTA tokens.
 
-As well as the Devnet, you can also connect to a node in a [private Tangle](root://compass/1.0/overview.md), which allows you to configure your own IOTA network.
-
 #### Production environment
 
 When deploying Hub in a production environment, you should connect to a node in the [Mainnet](root://getting-started/1.1/networks/overview.md#mainnet). 

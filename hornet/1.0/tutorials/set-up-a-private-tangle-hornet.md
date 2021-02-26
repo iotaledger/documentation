@@ -1,7 +1,5 @@
 # Set up a private Tangle as a Hornet plugin
 
-**In this tutorial, you configure your Hornet node as a private Tangle, using the `Coordinator` plugin to create an instance of [Compass](root://compass/1.0/overview.md).**
-
 ![Single-node private Tangle](../images/private-tangle.png)
 
 ## Prerequisites

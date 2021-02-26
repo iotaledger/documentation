@@ -3,7 +3,6 @@
 [Node Software](/node-software)
 [API Reference](/api-reference)
 [Wallets](/wallets)
-[Private Tangle](/compass)
 [App Blueprints](/blueprints)
 [IoT Projects](/iot)
 [Streams](/iota-streams)

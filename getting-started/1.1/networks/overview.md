@@ -1,11 +1,5 @@
 # IOTA networks
 
-**An IOTA network is a collection of interconnected nodes that each store a copy of the Tangle. This section provides an overview of the different IOTA networks that are available and how to connect to them.**
-
-IOTA networks can be private or permissionless.
-
-- **Private networks:** Access to the Tangle requires permission from the network owner. These networks are often run by companies or individuals who want to test an application in a local environment. For information about using a private network, see [Private Tangle](root://compass/1.0/overview.md).
-
 - **Permissionless networks:** Access to the Tangle is public, so any transactions you send in these networks are visible to anyone. These networks are made up of nodes from all over the world. Anyone is free to join the network.
 
 ## Official permissionless networks

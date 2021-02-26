@@ -96,13 +96,6 @@ In the same way as you use the Mainnet, the easiest way to send transactions in 
 
 To switch between the Devnet and Mainnet, just change the `provider` field to the URL of a Devnet node such as https://nodes.devnet.iota.org:443, and change the minimum weight magnitude to 9.
 
-### How do I set up a private Tangle?
-
-To set up a private Tangle you need to run a local node and an instance of Compass (our open-source Coordinator).
-
-:::info:
-[Learn how to set up a private Tangle](root://compass/1.0/overview.md).
-:::
 
 ### Useful links
 

@@ -12,7 +12,7 @@ IOTA has the following public networks:
 
 The Mainnet is the IOTA network that uses the [IOTA tokens](../clients/token.md), which are traded on cryptocurrency exchanges.
 
-Production applications use this network after they have tested IOTA in the [Devnet](#devnet) or a [private Tangle](root://compass/1.0/overview.md).
+Production applications use this network after they have tested IOTA in the [Devnet](#devnet).
 
 :::info:
 Cryptocurrency exchanges sell IOTA tokens in units of Mega IOTA (1,000,000), which is also written as MIOTA or Mi.
@@ -98,9 +98,6 @@ When choosing a minimum weight magnitude, you should consider the following ques
 
 When testing IOTA in a development environment, you should consider connecting to a node in the [Devnet](root://getting-started/1.1/networks/overview.md). This IOTA network requires less [proof of work](root://getting-started/1.1/references/glossary.md#proof-of-work), which reduces the time it takes to create transactions, and it uses [free test IOTA tokens](root://getting-started/1.1/transfer-tokens/get-test-tokens.md).
 
-### Do you want to control the performance of the network?
-
-When testing IOTA, you may want more control over the performance of an IOTA network and/or who has access to the Tangle. In this case, you can run a [private Tangle](root://compass/1.0/overview.md).
 
 ### Do you want to use the valuable IOTA token?
 
