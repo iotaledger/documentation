@@ -6,35 +6,9 @@
 
 The Tangle Utilities website includes useful tools for working with the Tangle.
 
-- [Convert an address into a QR code](https://utils.iota.org/qr-create)
+- [IOTA Explorer](https://explorer.iota.org/chrysalis)
+- [IOTA Testnet Faucet](https://faucet.testnet.chrysalis2.com/)
 
-- [Decode a transaction](https://utils.iota.org/transaction-decoder)
-
-- [Find out the exchange rate of IOTA tokens](https://utils.iota.org/currency-conversion)
-
-- [Read an address from a QR code](https://utils.iota.org/qr-scan)
-
-- [Send a zero-value transaction](https://utils.iota.org/simple-transaction)
-
-- [Search for transactions in the Tangle](https://utils.iota.org/)
-
-- [Search for transactions that include a particular address](https://utils.iota.org/)
-
-- [Search for transactions in a given bundle](https://utils.iota.org/)
-
-## Development quickstart
-
-For quickstart guides, see the following tutorials:
-
-- [C quickstart](root://client-libraries/1.0/getting-started/c-quickstart.md)
-
-- [Go quickstart](root://client-libraries/1.0/getting-started/go-quickstart.md)
-
-- [Java quickstart](root://client-libraries/1.0/getting-started/java-quickstart.md)
-
-- [JavaScript quickstart](root://client-libraries/1.0/getting-started/js-quickstart.md)
-
-- [Python quickstart](root://client-libraries/1.0/getting-started/python-quickstart.md)
 
 ## Application blueprints
 

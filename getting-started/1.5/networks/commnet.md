@@ -24,4 +24,4 @@ The Coordinator is temporary. After Chrysalis is completed, we will transition i
 
 ## Next steps
 
-[Learn about IOTA accounts](../accounts/overview.md) and how you can create one to prove your ownership of messages.
+Learn about deploying a production application on IOTA with the [Production checklist](../accounts/overview.md).

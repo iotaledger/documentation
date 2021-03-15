@@ -46,5 +46,5 @@ These updates produce
 
 ## Next steps
 
-Get some experience with the Tangle by [setting up the developer tools](../first-steps/set-up-env.md) you need to send messages.
+Learn more about IOTA's distributed ledger, [the Tangle](../the-tangle/overview.md).
 
