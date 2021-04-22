@@ -53,19 +53,34 @@
     ],
     "cards": [
         {
-            "href": "/docs/getting-started/1.1/introduction/overview",
-            "image": "2.png",
-            "name": "Learn about IOTA technology"
-        },
-        {
-            "href": "https://chrysalis.docs.iota.org",
-            "image": "chrysalis.png",
+            "href": "https://chrysalis.docs.iota.org/",
+            "image": "Chrysalis.png",
             "name": "Chrysalis Documentation"
         },
         {
-            "href": "/docs/blueprints/0.1/introduction/overview",
-            "image": "3.png",
-            "name": "Explore applications"
+            "href": "https://client-lib.docs.iota.org/",
+            "image": "Libraries.png",
+            "name": "Client Library"
+        },
+        {
+            "href": "https://wallet-lib.docs.iota.org/",
+            "image": "Wallet.png",
+            "name": "Wallet Library"
+        },
+        {
+            "href": "https://hornet.docs.iota.org/",
+            "image": "Hornet.png",
+            "name": "Node Software: HORNET"
+        },
+        {
+            "href": "https://bee.docs.iota.org/",
+            "image": "Bee.png",
+            "name": "Node Software: Bee"
+        },
+        {
+            "href": "http://stronghold.docs.iota.org/",
+            "image": "Stronghold.png",
+            "name": "Stronghold"
         }
     ]
 }
