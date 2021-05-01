@@ -16,3 +16,4 @@
 [Track And Trace/App architecture](/track-and-trace/architecture.md)
 [Track And Trace/Deploy and test the demo](/track-and-trace/deployment-and-testing.md)
 [Track And Trace/REST API 101 Tutorial](https://iotaledger.github.io/gtsc-track-trace/tutorial/track-trace-ledger-api-tutorial-101)
+[Track And Trace/REST API 201 Tutorial](https://iotaledger.github.io/gtsc-track-trace/tutorial/track-trace-ledger-api-tutorial-201)
