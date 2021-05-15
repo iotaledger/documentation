@@ -60,8 +60,8 @@ import json
 command = {
   "command": "addNeighbors",
   "uris": [
-    "tcp://8.8.8.8:14265",
-    "tcp://8.8.8.8:14265"
+    "tcp://8.8.8.8:15600",
+    "tcp://8.8.8.8:15600"
   ]
 }
 
@@ -87,8 +87,8 @@ var request = require('request');
 var command = {
   "command": "addNeighbors",
   "uris": [
-    "tcp://8.8.8.8:14265",
-    "tcp://8.8.8.8:14265"
+    "tcp://8.8.8.8:15600",
+    "tcp://8.8.8.8:15600"
   ]
 }
 
@@ -118,8 +118,8 @@ curl http://localhost:14265 \
 -d '{
   "command": "addNeighbors",
   "uris": [
-    "tcp://8.8.8.8:14265",
-    "tcp://8.8.8.8:14265"
+    "tcp://8.8.8.8:15600",
+    "tcp://8.8.8.8:15600"
   ]
 }'
 ```
