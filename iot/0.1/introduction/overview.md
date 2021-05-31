@@ -34,6 +34,11 @@ The ESP32 is a WiFi-compatible microcontroller that also support Bluetooth Low E
 
 The nRF52 is a power-efficient series of microcontrollers that supports Bluetooth Low Energy (BLE), allowing you to build low-power wireless solutions.
 ---
+#### **STM32 Discovery Kit** ####
+[STM32 Discovery Kit](https://www.st.com/content/st_com/en/products/evaluation-tools/product-evaluation-tools/mcu-mpu-eval-tools/stm32-mcu-mpu-eval-tools/stm32-discovery-kits/b-l4s5i-iot01a.html)
+
+The B-L4S5I-IOT01A Discovery Kit is a power-efficient microcontroller based on the ARM Cortex M4 processor. It features a secure element and already supports IOTA 1.5.
+---
 #### __Single-board computers__ ####
 [SBC](../sbc/introduction/get-started.md)
 
