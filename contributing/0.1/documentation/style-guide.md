@@ -2,7 +2,7 @@
 
 **This document is a reference for anyone who is writing content for the documentation portal. Do note that this style guide is a "living document" meant to be continuously updated.**
 
-If you are creating or editing an article, please follow our style guide to help us do the following:
+If you are creating or editing content, please follow our style guide to help us do the following:
 
 - Create and maintain a consistent tone of voice 
 - Offer documentation in a standard format
