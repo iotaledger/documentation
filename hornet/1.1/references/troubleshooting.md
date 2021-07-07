@@ -24,6 +24,13 @@ If your neighbors aren't synchronized, the autopeering module will eventually di
 
 If you have fixed neighbors that aren't synchronized, you can wait until they are or find new ones to connect to. See [Managing fixed neighbors](../guides/managing-neighbors.md).
 
+
+### Handle many transactions
+
+To prevent DDOS attacks, Hornet returns only a maximum of 1000 transactions from an address.
+So if there are more transactions available, it will return 1000 random transactions.
+You can configure the limit `httpAPI.limits.findTransactions` in the configuration file described [here](https://github.com/gohornet/hornet/wiki/Configuration#httpapi).
+
 ### Ask for more support
 
 On [Discord](https://discord.iota.org) ask a question either in our #help or #fullnodes channel.
